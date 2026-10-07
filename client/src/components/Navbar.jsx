@@ -5,12 +5,14 @@ import { EVENT, NAV_LINKS } from "../config/event.js";
 
 function Logo() {
   const [broken, setBroken] = useState(false);
-  if (broken) return <span className="logo" aria-hidden="true" />;
+  if (broken) return <span className="nav__logo nav__logo--fallback" aria-hidden="true" />;
   return (
     <img
-      className="logo logo--img"
-      src="/logo-apsit.png"
-      alt="A.P. Shah Institute of Technology logo"
+      className="nav__logo"
+      src="/logo-dept.png"
+      alt="Department of CSE (AIML) - APSIT"
+      width="38"
+      height="38"
       onError={() => setBroken(true)}
     />
   );

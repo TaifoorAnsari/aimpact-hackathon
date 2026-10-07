@@ -30,10 +30,13 @@
 }
 
 .footer-logo-img {
-  height: clamp(32px, 4vw, 40px);
-  width: auto;
-  max-width: 120px;
-  object-fit: contain;
+  height: clamp(48px, 6vw, 60px);
+  width: clamp(48px, 6vw, 60px);
+  border-radius: 50%;
+  border: 1.5px solid var(--teal);
+  box-shadow: 0 0 12px rgba(111, 199, 209, 0.35);
+  background: #ffffff;
+  object-fit: cover;
 }
 
 .footer-logo-fallback {

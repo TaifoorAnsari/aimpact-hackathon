@@ -30,29 +30,16 @@ export default function Footer() {
           {/* Brand & Logos */}
           <div className="footer-brand">
             <div className="footer-logos">
-              {!brokenApsit ? (
-                <img
-                  src="/logo-apsit.png"
-                  alt="A.P. Shah Institute of Technology Logo"
-                  className="footer-logo-img"
-                  onError={() => setBrokenApsit(true)}
-                />
-              ) : (
-                <span className="footer-logo-fallback" title="APSIT">
-                  APSIT
-                </span>
-              )}
-
               {!brokenDept ? (
                 <img
                   src="/logo-dept.png"
-                  alt="Department of AIML Logo"
+                  alt="Department of CSE (AIML) - APSIT Logo"
                   className="footer-logo-img"
                   onError={() => setBrokenDept(true)}
                 />
               ) : (
-                <span className="footer-logo-fallback" title="AIML Dept">
-                  AIML
+                <span className="footer-logo-fallback" title="APSIT AIML">
+                  APSIT AIML
                 </span>
               )}
             </div>

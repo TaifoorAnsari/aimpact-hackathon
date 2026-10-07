@@ -81,18 +81,24 @@
   gap: 8px;
   min-width: 0;
 }
-.logo {
-  flex: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--teal);
-  background: rgba(111, 199, 209, 0.12);
-}
+.nav__logo,
+.nav__logo--fallback,
+.logo,
 .logo--img {
-  object-fit: contain;
-  background: transparent;
-  border: 0;
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--teal) !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+  object-fit: cover !important;
+  box-shadow: 0 0 10px rgba(111, 199, 209, 0.4) !important;
+  flex: 0 0 38px !important;
+  display: block !important;
 }
 .nav__college {
   font-size: 11px;
