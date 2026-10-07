@@ -99,11 +99,26 @@
   flex: 0 0 38px !important;
   display: block !important;
 }
-.nav__college {
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #9fd8de;
-  line-height: 1.3;
+.nav__brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.25;
+  text-align: left;
+  min-width: 0;
+}
+.nav__brand-dept {
+  font-size: clamp(9.5px, 0.9vw, 11.5px);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+.nav__brand-inst {
+  font-size: clamp(9px, 0.8vw, 10.5px);
+  color: var(--teal-soft);
+  letter-spacing: 0.3px;
+  line-height: 1.25;
 }
 .nav__links {
   display: none;
@@ -499,9 +514,13 @@
 }
 
 @media (max-width: 360px) {
-  .nav__college {
-    font-size: 10px;
-    letter-spacing: 0.5px;
+  .nav__brand-dept {
+    font-size: 8.5px;
+    line-height: 1.2;
+  }
+  .nav__brand-inst {
+    font-size: 8px;
+    line-height: 1.2;
   }
   .hero__cta {
     display: flex;
