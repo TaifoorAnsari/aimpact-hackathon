@@ -22,8 +22,9 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 14px;
+  left: 16px;
   width: 2px;
+  transform: translateX(-50%);
   background: linear-gradient(180deg, var(--teal) 0%, var(--teal-soft) 50%, rgba(111, 199, 209, 0.2) 100%);
   box-shadow: 0 0 10px var(--teal), 0 0 20px rgba(111, 199, 209, 0.3);
 }
@@ -31,7 +32,7 @@
 .timeline-item {
   position: relative;
   margin-bottom: clamp(20px, 3vh, 36px);
-  padding-left: 44px;
+  padding-left: 42px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -44,11 +45,11 @@
 
 .timeline-node {
   position: absolute;
-  left: 7px;
-  top: 18px;
+  left: 16px;
+  top: 22px;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #190510;
   border: 2px solid var(--teal);
@@ -137,14 +138,17 @@
   }
 
   .timeline-item--left .timeline-node {
-    left: auto;
-    right: -10px;
-    transform: translateY(-50%);
+    left: 100%;
+    right: auto;
+    top: 24px;
+    transform: translate(-50%, -50%);
   }
 
   .timeline-item--right .timeline-node {
-    left: -10px;
-    transform: translateY(-50%);
+    left: 0;
+    right: auto;
+    top: 24px;
+    transform: translate(-50%, -50%);
   }
 
   .timeline-item--left .timeline-card:hover {
