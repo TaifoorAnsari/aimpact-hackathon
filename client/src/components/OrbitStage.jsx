@@ -24,6 +24,20 @@ export default function OrbitStage() {
             draggable="false"
           />
         </div>
+
+        {/* Dynamic Flying Dart that strikes the bullseye */}
+        <div className="stage__dart-striker" aria-hidden="true">
+          <div className="stage__dart-trail" />
+          <img
+            src="/dart.png"
+            alt=""
+            className="stage__dart-img"
+            draggable="false"
+          />
+        </div>
+
+        {/* Concentric Impact Shockwave on Hit */}
+        <div className="stage__shockwave" aria-hidden="true" />
       </div>
     </div>
   );

@@ -45,36 +45,7 @@
   animation: twinkle 3s infinite;
 }
 
-.hero__dart-flyer {
-  position: absolute;
-  z-index: 2;
-  left: 8%;
-  top: 18%;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  animation: dartFlight 4.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-}
 
-.hero__dart-trail {
-  position: absolute;
-  right: calc(100% - 18px);
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(65px, 11vw, 120px);
-  height: 3px;
-  background: linear-gradient(90deg, transparent 0%, rgba(111, 199, 209, 0.3) 25%, #ff3366 75%, #ffffff 100%);
-  box-shadow: 0 0 10px #ff3366, 0 0 18px rgba(255, 215, 0, 0.6);
-  border-radius: 999px;
-  opacity: 0.9;
-}
-
-.hero__dart-img {
-  width: clamp(65px, 10vmin, 105px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.8)) drop-shadow(0 0 16px rgba(111, 199, 209, 0.5));
-}
 
 .hero__ambient {
   position: absolute;
@@ -311,6 +282,52 @@
   filter: drop-shadow(0 0 18px rgba(111, 199, 209, 0.7)) drop-shadow(0 0 42px rgba(235, 45, 80, 0.45));
 }
 
+/* ---------- Animated Flying Dart Striker (Option A) ---------- */
+.stage__dart-striker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(100px, calc(var(--stage) * 0.42), 195px);
+  height: auto;
+  pointer-events: none;
+  z-index: 5;
+  transform-origin: 95.8% 39.5%;
+  animation: dartStrikeA 6.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.stage__dart-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 51, 102, 0.9)) drop-shadow(0 0 24px rgba(255, 215, 0, 0.6));
+}
+
+.stage__dart-trail {
+  position: absolute;
+  right: calc(100% - 15px);
+  top: 40%;
+  transform: translateY(-50%);
+  width: clamp(80px, 20vw, 160px);
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(111, 199, 209, 0.35) 25%, #ff3366 75%, #ffffff 100%);
+  box-shadow: 0 0 12px #ff3366, 0 0 24px rgba(255, 215, 0, 0.7);
+  border-radius: 999px;
+  animation: trailVisibility 6.8s infinite;
+}
+
+/* Concentric Impact Shockwave on Bullseye Hit */
+.stage__shockwave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  animation: shockwavePulse 6.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
 /* ---------- Tagline, countdown, buttons, chips ---------- */
 .hero__tagline {
   margin: 4px 0 clamp(12px, 2vh, 20px);
@@ -441,58 +458,136 @@
   0% { box-shadow: 0 0 0 0 rgba(111, 199, 209, 0.7); }
   100% { box-shadow: 0 0 0 8px rgba(111, 199, 209, 0); }
 }
-@keyframes dartFlight {
+@keyframes dartStrikeA {
   0% {
     opacity: 0;
-    transform: translate3d(-100px, -60px, 0) scale(0.65) rotate(23deg);
+    transform: translate(-95.8%, -39.5%) translate3d(-460px, 195px, 0) scale(0.6) rotate(-22deg);
+  }
+  4% {
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(-300px, 128px, 0) scale(0.85) rotate(-22deg);
+  }
+  11% {
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(-50px, 21px, 0) scale(1) rotate(-22deg);
   }
   14% {
+    /* IMPACT */
     opacity: 1;
-    transform: translate3d(-15px, -9px, 0) scale(0.85) rotate(25deg);
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
   }
-  50% {
+  15.5% {
+    /* Recoil flex down */
     opacity: 1;
-    transform: translate3d(210px, 120px, 0) scale(1.05) rotate(26deg);
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-28deg);
+  }
+  17.5% {
+    /* Spring bounce up */
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-18deg);
+  }
+  20% {
+    /* Micro dampening */
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-23.5deg);
+  }
+  22.5% {
+    /* Rest in bullseye */
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
   }
   75% {
-    opacity: 0.95;
-    transform: translate3d(295px, 168px, 0) scale(0.96) rotate(27deg);
+    /* Stay stuck firmly in bullseye for ~3.6s */
+    opacity: 1;
+    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
   }
-  88% {
-    opacity: 0.4;
-    transform: translate3d(335px, 190px, 0) scale(0.85) rotate(27deg);
+  82% {
+    /* Smooth pull-back fade */
+    opacity: 0;
+    transform: translate(-95.8%, -39.5%) translate3d(-18px, 8px, 0) scale(0.95) rotate(-22deg);
   }
   100% {
     opacity: 0;
-    transform: translate3d(355px, 202px, 0) scale(0.75) rotate(27deg);
+    transform: translate(-95.8%, -39.5%) translate3d(-460px, 195px, 0) scale(0.6) rotate(-22deg);
+  }
+}
+
+@keyframes trailVisibility {
+  0%, 3% { opacity: 0; }
+  6%, 13% { opacity: 0.95; }
+  14%, 100% { opacity: 0; }
+}
+
+@keyframes shockwavePulse {
+  0%, 13.5% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    box-shadow: 0 0 0 0 rgba(255, 51, 102, 0);
+    border: 2px solid transparent;
+  }
+  14% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.6);
+    box-shadow: 0 0 25px #ff3366, 0 0 50px rgba(111, 199, 209, 0.9);
+    border: 2px solid #ff3366;
+  }
+  22% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.2);
+    box-shadow: 0 0 60px rgba(111, 199, 209, 0), 0 0 100px rgba(255, 51, 102, 0);
+    border: 1px solid rgba(111, 199, 209, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.5);
   }
 }
 
 @media (max-width: 640px) {
-  .hero__dart-flyer {
-    left: 2%;
-    top: 15%;
-  }
-  @keyframes dartFlight {
+  @keyframes dartStrikeA {
     0% {
       opacity: 0;
-      transform: translate3d(-60px, -40px, 0) scale(0.55) rotate(28deg);
+      transform: translate(-95.8%, -39.5%) translate3d(-260px, 110px, 0) scale(0.6) rotate(-22deg);
     }
-    15% {
+    4% {
       opacity: 1;
-      transform: translate3d(-10px, -6px, 0) scale(0.75) rotate(29deg);
+      transform: translate(-95.8%, -39.5%) translate3d(-180px, 76px, 0) scale(0.85) rotate(-22deg);
     }
-    60% {
+    11% {
       opacity: 1;
-      transform: translate3d(105px, 72px, 0) scale(0.95) rotate(31deg);
+      transform: translate(-95.8%, -39.5%) translate3d(-40px, 17px, 0) scale(1) rotate(-22deg);
     }
-    80% {
-      opacity: 0.85;
-      transform: translate3d(145px, 98px, 0) scale(0.88) rotate(31deg);
+    14% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    }
+    15.5% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-27deg);
+    }
+    17.5% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-18deg);
+    }
+    20% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-23deg);
+    }
+    22.5% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    }
+    75% {
+      opacity: 1;
+      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    }
+    82% {
+      opacity: 0;
+      transform: translate(-95.8%, -39.5%) translate3d(-15px, 6px, 0) scale(0.95) rotate(-22deg);
     }
     100% {
       opacity: 0;
-      transform: translate3d(170px, 115px, 0) scale(0.75) rotate(31deg);
+      transform: translate(-95.8%, -39.5%) translate3d(-260px, 110px, 0) scale(0.6) rotate(-22deg);
     }
   }
 }
