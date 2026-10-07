@@ -78,8 +78,13 @@ app.get("/health", (req, res) => {
 // Central Error Handler
 app.use(errorHandler);
 
-// Start server if not running inside test runner
-if (process.env.NODE_ENV !== "test") {
+// Start server if executed directly as main script
+const isMainModule =
+  process.argv[1] &&
+  (process.argv[1].replace(/\\/g, "/").endsWith("src/index.js") ||
+    process.argv[1].replace(/\\/g, "/").endsWith("server/index.js"));
+
+if (isMainModule) {
   connectDB().then(() => {
     app.listen(ENV.PORT, () => {
       logger.info(`🚀 AIMPACT Server running on http://localhost:${ENV.PORT}`);
