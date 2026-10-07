@@ -4,6 +4,9 @@ import cors from "cors";
 import compression from "compression";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
 import publicRoutes from "./routes/public.js";
@@ -11,6 +14,10 @@ import adminRoutes from "./routes/admin.js";
 import paymentRoutes from "./routes/payments.js";
 import { errorHandler } from "./middleware/error.js";
 import { logger } from "./utils/logger.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientDistPath = path.resolve(__dirname, "../../client/dist");
 
 const app = express();
 
@@ -21,13 +28,28 @@ app.use(
   })
 );
 
-// Strict CORS
-const allowedOrigins = [ENV.CLIENT_URL, "http://localhost:5173", "http://127.0.0.1:5173"];
+// Robust CORS configuration supporting custom domain, local dev, and cloud previews
+const clientUrlClean = (ENV.CLIENT_URL || "").replace(/\/$/, "");
+const allowedOrigins = [
+  clientUrlClean,
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://localhost:5000",
+  "http://127.0.0.1:5000",
+].filter(Boolean);
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow requests with no origin (like mobile apps, curl, or server-to-server)
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (mobile apps, curl, or server-to-server)
+      if (!origin) return callback(null, true);
+      const cleanOrigin = origin.replace(/\/$/, "");
+      if (
+        allowedOrigins.includes(cleanOrigin) ||
+        cleanOrigin.endsWith(".vercel.app") ||
+        cleanOrigin.endsWith(".onrender.com") ||
+        cleanOrigin.endsWith(".netlify.app")
+      ) {
         return callback(null, true);
       }
       return callback(new Error("CORS origin not allowed: " + origin));
@@ -74,6 +96,18 @@ app.use("/api/payments", paymentRoutes);
 app.get("/health", (req, res) => {
   res.json({ status: "ok", app: "AIMPACT Hackathon Server", version: "1.0.0" });
 });
+
+// Serve static client assets in production (when client/dist exists)
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get("*", (req, res, next) => {
+    // Preserve API routes and health check for 404 handler
+    if (req.path.startsWith("/api") || req.path === "/health") {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, "index.html"));
+  });
+}
 
 // Central Error Handler
 app.use(errorHandler);
