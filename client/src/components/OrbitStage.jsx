@@ -1,4 +1,4 @@
-import { EVENT, TRACKS } from "../config/event.js";
+import { TRACKS } from "../config/event.js";
 
 export default function OrbitStage() {
   return (
@@ -16,7 +16,6 @@ export default function OrbitStage() {
 
       {/* Center Target Emblem - Perfectly centered in orbit rings */}
       <div className="stage__center">
-        <h1 className="sr-only">AIMPACT Hackathon</h1>
         <div className="stage__target-wrap">
           <img
             src="/aimpact-target-logo.png"
