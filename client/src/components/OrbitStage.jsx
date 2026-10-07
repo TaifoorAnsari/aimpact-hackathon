@@ -14,7 +14,7 @@ export default function OrbitStage() {
       <div className="stage__ring2" aria-hidden="true" />
       <div className="stage__ring3" aria-hidden="true" />
 
-      {/* Center Dartboard Emblem */}
+      {/* Center Target Emblem - Perfectly centered in orbit rings */}
       <div className="stage__center">
         <h1 className="sr-only">AIMPACT Hackathon</h1>
         <div className="stage__target-wrap">
@@ -22,9 +22,9 @@ export default function OrbitStage() {
             src="/aimpact-target-logo.png"
             alt="AIMPACT Hackathon Target"
             className="stage__target-img"
+            draggable="false"
           />
         </div>
-        <div className="stage__script">{EVENT.subtitle}</div>
       </div>
     </div>
   );

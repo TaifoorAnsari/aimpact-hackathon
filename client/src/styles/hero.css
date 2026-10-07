@@ -45,31 +45,35 @@
   animation: twinkle 3s infinite;
 }
 
-.hero__dart {
+.hero__dart-flyer {
   position: absolute;
-  z-index: -2;
-  left: 14%;
-  top: 20%;
-  width: clamp(75px, 12vmin, 130px);
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ff3366 35%, #ffd700 85%, #ffffff);
-  box-shadow: 0 0 10px #ff3366, 0 0 20px rgba(255, 215, 0, 0.7);
-  rotate: 35deg;
-  opacity: 0;
-  animation: dartFly 4.5s ease-in-out infinite;
+  z-index: 2;
+  left: 8%;
+  top: 18%;
+  display: flex;
+  align-items: center;
   pointer-events: none;
+  animation: dartFlight 4.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
-.hero__dart::after {
-  content: "";
+
+.hero__dart-trail {
   position: absolute;
-  right: 0;
-  top: -3px;
-  width: 0;
-  height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 8px solid #ffffff;
-  filter: drop-shadow(0 0 6px #ffd700);
+  right: calc(100% - 18px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(65px, 11vw, 120px);
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(111, 199, 209, 0.3) 25%, #ff3366 75%, #ffffff 100%);
+  box-shadow: 0 0 10px #ff3366, 0 0 18px rgba(255, 215, 0, 0.6);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.hero__dart-img {
+  width: clamp(65px, 10vmin, 105px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.8)) drop-shadow(0 0 16px rgba(111, 199, 209, 0.5));
 }
 
 .hero__ambient {
@@ -276,39 +280,35 @@
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  pointer-events: none;
 }
 
 .stage__target-wrap {
-  width: clamp(200px, calc(var(--stage) * 0.78), 380px);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(240px, calc(var(--stage) * 0.94), 440px);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
 }
 
 .stage__target-wrap:hover {
-  transform: scale(1.04);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .stage__target-img {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 16px rgba(111, 199, 209, 0.6)) drop-shadow(0 0 35px rgba(235, 45, 80, 0.4));
-}
-
-.stage__script {
-  margin-top: -8px;
-  font-family: var(--font-script);
-  font-size: clamp(24px, calc(var(--stage) * 0.16), 46px);
-  line-height: 0.85;
-  color: #eafcff;
-  text-shadow: 0 0 12px var(--teal), 0 0 26px rgba(111, 199, 209, 0.8);
-  z-index: 3;
+  filter: drop-shadow(0 0 18px rgba(111, 199, 209, 0.7)) drop-shadow(0 0 42px rgba(235, 45, 80, 0.45));
 }
 
 /* ---------- Tagline, countdown, buttons, chips ---------- */
@@ -441,21 +441,59 @@
   0% { box-shadow: 0 0 0 0 rgba(111, 199, 209, 0.7); }
   100% { box-shadow: 0 0 0 8px rgba(111, 199, 209, 0); }
 }
-@keyframes dartFly {
+@keyframes dartFlight {
   0% {
-    translate: -60px -40px;
     opacity: 0;
+    transform: translate3d(-100px, -60px, 0) scale(0.65) rotate(23deg);
   }
-  15% {
+  14% {
     opacity: 1;
+    transform: translate3d(-15px, -9px, 0) scale(0.85) rotate(25deg);
   }
-  45% {
-    translate: 140px 90px;
-    opacity: 0;
+  50% {
+    opacity: 1;
+    transform: translate3d(210px, 120px, 0) scale(1.05) rotate(26deg);
+  }
+  75% {
+    opacity: 0.95;
+    transform: translate3d(295px, 168px, 0) scale(0.96) rotate(27deg);
+  }
+  88% {
+    opacity: 0.4;
+    transform: translate3d(335px, 190px, 0) scale(0.85) rotate(27deg);
   }
   100% {
-    translate: 140px 90px;
     opacity: 0;
+    transform: translate3d(355px, 202px, 0) scale(0.75) rotate(27deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__dart-flyer {
+    left: 2%;
+    top: 15%;
+  }
+  @keyframes dartFlight {
+    0% {
+      opacity: 0;
+      transform: translate3d(-60px, -40px, 0) scale(0.55) rotate(28deg);
+    }
+    15% {
+      opacity: 1;
+      transform: translate3d(-10px, -6px, 0) scale(0.75) rotate(29deg);
+    }
+    60% {
+      opacity: 1;
+      transform: translate3d(105px, 72px, 0) scale(0.95) rotate(31deg);
+    }
+    80% {
+      opacity: 0.85;
+      transform: translate3d(145px, 98px, 0) scale(0.88) rotate(31deg);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(170px, 115px, 0) scale(0.75) rotate(31deg);
+    }
   }
 }
 @keyframes marquee {

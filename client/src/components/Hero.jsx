@@ -11,9 +11,16 @@ export default function Hero() {
   return (
     <header className="hero" id="home">
       <div className="hero__nebula" aria-hidden="true" />
-      <Stars />
-      <span className="hero__dart" aria-hidden="true" />
-      <div className="hero__ambient" aria-hidden="true" />
+      {/* Authentic Flying Competition Dart */}
+      <div className="hero__dart-flyer" aria-hidden="true">
+        <div className="hero__dart-trail" />
+        <img
+          src="/dart.png"
+          alt=""
+          className="hero__dart-img"
+          draggable="false"
+        />
+      </div>
 
       <Navbar />
 
