@@ -23,21 +23,21 @@ export default function OrbitStage() {
             className="stage__target-img"
             draggable="false"
           />
-        </div>
 
-        {/* Dynamic Flying Dart that strikes the bullseye */}
-        <div className="stage__dart-striker" aria-hidden="true">
-          <div className="stage__dart-trail" />
-          <img
-            src="/dart.png"
-            alt=""
-            className="stage__dart-img"
-            draggable="false"
-          />
-        </div>
+          {/* Animated Golden Arrow that strikes bullseye and completes letter 'A' */}
+          <div className="stage__arrow-striker" aria-hidden="true">
+            <div className="stage__arrow-trail" />
+            <img
+              src="/aimpact-arrow.png"
+              alt=""
+              className="stage__arrow-img"
+              draggable="false"
+            />
+          </div>
 
-        {/* Concentric Impact Shockwave on Hit */}
-        <div className="stage__shockwave" aria-hidden="true" />
+          {/* Concentric Impact Shockwave on Hit */}
+          <div className="stage__shockwave" aria-hidden="true" />
+        </div>
       </div>
     </div>
   );
