@@ -1,0 +1,139 @@
+import { useState } from "react";
+import { EVENT, NAV_LINKS } from "../config/event.js";
+import {
+  TbBrandInstagram,
+  TbBrandLinkedin,
+  TbBrandGithub,
+  TbBrandTwitter,
+  TbMail,
+  TbPhone,
+  TbMapPin,
+  TbHeartFilled,
+} from "react-icons/tb";
+import "../styles/footer.css";
+
+const SOCIAL_ICONS = {
+  TbBrandInstagram: <TbBrandInstagram aria-hidden="true" />,
+  TbBrandLinkedin: <TbBrandLinkedin aria-hidden="true" />,
+  TbBrandGithub: <TbBrandGithub aria-hidden="true" />,
+  TbBrandTwitter: <TbBrandTwitter aria-hidden="true" />,
+};
+
+export default function Footer() {
+  const [brokenApsit, setBrokenApsit] = useState(false);
+  const [brokenDept, setBrokenDept] = useState(false);
+
+  return (
+    <footer className="footer" role="contentinfo">
+      <div className="footer-container">
+        <div className="footer-top">
+          {/* Brand & Logos */}
+          <div className="footer-brand">
+            <div className="footer-logos">
+              {!brokenApsit ? (
+                <img
+                  src="/logo-apsit.png"
+                  alt="A.P. Shah Institute of Technology Logo"
+                  className="footer-logo-img"
+                  onError={() => setBrokenApsit(true)}
+                />
+              ) : (
+                <span className="footer-logo-fallback" title="APSIT">
+                  APSIT
+                </span>
+              )}
+
+              {!brokenDept ? (
+                <img
+                  src="/logo-dept.png"
+                  alt="Department of AIML Logo"
+                  className="footer-logo-img"
+                  onError={() => setBrokenDept(true)}
+                />
+              ) : (
+                <span className="footer-logo-fallback" title="AIML Dept">
+                  AIML
+                </span>
+              )}
+            </div>
+
+            <h3 className="footer-title">{EVENT.name} {EVENT.subtitle}</h3>
+            <p className="footer-college">{EVENT.college}</p>
+            <p className="footer-dept">{EVENT.department}</p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Navigation</h4>
+            <ul className="footer-nav-list">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+              <li>
+                <a href="#register">Register</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Contact Us</h4>
+            <ul className="footer-contact-list">
+              <li>
+                <TbMail className="footer-icon" aria-hidden="true" />
+                <a href={`mailto:${EVENT.contact.email}`}>{EVENT.contact.email}</a>
+              </li>
+              <li>
+                <TbPhone className="footer-icon" aria-hidden="true" />
+                <span>{EVENT.contact.phone}</span>
+              </li>
+              <li>
+                <TbMapPin className="footer-icon" aria-hidden="true" />
+                <span>{EVENT.venueLabel}</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Connect</h4>
+            <div className="footer-socials" aria-label="Social media links">
+              {EVENT.socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  className="social-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                >
+                  {SOCIAL_ICONS[s.icon] || <TbBrandGithub aria-hidden="true" />}
+                </a>
+              ))}
+            </div>
+            <a
+              href={EVENT.whatsappGroupUrl}
+              className="footer-whatsapp-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Official WhatsApp Group &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>
+            &copy; {new Date().getFullYear()} {EVENT.name} Hackathon. Organized by{" "}
+            <strong>{EVENT.department}</strong>, {EVENT.college}.
+          </p>
+          <p className="footer-credit">
+            Engineered with <TbHeartFilled className="heart-icon" aria-hidden="true" /> for innovators nationwide.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,0 +1,112 @@
+/* ---------- Tracks Section ---------- */
+.tracks-section {
+  position: relative;
+  padding: clamp(60px, 9vh, 110px) clamp(16px, 4vw, 48px);
+  background: var(--bg);
+  border-bottom: 1px solid rgba(111, 199, 209, 0.15);
+}
+
+.tracks-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(20px, 2.5vw, 32px);
+}
+
+.track-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(26px, 3.5vw, 36px);
+  border-radius: 8px;
+  border: 1px solid rgba(111, 199, 209, 0.35);
+  background: rgba(30, 7, 18, 0.65);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--teal);
+  box-shadow: 0 12px 30px rgba(111, 199, 209, 0.18);
+}
+
+.track-card__glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(111, 199, 209, 0.25), transparent 70%);
+  pointer-events: none;
+}
+
+.track-card__icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: rgba(111, 199, 209, 0.12);
+  border: 1px solid rgba(111, 199, 209, 0.4);
+  color: var(--teal);
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.track-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 24px);
+  color: #fff;
+  margin: 0 0 12px;
+  letter-spacing: 0.05em;
+}
+
+.track-card__blurb {
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: var(--rose);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.track-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.track-tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(90, 10, 28, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--ice);
+  letter-spacing: 0.5px;
+}
+
+.track-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--teal);
+  padding: 10px 0;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.track-card__link:hover {
+  color: var(--ice);
+  gap: 12px;
+}

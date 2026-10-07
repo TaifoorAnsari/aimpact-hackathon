@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { TbMenu2, TbX } from "react-icons/tb";
 import { EVENT, NAV_LINKS } from "../config/event.js";
 
@@ -17,6 +18,8 @@ function Logo() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && setOpen(false);
@@ -24,23 +27,25 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const getHref = (href) => (isHome ? href : `/${href}`);
+
   return (
     <nav className="nav" aria-label="Main">
-      <a className="nav__brand" href="#home">
+      <Link className="nav__brand" to="/">
         <Logo />
         <span className="nav__college">{EVENT.college}</span>
-      </a>
+      </Link>
 
       <ul className="nav__links">
         {NAV_LINKS.map((l) => (
           <li key={l.href}>
-            <a href={l.href}>{l.label}</a>
+            <a href={getHref(l.href)}>{l.label}</a>
           </li>
         ))}
         <li>
-          <a className="nav__cta" href="#register">
+          <Link className="nav__cta" to="/register">
             Register
-          </a>
+          </Link>
         </li>
       </ul>
 
@@ -58,15 +63,15 @@ export default function Navbar() {
         <ul className="nav__panel" id="mobile-menu">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={() => setOpen(false)}>
+              <a href={getHref(l.href)} onClick={() => setOpen(false)}>
                 {l.label}
               </a>
             </li>
           ))}
           <li>
-            <a className="nav__cta" href="#register" onClick={() => setOpen(false)}>
+            <Link className="nav__cta" to="/register" onClick={() => setOpen(false)}>
               Register now
-            </a>
+            </Link>
           </li>
         </ul>
       )}

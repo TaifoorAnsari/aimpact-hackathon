@@ -1,0 +1,17 @@
+{
+  "name": "aimpact-hackathon-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "seed:admin": "npm run seed:admin --prefix server",
+    "test:server": "npm run test --prefix server",
+    "test": "npm run test --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

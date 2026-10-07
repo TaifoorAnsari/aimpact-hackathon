@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TbArrowRight, TbCalendar, TbMapPin, TbTrophy } from "react-icons/tb";
 import { EVENT } from "../config/event.js";
 import Navbar from "./Navbar.jsx";
@@ -29,9 +30,9 @@ export default function Hero() {
         <Countdown target={EVENT.startsAt} />
 
         <div className="hero__cta">
-          <a className="btn btn--solid" href="#register">
+          <Link className="btn btn--solid" to="/register">
             REGISTER NOW <TbArrowRight aria-hidden="true" />
-          </a>
+          </Link>
           <a className="btn btn--ghost" href="#tracks">
             Tracks
           </a>
