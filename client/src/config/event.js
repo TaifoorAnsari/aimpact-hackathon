@@ -13,7 +13,7 @@ export const EVENT = {
   prizeLabel: "₹1,00,000+ Prize Pool (TODO)",
   minTeamSize: 2,
   maxTeamSize: 4,
-  collectLogistics: true, // Collects T-shirt & dietary preferences
+  collectLogistics: false, // Set to false to hide T-shirt & dietary preferences
   registrationFee: 0, // 0 for free; Razorpay flow enabled if > 0
   registrationDeadline: "2026-10-15T23:59:00+05:30",
   capacity: 150, // Max confirmed teams
