@@ -14,6 +14,7 @@ import adminRoutes from "./routes/admin.js";
 import paymentRoutes from "./routes/payments.js";
 import { errorHandler } from "./middleware/error.js";
 import { logger } from "./utils/logger.js";
+import { Admin } from "./models/Admin.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -112,6 +113,24 @@ if (fs.existsSync(clientDistPath)) {
 // Central Error Handler
 app.use(errorHandler);
 
+// Automatically seed admin account on startup if it doesn't exist
+async function autoSeedAdmin() {
+  try {
+    const existing = await Admin.findOne({ email: ENV.ADMIN_EMAIL.toLowerCase() });
+    if (!existing) {
+      await Admin.create({
+        email: ENV.ADMIN_EMAIL.toLowerCase(),
+        password: ENV.ADMIN_PASSWORD,
+        name: "AIMPACT Organizer",
+        role: "lead_organizer",
+      });
+      logger.info(`✨ Auto-seeded default admin user: ${ENV.ADMIN_EMAIL}`);
+    }
+  } catch (err) {
+    logger.warn(`Could not auto-seed admin: ${err.message}`);
+  }
+}
+
 // Start server if executed directly as main script
 const isMainModule =
   process.argv[1] &&
@@ -119,7 +138,8 @@ const isMainModule =
     process.argv[1].replace(/\\/g, "/").endsWith("server/index.js"));
 
 if (isMainModule) {
-  connectDB().then(() => {
+  connectDB().then(async () => {
+    await autoSeedAdmin();
     app.listen(ENV.PORT, () => {
       logger.info(`🚀 AIMPACT Server running on http://localhost:${ENV.PORT}`);
     });
