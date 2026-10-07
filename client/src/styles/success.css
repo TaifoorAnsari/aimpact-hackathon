@@ -1,0 +1,199 @@
+/* ---------- Success Page Styling ---------- */
+.success-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+  padding: 40px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-container {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.success-card {
+  position: relative;
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 8px;
+  border: 1px solid rgba(111, 199, 209, 0.45);
+  background: radial-gradient(circle at 50% 0%, rgba(95, 12, 40, 0.75), rgba(20, 5, 14, 0.95));
+  box-shadow: 0 0 50px rgba(111, 199, 209, 0.15);
+  backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+/* Animated Checkmark */
+.checkmark-wrap {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(111, 199, 209, 0.15);
+  border: 2px solid var(--teal);
+  box-shadow: 0 0 24px rgba(111, 199, 209, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleUp 0.5s ease-out;
+}
+
+.checkmark-icon {
+  font-size: 44px;
+  color: var(--teal);
+  animation: strokeCheck 0.4s ease-out 0.2s both;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 36px);
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.success-subtitle {
+  font-size: clamp(14px, 1.2vw, 16px);
+  color: var(--rose);
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+/* Reg ID Banner */
+.reg-id-box {
+  background: rgba(20, 5, 13, 0.85);
+  border: 1px dashed var(--teal);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.reg-id-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--teal-soft);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.reg-id-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ice);
+  text-shadow: 0 0 16px rgba(111, 199, 209, 0.6);
+}
+
+/* QR Code */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 20px;
+  background: rgba(10, 2, 7, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qr-box {
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(111, 199, 209, 0.3);
+}
+
+.qr-caption {
+  font-size: 12px;
+  color: var(--rose);
+  margin: 0;
+}
+
+/* Team Summary */
+.summary-box {
+  text-align: left;
+  background: rgba(25, 6, 16, 0.6);
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(111, 199, 209, 0.2);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row span:first-child {
+  color: var(--teal-soft);
+}
+
+.summary-row span:last-child {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Actions */
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 500px) {
+  .success-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn--whatsapp {
+  background: #25d366;
+  color: #0b2212;
+  font-weight: 800;
+  border: none;
+}
+
+.btn--whatsapp:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+}
+
+.btn--cal {
+  border: 1px solid var(--teal);
+  color: var(--ice);
+  background: rgba(111, 199, 209, 0.1);
+}
+
+.btn--cal:hover {
+  background: rgba(111, 199, 209, 0.25);
+  transform: translateY(-2px);
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes strokeCheck {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
