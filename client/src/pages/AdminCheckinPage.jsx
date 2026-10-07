@@ -1,13 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Html5Qrcode } from "html5-qrcode";
 import {
   TbArrowLeft,
   TbCheck,
   TbAlertCircle,
-  TbScan,
-  TbSparkles,
+  TbX,
   TbRefresh,
+  TbUserCheck,
 } from "react-icons/tb";
 import "../styles/admin.css";
 
@@ -16,13 +15,9 @@ const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 export default function AdminCheckinPage() {
   const navigate = useNavigate();
 
-  const [scannerActive, setScannerActive] = useState(false);
   const [manualId, setManualId] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null); // { type: 'success' | 'warning' | 'error', message, reg }
-  const [cameraError, setCameraError] = useState("");
-
-  const scannerRef = useRef(null);
 
   const getAuthHeader = () => {
     const token = localStorage.getItem("aimpact_admin_token");
@@ -83,57 +78,6 @@ export default function AdminCheckinPage() {
     }
   };
 
-  // Start Camera QR Scanner
-  const startCamera = async () => {
-    setCameraError("");
-    try {
-      const html5QrCode = new Html5Qrcode("reader");
-      scannerRef.current = html5QrCode;
-
-      await html5QrCode.start(
-        { facingMode: "environment" },
-        {
-          fps: 10,
-          qrbox: { width: 250, height: 250 },
-        },
-        (decodedText) => {
-          // Pause camera and process
-          html5QrCode.stop().then(() => {
-            setScannerActive(false);
-            processCheckIn(decodedText);
-          });
-        },
-        () => {
-          // ignore scan frame errors
-        }
-      );
-      setScannerActive(true);
-    } catch (err) {
-      setCameraError("Camera access failed: " + err.message + ". You can use manual entry below.");
-      setScannerActive(false);
-    }
-  };
-
-  const stopCamera = async () => {
-    if (scannerRef.current) {
-      try {
-        await scannerRef.current.stop();
-        scannerRef.current.clear();
-      } catch {
-        // ignore
-      }
-    }
-    setScannerActive(false);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (scannerRef.current) {
-        scannerRef.current.stop().catch(() => {});
-      }
-    };
-  }, []);
-
   const handleManualSubmit = (e) => {
     e.preventDefault();
     processCheckIn(manualId);
@@ -161,38 +105,21 @@ export default function AdminCheckinPage() {
 
       <main className="admin-main" style={{ display: "flex", justifyContent: "center" }}>
         <div className="scanner-card">
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "48px", height: "48px", borderRadius: "50%", background: "rgba(111, 199, 209, 0.15)", color: "var(--teal-soft)", marginBottom: "16px", fontSize: "24px" }}>
+            <TbUserCheck />
+          </div>
+
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "24px", color: "#fff", margin: "0 0 8px" }}>
             Event Day Desk Check-In
           </h1>
-          <p style={{ color: "var(--rose)", fontSize: "13px", margin: "0 0 24px" }}>
-            Scan team QR codes or type the Registration ID to verify identity and issue hackathon badges.
+          <p style={{ color: "var(--rose)", fontSize: "13px", margin: "0 0 28px" }}>
+            Enter the team Registration ID to verify identity, view squad roster, and issue hackathon badges.
           </p>
 
-          {/* Camera Scanner View */}
-          <div id="reader" className="scanner-video-wrap" style={{ display: scannerActive ? "block" : "none" }} />
-
-          {cameraError && (
-            <div className="server-error-banner" style={{ textAlign: "left", marginBottom: "16px" }}>
-              {cameraError}
-            </div>
-          )}
-
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginBottom: "24px" }}>
-            {!scannerActive ? (
-              <button type="button" className="btn btn--solid" onClick={startCamera}>
-                <TbScan style={{ fontSize: "18px" }} /> Open Camera Scanner
-              </button>
-            ) : (
-              <button type="button" className="btn btn--ghost" onClick={stopCamera}>
-                Stop Camera
-              </button>
-            )}
-          </div>
-
-          {/* Manual ID Input */}
+          {/* Registration ID Input */}
           <form onSubmit={handleManualSubmit} style={{ maxWidth: "420px", margin: "0 auto 28px" }}>
             <label className="form-label" htmlFor="manual-reg-id" style={{ textAlign: "left" }}>
-              Or Enter Registration ID Manually:
+              Enter Registration ID:
             </label>
             <div style={{ display: "flex", gap: "8px" }}>
               <input

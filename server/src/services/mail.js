@@ -58,7 +58,7 @@ function generateEmailHtml(reg) {
       <div style="background: rgba(90,10,28,0.4); border: 1px solid #6fc7d1; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 24px;">
         <span style="display: block; font-size: 12px; color: #7fd3dc; text-transform: uppercase; letter-spacing: 1px;">Official Registration ID</span>
         <span style="display: block; font-size: 28px; font-weight: bold; color: #bff4ff; letter-spacing: 2px; margin: 6px 0;">${reg.regId}</span>
-        <span style="display: block; font-size: 12px; color: #e6c3ca;">Show this ID or QR code at check-in desk on event morning.</span>
+        <span style="display: block; font-size: 12px; color: #e6c3ca;">Show this ID at check-in desk on event morning.</span>
       </div>
 
       <!-- Details -->

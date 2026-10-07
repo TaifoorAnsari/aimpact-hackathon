@@ -8,7 +8,7 @@ Optimized for high-concurrency mobile registration: **a team of 2–4 can regist
 
 ## Tech Stack & Architecture
 
-- **Frontend (`client/`)**: Vite, React 18, React Router v6, Plain CSS (`styles/*.css`), `recharts` for organizer analytics, `html5-qrcode` for camera QR check-in, `qrcode.react` for attendee pass rendering, `react-icons`.
+- **Frontend (`client/`)**: Vite, React 18, React Router v6, Plain CSS (`styles/*.css`), `recharts` for organizer analytics, `react-icons`.
 - **Backend (`server/`)**: Node.js 20, Express 4 (ES modules), Mongoose 8 (MongoDB), Zod schema validation, Helmet, strict CORS, rate-limiting, bcryptjs, JWT authentication in `httpOnly` cookies, Nodemailer / Resend email service, `json2csv` streaming.
 - **Design Tokens**: Crimson Nebula background (`--bg: #0d0409`), Teal Glow accents (`--teal: #6fc7d1`, `--teal-soft: #7fd3dc`), Ice White (`--ice: #bff4ff`), Rose typography (`--rose: #e6c3ca`), Orbitron display font, Mea Culpa script accents, Inter body font.
 
@@ -90,7 +90,7 @@ npm run dev
 - **Client (Frontend)**: `http://localhost:5173`
 - **Server (API)**: `http://localhost:5000`
 - **Admin Dashboard**: `http://localhost:5173/admin`
-- **Event Day QR Scanner**: `http://localhost:5173/admin/checkin`
+- **Event Day Desk Check-in**: `http://localhost:5173/admin/checkin`
 
 ---
 
@@ -108,14 +108,12 @@ npm run test
 
 1. Navigate to `http://localhost:5173/admin/login` (or your production domain).
 2. Log in using organizer credentials.
-3. Open **Check-in Scanner** (`/admin/checkin`).
-4. Click **Open Camera Scanner** on any mobile device or laptop camera.
-5. As teams arrive at the registration desk, scan their **Registration Pass QR Code** (from their phone screen or printed email).
+3. Open **Desk Check-in** (`/admin/checkin`).
+4. As teams arrive at the registration desk, enter their **Registration ID** (e.g. `AIM-2026-0001` from their confirmation email or pass) into the input box and click **Verify**.
    - **Green Banner**: Instant verification, displays team leader, college, and squad roster.
    - **Yellow Banner**: Alerts if team was already checked in (shows previous check-in time).
    - **Red Banner**: Unregistered or invalid ID.
-6. Alternatively, type the registration ID (e.g. `AIM-2026-0001`) into the manual input box and click **Verify**.
-7. Click **Export CSV** at any time to stream a complete `.csv` spreadsheet of all confirmed participants.
+5. Click **Export CSV** at any time to stream a complete `.csv` spreadsheet of all confirmed participants.
 
 ---
 

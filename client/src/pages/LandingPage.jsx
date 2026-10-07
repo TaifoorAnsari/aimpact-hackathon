@@ -4,7 +4,6 @@ import Tracks from "../components/Tracks.jsx";
 import Timeline from "../components/Timeline.jsx";
 import Prizes from "../components/Prizes.jsx";
 import Masterclass from "../components/Masterclass.jsx";
-import Faq from "../components/Faq.jsx";
 import RegisterCta from "../components/RegisterCta.jsx";
 import Footer from "../components/Footer.jsx";
 
@@ -17,7 +16,6 @@ export default function LandingPage() {
       <Timeline />
       <Prizes />
       <Masterclass />
-      <Faq />
       <RegisterCta />
       <Footer />
     </div>

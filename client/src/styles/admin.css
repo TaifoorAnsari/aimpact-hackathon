@@ -408,7 +408,7 @@
   background: rgba(111, 199, 209, 0.15);
 }
 
-/* QR Scanner Page */
+/* Desk Check-in Page */
 .scanner-card {
   max-width: 600px;
   margin: 0 auto;
@@ -418,19 +418,6 @@
   background: rgba(28, 7, 18, 0.75);
   backdrop-filter: blur(14px);
   text-align: center;
-}
-
-.scanner-video-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 20px auto;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid var(--teal);
-  box-shadow: 0 0 20px rgba(111, 199, 209, 0.3);
-  background: #000;
-  min-height: 250px;
 }
 
 .scan-result-banner {

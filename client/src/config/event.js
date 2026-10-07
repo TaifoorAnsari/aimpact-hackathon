@@ -76,7 +76,6 @@ export const NAV_LINKS = [
   { label: "Timeline", href: "#timeline" },
   { label: "Prizes", href: "#prizes" },
   { label: "Masterclasses", href: "#masterclass" },
-  { label: "FAQ", href: "#faq" },
 ];
 
 export const TICKER_ITEMS = [

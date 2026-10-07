@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
-import { QRCodeSVG } from "qrcode.react";
 import { EVENT } from "../config/event.js";
 import {
   TbCheck,
   TbBrandWhatsapp,
-  TbCalendarPlus,
   TbArrowLeft,
   TbMailCheck,
   TbBuildingCommunity,
@@ -35,35 +33,6 @@ export default function SuccessPage() {
     }
   }, [regId, regData]);
 
-  const downloadCalendar = () => {
-    const teamName = regData?.teamName || "Team";
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//AIMPACT Hackathon//APSIT//EN",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-      "BEGIN:VEVENT",
-      `SUMMARY:AIMPACT 2026 Hackathon (${teamName})`,
-      `DESCRIPTION:24-hour National Hackathon at APSIT Thane. Your Registration ID is ${regId}.`,
-      "LOCATION:A.P. Shah Institute of Technology, Thane (W), Maharashtra 400615",
-      "DTSTART:20261017T033000Z",
-      "DTEND:20261018T093000Z",
-      "STATUS:CONFIRMED",
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `AIMPACT-2026-${regId}.ics`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
 
   if (loading) {
     return (
@@ -109,22 +78,8 @@ export default function SuccessPage() {
           <div className="reg-id-box">
             <span className="reg-id-label">Official Registration Pass</span>
             <span className="reg-id-value">{regId}</span>
-          </div>
-
-          {/* Check-in QR Code */}
-          <div className="qr-container">
-            <div className="qr-box">
-              <QRCodeSVG
-                value={regId}
-                size={160}
-                bgColor="#ffffff"
-                fgColor="#0d0409"
-                level="Q"
-                includeMargin={false}
-              />
-            </div>
-            <p className="qr-caption">
-              Save or screenshot this QR code. Present it at the desk on Oct 17 for quick campus check-in.
+            <p style={{ fontSize: "12px", color: "var(--rose)", margin: "8px 0 0" }}>
+              Save or screenshot this Registration ID. Present it at the desk on Oct 17 for quick campus check-in.
             </p>
           </div>
 
@@ -181,9 +136,6 @@ export default function SuccessPage() {
               <TbBrandWhatsapp style={{ fontSize: "20px" }} /> Join WhatsApp Group
             </a>
 
-            <button type="button" onClick={downloadCalendar} className="btn btn--cal">
-              <TbCalendarPlus style={{ fontSize: "18px" }} /> Add to Calendar (.ics)
-            </button>
           </div>
 
           <div style={{ marginTop: "24px" }}>

@@ -6,7 +6,6 @@ import {
   TbFlame,
   TbSearch,
   TbDownload,
-  TbQrcode,
   TbLogout,
   TbX,
   TbCheck,
@@ -267,7 +266,7 @@ export default function AdminDashboardPage() {
 
         <nav className="admin-header__nav">
           <Link to="/admin/checkin" className="admin-nav-link">
-            <TbQrcode style={{ fontSize: "16px" }} /> Check-in Scanner
+            <TbUserCheck style={{ fontSize: "16px" }} /> Desk Check-in
           </Link>
 
           <button type="button" onClick={handleExportCsv} className="admin-nav-link">
