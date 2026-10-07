@@ -52,20 +52,26 @@ svg {
   min-width: 38px !important;
   min-height: 38px !important;
   border-radius: 50% !important;
-  object-fit: cover !important;
+  border: none !important;
+  background: transparent !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 6px rgba(111, 199, 209, 0.45));
   flex: 0 0 38px !important;
   display: block !important;
 }
 
 .footer-logo-img {
-  width: 52px !important;
-  height: 52px !important;
-  max-width: 52px !important;
-  max-height: 52px !important;
-  min-width: 52px !important;
-  min-height: 52px !important;
+  width: 56px !important;
+  height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
   border-radius: 50% !important;
-  object-fit: cover !important;
+  border: none !important;
+  background: transparent !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 8px rgba(111, 199, 209, 0.45));
   flex-shrink: 0 !important;
   display: block !important;
 }

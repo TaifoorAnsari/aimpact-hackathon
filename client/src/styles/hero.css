@@ -92,11 +92,10 @@
   min-width: 38px !important;
   min-height: 38px !important;
   border-radius: 50% !important;
-  border: 1.5px solid var(--teal) !important;
-  background: #ffffff !important;
-  overflow: hidden !important;
-  object-fit: cover !important;
-  box-shadow: 0 0 10px rgba(111, 199, 209, 0.4) !important;
+  border: none !important;
+  background: transparent !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 0 6px rgba(111, 199, 209, 0.45));
   flex: 0 0 38px !important;
   display: block !important;
 }
