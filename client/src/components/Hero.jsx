@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { TbArrowRight, TbCalendar, TbMapPin, TbTrophy } from "react-icons/tb";
+import { TbArrowRight, TbCalendar, TbMapPin, TbTrophy, TbTarget, TbUsers } from "react-icons/tb";
 import { EVENT } from "../config/event.js";
 import Navbar from "./Navbar.jsx";
 import Stars from "./Stars.jsx";
@@ -12,15 +12,15 @@ export default function Hero() {
     <header className="hero" id="home">
       <div className="hero__nebula" aria-hidden="true" />
       <Stars />
-      <span className="hero__shoot" aria-hidden="true" />
-      <div className="hero__planet" aria-hidden="true" />
+      <span className="hero__dart" aria-hidden="true" />
+      <div className="hero__ambient" aria-hidden="true" />
 
       <Navbar />
 
       <main className="hero__main">
         <span className="badge">
-          <i aria-hidden="true" />
-          Registrations open
+          <TbTarget className="badge__icon" aria-hidden="true" />
+          Registrations Open: {EVENT.registrationWindow || "Oct 08 – Oct 13"}
         </span>
 
         <OrbitStage />
@@ -34,22 +34,26 @@ export default function Hero() {
             REGISTER NOW <TbArrowRight aria-hidden="true" />
           </Link>
           <a className="btn btn--ghost" href="#tracks">
-            Tracks
+            <TbTarget aria-hidden="true" /> Tracks
           </a>
         </div>
 
         <div className="hero__info">
           <span className="info">
+            <TbUsers aria-hidden="true" />
+            Team Size: 4 (Inter-Dept)
+          </span>
+          <span className="info">
             <TbCalendar aria-hidden="true" />
             {EVENT.dateLabel}
           </span>
           <span className="info">
-            <TbMapPin aria-hidden="true" />
-            {EVENT.venueLabel}
-          </span>
-          <span className="info">
             <TbTrophy aria-hidden="true" />
             {EVENT.prizeLabel}
+          </span>
+          <span className="info">
+            <TbMapPin aria-hidden="true" />
+            {EVENT.venueLabel}
           </span>
         </div>
       </main>

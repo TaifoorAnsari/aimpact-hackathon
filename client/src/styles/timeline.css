@@ -48,30 +48,39 @@
   left: 16px;
   top: 22px;
   transform: translate(-50%, -50%);
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: #190510;
+  background: #15030d;
   border: 2px solid var(--teal);
-  box-shadow: 0 0 8px var(--teal);
+  box-shadow: 0 0 10px rgba(111, 199, 209, 0.6), inset 0 0 6px rgba(255, 51, 102, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--teal);
   font-size: 11px;
   z-index: 2;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.timeline-item:hover .timeline-node {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 14px var(--teal), 0 0 20px rgba(255, 51, 102, 0.7);
 }
 
 .node-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--ice);
+  background: #ff3366;
+  box-shadow: 0 0 8px #ff3366;
 }
 
 .timeline-item.is-completed .timeline-node {
-  background: var(--teal);
-  color: #0d0409;
+  background: #ff3366;
+  border-color: #ff80a0;
+  box-shadow: 0 0 14px rgba(255, 51, 102, 0.8);
+  color: #fff;
 }
 
 .timeline-card {

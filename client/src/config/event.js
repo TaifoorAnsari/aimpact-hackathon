@@ -5,17 +5,19 @@ export const EVENT = {
   subtitle: "Hackathon",
   college: "A.P. SHAH INSTITUTE OF TECHNOLOGY",
   department: "Department of Artificial Intelligence & Machine Learning",
-  tagline: "8 hours. One idea. Your impact.",
-  // Countdown target (placeholder). Use an ISO string with the IST offset.
+  tagline: "Take Aim. Build Fast. Make Impact.",
+  // Countdown target. Use an ISO string with the IST offset.
   startsAt: "2026-10-17T09:00:00+05:30",
   dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
   prizeLabel: "₹10,000 Total Prize Pool",
+  registrationWindow: "Oct 08 – Oct 13, 2026",
+  teamFormat: "Inter-Department (Team Size: 4)",
   minTeamSize: 2,
   maxTeamSize: 4,
   collectLogistics: false, // Set to false to hide T-shirt & dietary preferences
   registrationFee: 0, // 0 for free; Razorpay flow enabled if > 0
-  registrationDeadline: "2026-10-15T23:59:00+05:30",
+  registrationDeadline: "2026-10-13T23:59:00+05:30",
   capacity: 150, // Max confirmed teams
   whatsappGroupUrl: "https://chat.whatsapp.com/TODO_AIMPACT_2026",
   codeOfConductUrl: "#conduct",
@@ -79,14 +81,15 @@ export const NAV_LINKS = [
 ];
 
 export const TICKER_ITEMS = [
-  "AI AND ML",
-  "MENTORSHIP",
+  "TAKE AIM",
+  "HIT THE TARGET",
   "8H SPRINT",
-  "PRIZES",
-  "WORKSHOPS",
+  "₹10,000 PRIZE POOL",
+  "INTER-DEPARTMENT",
+  "TEAM SIZE 4",
+  "AI AND ML",
   "HEALTHTECH",
   "WEB & IOT",
-  "CAMPUS THANE",
 ];
 
 export const ABOUT = {
@@ -97,16 +100,16 @@ export const ABOUT = {
   ],
   stats: [
     { value: "8h", label: "Intensive Sprint", detail: "Fast-paced build & pitch" },
-    { value: "2–4", label: "Members per Team", detail: "Cross-disciplinary squads" },
+    { value: "4", label: "Team Size", detail: "Inter-department squads" },
     { value: "₹10,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
   ],
 };
 
 export const TIMELINE = [
   {
-    time: "Oct 01, 2026",
+    time: "Oct 08, 2026",
     title: "Registrations Open",
-    description: "Team registrations go live online. Early submissions get priority review.",
+    description: "Inter-department team registrations go live online.",
     status: "completed",
   },
   {
@@ -116,7 +119,7 @@ export const TIMELINE = [
     status: "upcoming",
   },
   {
-    time: "Oct 15, 2026",
+    time: "Oct 13, 2026",
     title: "Registrations Close",
     description: "Portal closes at 23:59 IST. Shortlisted teams receive confirmation emails.",
     status: "upcoming",

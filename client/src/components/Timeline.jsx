@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { TIMELINE } from "../config/event.js";
-import { TbCalendarEvent, TbCheck } from "react-icons/tb";
+import { TbTarget, TbCheck } from "react-icons/tb";
 import "../styles/timeline.css";
 
 export default function Timeline() {
@@ -35,7 +35,7 @@ export default function Timeline() {
       <div className="timeline-container">
         <div className="section-header">
           <span className="section-pill">
-            <TbCalendarEvent aria-hidden="true" /> 8-HOUR ITINERARY
+            <TbTarget aria-hidden="true" /> 8-HOUR TARGET ITINERARY
           </span>
           <h2 id="timeline-heading" className="section-title">
             The Hackathon <span className="script-accent">Timeline</span>
