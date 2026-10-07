@@ -6,7 +6,7 @@
   color: #fff;
   position: relative;
   overflow-x: hidden;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 }
 
 .reg-bg-glow {
@@ -15,7 +15,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: min(1000px, 100vw);
-  height: 400px;
+  height: 350px;
   background: radial-gradient(ellipse at 50% 0%, rgba(95, 12, 40, 0.6), transparent 70%);
   z-index: 0;
   pointer-events: none;
@@ -26,7 +26,7 @@
   z-index: 1;
   max-width: 840px;
   margin: 0 auto;
-  padding: 20px 16px;
+  padding: 16px 12px;
 }
 
 /* Header */
@@ -34,21 +34,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .reg-back-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--teal);
   font-family: var(--font-display);
-  font-size: 13px;
-  padding: 8px 12px;
+  font-size: 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   background: rgba(111, 199, 209, 0.08);
   border: 1px solid rgba(111, 199, 209, 0.25);
   transition: background 0.2s, color 0.2s;
+  min-height: 40px;
 }
 
 .reg-back-link:hover {
@@ -60,17 +61,17 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 20px;
   background: rgba(90, 10, 28, 0.5);
   border: 1px solid rgba(111, 199, 209, 0.35);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--ice);
 }
 
 .reg-spots-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--teal);
   animation: pulse 1.5s infinite;
@@ -78,20 +79,21 @@
 
 .reg-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .reg-title {
   font-family: var(--font-display);
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(20px, 3.5vw, 32px);
   color: #fff;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 .reg-subtitle {
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: clamp(12px, 1.1vw, 14px);
   color: var(--rose);
   margin: 0;
+  line-height: 1.45;
 }
 
 /* Stepper */
@@ -100,8 +102,8 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  margin-bottom: 32px;
-  padding: 0 8px;
+  margin-bottom: 24px;
+  padding: 0 6px;
 }
 
 .stepper-progress-bg {
@@ -118,7 +120,7 @@
 .stepper-progress-fill {
   height: 100%;
   background: var(--teal);
-  box-shadow: 0 0 10px var(--teal);
+  box-shadow: 0 0 8px var(--teal);
   transition: width 0.3s ease;
 }
 
@@ -128,7 +130,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -136,8 +138,8 @@
 }
 
 .stepper-circle {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #14050d;
   border: 2px solid rgba(111, 199, 209, 0.35);
@@ -146,7 +148,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   transition: all 0.25s ease;
 }
@@ -155,7 +157,7 @@
   border-color: var(--teal);
   background: var(--crimson-glass);
   color: var(--ice);
-  box-shadow: 0 0 14px rgba(111, 199, 209, 0.6);
+  box-shadow: 0 0 10px rgba(111, 199, 209, 0.6);
 }
 
 .stepper-step--completed .stepper-circle {
@@ -166,7 +168,7 @@
 
 .stepper-label {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.5px;
   color: var(--rose);
 }
@@ -178,7 +180,7 @@
 
 /* Card Shell */
 .form-card {
-  padding: clamp(24px, 4vw, 40px);
+  padding: clamp(16px, 3vw, 36px);
   border-radius: 8px;
   border: 1px solid rgba(111, 199, 209, 0.35);
   background: rgba(28, 7, 18, 0.7);
@@ -188,29 +190,30 @@
 
 .form-step-title {
   font-family: var(--font-display);
-  font-size: clamp(18px, 2.5vw, 22px);
+  font-size: clamp(16px, 2.2vw, 20px);
   color: var(--teal-soft);
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 
 .form-step-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--rose);
-  margin: 0 0 28px;
+  margin: 0 0 20px;
+  line-height: 1.45;
 }
 
 /* Form Controls */
 .form-group {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .form-label {
   display: block;
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--ice);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .form-label span.req {
@@ -222,15 +225,15 @@
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px 12px;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.35);
   background: rgba(13, 4, 9, 0.8);
   color: #fff;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13px;
   transition: border-color 0.2s, box-shadow 0.2s;
-  min-height: 44px;
+  min-height: 42px;
 }
 
 .form-input:focus,
@@ -249,28 +252,28 @@
 .form-error {
   display: block;
   color: #ff8787;
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 11px;
+  margin-top: 4px;
 }
 
 .form-hint {
   display: block;
   color: var(--rose);
-  font-size: 11px;
-  margin-top: 5px;
+  font-size: 10px;
+  margin-top: 4px;
   opacity: 0.8;
 }
 
 /* Track selector cards */
 .track-radio-group {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 10px;
 }
 
 .track-radio-card {
   position: relative;
-  padding: 16px;
+  padding: 12px 14px;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.3);
   background: rgba(18, 4, 12, 0.7);
@@ -287,40 +290,40 @@
 .track-radio-card--selected {
   border-color: var(--teal);
   background: rgba(90, 10, 28, 0.5);
-  box-shadow: 0 0 14px rgba(111, 199, 209, 0.25);
+  box-shadow: 0 0 10px rgba(111, 199, 209, 0.25);
 }
 
 .track-radio-title {
   display: block;
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .track-radio-blurb {
   display: block;
   font-size: 11px;
   color: var(--rose);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 /* Team Size selector pills */
 .size-selector {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 
 .size-pill {
   flex: 1;
-  padding: 12px;
+  padding: 10px 8px;
   text-align: center;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.35);
   background: rgba(13, 4, 9, 0.7);
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 12px;
   color: var(--ice);
   cursor: pointer;
   transition: all 0.2s;
@@ -334,13 +337,13 @@
   background: var(--teal);
   color: #0d0409;
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(111, 199, 209, 0.4);
+  box-shadow: 0 0 10px rgba(111, 199, 209, 0.4);
 }
 
 /* Member Accordion / Blocks */
 .member-block {
-  margin-bottom: 28px;
-  padding: clamp(18px, 3vw, 24px);
+  margin-bottom: 18px;
+  padding: clamp(14px, 2.5vw, 22px);
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.25);
   background: rgba(20, 5, 13, 0.65);
@@ -351,39 +354,39 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(111, 199, 209, 0.15);
 }
 
 .member-block-title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 14px;
   color: #fff;
   margin: 0;
 }
 
 .leader-badge {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 2px 6px;
   border-radius: 4px;
   background: var(--teal);
   color: #0d0409;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .copy-college-btn {
   background: none;
   border: 1px solid rgba(111, 199, 209, 0.3);
   color: var(--teal-soft);
-  font-size: 12px;
-  padding: 6px 12px;
+  font-size: 11px;
+  padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.15s;
@@ -399,7 +402,7 @@
 .form-grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 @media (min-width: 600px) {
@@ -412,20 +415,20 @@
 .year-pills {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .year-pill {
-  padding: 10px 0;
+  padding: 8px 0;
   text-align: center;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.3);
   background: rgba(13, 4, 9, 0.6);
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--ice);
   cursor: pointer;
-  min-height: 44px;
+  min-height: 42px;
   display: grid;
   place-items: center;
   transition: all 0.2s;
@@ -443,16 +446,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-top: 32px;
-  padding-top: 24px;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
   border-top: 1px solid rgba(111, 199, 209, 0.2);
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Step 3 Review */
 .review-section {
-  margin-bottom: 24px;
-  padding: 18px;
+  margin-bottom: 18px;
+  padding: 14px 12px;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.25);
   background: rgba(15, 3, 10, 0.6);
@@ -462,12 +476,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .review-section-title {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--teal-soft);
   margin: 0;
 }
@@ -476,7 +490,7 @@
   background: none;
   border: none;
   color: var(--teal);
-  font-size: 12px;
+  font-size: 11px;
   text-decoration: underline;
   cursor: pointer;
   padding: 4px;
@@ -484,15 +498,15 @@
 
 .review-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  font-size: 13px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 10px;
+  font-size: 12px;
 }
 
 .review-item label {
   display: block;
   color: var(--rose);
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
@@ -505,13 +519,13 @@
 
 .review-members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 14px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .review-member-card {
-  padding: 14px;
+  padding: 12px;
   border-radius: 6px;
   background: rgba(25, 6, 16, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -519,26 +533,26 @@
 
 /* Consent Checkbox */
 .consent-group {
-  margin: 24px 0;
+  margin: 18px 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .consent-label {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--rose);
-  line-height: 1.5;
+  line-height: 1.45;
   min-height: 44px;
 }
 
 .consent-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   accent-color: var(--teal);
   margin-top: 2px;
   flex-shrink: 0;
@@ -546,12 +560,12 @@
 
 /* Server Error Banner */
 .server-error-banner {
-  padding: 16px 20px;
+  padding: 12px 16px;
   border-radius: 6px;
   background: rgba(220, 53, 69, 0.2);
   border: 1px solid #ff6b6b;
   color: #ffc9c9;
-  font-size: 13px;
-  margin-bottom: 24px;
-  line-height: 1.5;
+  font-size: 12px;
+  margin-bottom: 18px;
+  line-height: 1.45;
 }

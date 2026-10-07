@@ -1,7 +1,7 @@
 /* ---------- Register CTA Section ---------- */
 .register-cta-section {
   position: relative;
-  padding: clamp(60px, 9vh, 110px) clamp(16px, 4vw, 48px);
+  padding: clamp(44px, 7vh, 100px) clamp(14px, 4vw, 48px);
   background: linear-gradient(180deg, rgba(13, 4, 9, 0.95) 0%, rgba(35, 7, 22, 0.95) 100%);
   border-bottom: 1px solid rgba(111, 199, 209, 0.15);
 }
@@ -13,11 +13,11 @@
 
 .register-cta-card {
   position: relative;
-  padding: clamp(32px, 5vw, 60px) clamp(20px, 4vw, 48px);
+  padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 40px);
   border-radius: 8px;
   border: 1px solid rgba(111, 199, 209, 0.45);
   background: radial-gradient(circle at 50% 0%, rgba(95, 12, 40, 0.8), rgba(20, 5, 14, 0.95));
-  box-shadow: 0 0 40px rgba(111, 199, 209, 0.15);
+  box-shadow: 0 0 32px rgba(111, 199, 209, 0.15);
   backdrop-filter: blur(14px);
   text-align: center;
   display: flex;
@@ -26,18 +26,18 @@
 }
 
 .register-cta-badge {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .badge-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
+  gap: 6px;
+  padding: 5px 14px;
   border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 1.5px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
 }
 
 .badge-pill--live {
@@ -54,71 +54,84 @@
 
 .register-cta-title {
   font-family: var(--font-display);
-  font-size: clamp(26px, 4vw, 44px);
+  font-size: clamp(22px, 3.5vw, 38px);
   font-weight: 800;
   color: #fff;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   line-height: 1.2;
 }
 
 .register-cta-subtitle {
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(13px, 1.1vw, 15px);
   color: var(--rose);
   max-width: 600px;
-  margin: 0 0 28px;
-  line-height: 1.65;
+  margin: 0 0 20px;
+  line-height: 1.55;
 }
 
 .register-cta-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(16px, 3vw, 36px);
-  margin-bottom: 32px;
+  gap: clamp(10px, 2vw, 24px);
+  margin-bottom: 24px;
+  width: 100%;
 }
 
 .cta-stat {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
+  gap: 10px;
+  padding: 10px 16px;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(111, 199, 209, 0.25);
   text-align: left;
+  flex: 1 1 140px;
+  max-width: 220px;
+  justify-content: center;
 }
 
 .cta-stat__icon {
-  font-size: 26px;
+  font-size: 22px;
   color: var(--teal);
+  flex-shrink: 0;
 }
 
 .cta-stat__num {
   display: block;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ice);
 }
 
 .cta-stat__text {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--rose);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .btn--large {
-  padding: 16px 36px;
-  font-size: clamp(13px, 1.3vw, 16px);
-  letter-spacing: 1px;
+  padding: 14px 28px;
+  font-size: clamp(12px, 1.2vw, 15px);
+  letter-spacing: 0.8px;
+  min-height: 48px;
+}
+
+@media (max-width: 480px) {
+  .btn--large {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .closed-banner {
-  padding: 16px 24px;
+  padding: 14px 20px;
   border-radius: 8px;
   background: rgba(220, 53, 69, 0.15);
   border: 1px solid rgba(220, 53, 69, 0.4);
   color: #ffc9c9;
-  font-size: 14px;
+  font-size: 13px;
   max-width: 500px;
 }
