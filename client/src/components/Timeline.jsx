@@ -35,13 +35,13 @@ export default function Timeline() {
       <div className="timeline-container">
         <div className="section-header">
           <span className="section-pill">
-            <TbCalendarEvent aria-hidden="true" /> 24-HOUR ITINERARY
+            <TbCalendarEvent aria-hidden="true" /> 8-HOUR ITINERARY
           </span>
           <h2 id="timeline-heading" className="section-title">
             The Hackathon <span className="script-accent">Timeline</span>
           </h2>
           <p className="section-subtitle">
-            From preliminary masterclasses through the midnight sprint to final live evaluation.
+            From preliminary masterclasses through the intensive build sprint to final live evaluation.
           </p>
         </div>
 

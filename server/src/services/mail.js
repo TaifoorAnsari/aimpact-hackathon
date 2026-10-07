@@ -43,7 +43,7 @@ function generateEmailHtml(reg) {
     <!-- Header -->
     <div style="background: radial-gradient(circle at 50% 0%, #750e26, #14050d); padding: 36px 24px; text-align: center; border-bottom: 1px solid rgba(111,199,209,0.25);">
       <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; color: #6fc7d1; text-transform: uppercase;">AIMPACT 2026</h1>
-      <p style="margin: 6px 0 0; color: #e6c3ca; font-size: 14px;">24 Hours. One Idea. Your Impact.</p>
+      <p style="margin: 6px 0 0; color: #e6c3ca; font-size: 14px;">8 Hours. One Idea. Your Impact.</p>
     </div>
 
     <!-- Body -->
@@ -70,7 +70,7 @@ function generateEmailHtml(reg) {
           </tr>
           <tr>
             <td style="padding: 6px 0; color: #7fd3dc;"><strong>Event Date:</strong></td>
-            <td style="padding: 6px 0; color: #ffffff;">Oct 17, 2026, 08:00 AM – Oct 18, 03:00 PM IST</td>
+            <td style="padding: 6px 0; color: #ffffff;">Oct 17, 2026, 08:30 AM – 08:30 PM IST</td>
           </tr>
           <tr>
             <td style="padding: 6px 0; color: #7fd3dc;"><strong>Venue:</strong></td>
@@ -121,7 +121,7 @@ Your team "${reg.teamName}" has been successfully registered for AIMPACT 2026!
 
 Registration ID: ${reg.regId}
 Track: ${reg.track.toUpperCase()}
-Date: Oct 17-18, 2026
+Date: Oct 17, 2026 (08:30 AM – 08:30 PM IST)
 Venue: A.P. Shah Institute of Technology, Thane (W)
 
 Team Members:

@@ -5,12 +5,12 @@ export const EVENT = {
   subtitle: "Hackathon",
   college: "A.P. SHAH INSTITUTE OF TECHNOLOGY",
   department: "Department of Artificial Intelligence & Machine Learning",
-  tagline: "24 hours. One idea. Your impact.",
+  tagline: "8 hours. One idea. Your impact.",
   // Countdown target (placeholder). Use an ISO string with the IST offset.
   startsAt: "2026-10-17T09:00:00+05:30",
-  dateLabel: "October 17-18, 2026",
+  dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
-  prizeLabel: "₹1,00,000+ Prize Pool (TODO)",
+  prizeLabel: "₹10,000 Total Prize Pool",
   minTeamSize: 2,
   maxTeamSize: 4,
   collectLogistics: false, // Set to false to hide T-shirt & dietary preferences
@@ -81,7 +81,7 @@ export const NAV_LINKS = [
 export const TICKER_ITEMS = [
   "AI AND ML",
   "MENTORSHIP",
-  "24H BUILD",
+  "8H SPRINT",
   "PRIZES",
   "WORKSHOPS",
   "HEALTHTECH",
@@ -92,13 +92,13 @@ export const TICKER_ITEMS = [
 export const ABOUT = {
   heading: "Igniting Engineering Ingenuity",
   paragraphs: [
-    "AIMPACT 2026 is Maharashtra's premier 24-hour inter-collegiate hackathon organized by A.P. Shah Institute of Technology. Designed to bridge academic theory and real-world technology challenges, it unites over 450 ambitious developers, designers, and innovators under one roof for non-stop invention.",
-    "Across one electrifying weekend, teams collaborate with veteran industry mentors, test state-of-the-art developer tooling, and present live working prototypes to seasoned technical judges and tech founders.",
+    "AIMPACT 2026 is Maharashtra's premier 8-hour inter-collegiate hackathon organized by A.P. Shah Institute of Technology. Designed to bridge academic theory and real-world technology challenges, it unites ambitious developers, designers, and innovators under one roof for an intensive build sprint.",
+    "Across a high-energy sprint, teams collaborate with veteran industry mentors, test state-of-the-art developer tooling, and present live working prototypes to seasoned technical judges and tech founders.",
   ],
   stats: [
-    { value: "24h", label: "Non-stop Sprint", detail: "Overnight build & deploy" },
+    { value: "8h", label: "Intensive Sprint", detail: "Fast-paced build & pitch" },
     { value: "2–4", label: "Members per Team", detail: "Cross-disciplinary squads" },
-    { value: "₹1L+", label: "Prize Pool (TODO)", detail: "Cash, perks & trophies" },
+    { value: "₹10,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
   ],
 };
 
@@ -122,87 +122,53 @@ export const TIMELINE = [
     status: "upcoming",
   },
   {
-    time: "Oct 17, 08:00 AM",
-    title: "Check-in & Opening Ceremony",
-    description: "Campus badge collection, networking breakfast, and keynote address.",
+    time: "Oct 17, 08:30 AM",
+    title: "Reporting & Check-in",
+    description: "Campus entry, badge distribution, breakfast, and workstation setup.",
+    status: "upcoming",
+  },
+  {
+    time: "Oct 17, 09:30 AM",
+    title: "Opening Ceremony & Rules Briefing",
+    description: "Welcome address, hackathon rules briefing, and sprint kickoff.",
     status: "upcoming",
   },
   {
     time: "Oct 17, 10:00 AM",
-    title: "Hacking Begins (24-Hour Timer)",
-    description: "Hacking officially kicks off. Brainstorm, scaffold, and build.",
+    title: "Hacking Begins (8-Hour Timer)",
+    description: "Sprint clock starts. Design architecture, scaffold code, and build prototypes.",
     status: "upcoming",
   },
   {
-    time: "Oct 17, 04:00 PM",
-    title: "Mentorship Review Round",
-    description: "Industry mentors critique technical architecture and user experience.",
+    time: "Oct 17, 02:00 PM",
+    title: "Mentorship Review & Lunch",
+    description: "Mid-way progress checkpoint with industry mentors and lunch break.",
     status: "upcoming",
   },
   {
-    time: "Oct 18, 02:00 AM",
-    title: "Midnight Code Sprint & Snacks",
-    description: "Energizing refreshments, arcade games, and late-night debugging support.",
+    time: "Oct 17, 06:00 PM",
+    title: "Code Freeze & Submissions",
+    description: "8-hour sprint concludes. Git repositories locked and demos finalized.",
     status: "upcoming",
   },
   {
-    time: "Oct 18, 10:00 AM",
-    title: "Code Freeze & Pitch Round",
-    description: "Repositories locked. Teams pitch live prototypes before evaluation panels.",
+    time: "Oct 17, 06:30 PM",
+    title: "Pitching & Live Judging",
+    description: "Teams demonstrate working solutions before the evaluation panel.",
     status: "upcoming",
   },
   {
-    time: "Oct 18, 02:30 PM",
-    title: "Valedictory & Awards",
-    description: "Podium winners announced, trophies handed out, closing celebration.",
+    time: "Oct 17, 08:00 PM",
+    title: "Valedictory & Awards Ceremony",
+    description: "Winner announcements, certificate distribution, and felicitation.",
     status: "upcoming",
   },
 ];
 
 export const PRIZES = {
-  podium: [
-    {
-      rank: 2,
-      title: "First Runner-up",
-      amount: "₹30,000 (TODO)",
-      perks: ["Runner-up Trophy & Medals", "Cloud Credits", "Direct Interview Fast-tracks"],
-      badge: "Silver Podium",
-      featured: false,
-    },
-    {
-      rank: 1,
-      title: "Grand Champion",
-      amount: "₹50,000 (TODO)",
-      perks: ["Grand Trophy & Gold Medals", "Incubation Support", "Venture Mentorship", "Premium Swag"],
-      badge: "1st Place",
-      featured: true,
-    },
-    {
-      rank: 3,
-      title: "Second Runner-up",
-      amount: "₹20,000 (TODO)",
-      perks: ["Bronze Trophy & Medals", "Domain Vouchers", "Certificate of Distinction"],
-      badge: "Bronze Podium",
-      featured: false,
-    },
-  ],
-  specialCategories: [
-    {
-      title: "Best All-Girls Team",
-      amount: "₹10,000 (TODO)",
-      description: "Empowering women in STEM with exceptional technical ingenuity.",
-    },
-    {
-      title: "Best First-Year / Novice Squad",
-      amount: "₹5,000 (TODO)",
-      description: "Recognizing outstanding passion and execution from FE/SE coders.",
-    },
-    {
-      title: "Most Impactful Social Solution",
-      amount: "₹5,000 (TODO)",
-      description: "Tackling acute community, sustainability, or civic pain points.",
-    },
-  ],
+  totalPool: "₹10,000",
+  title: "Total Prize Pool",
+  description: "Exciting cash prizes, certificates of merit, and recognition for winning squads.",
 };
 
 export const MASTERCLASSES = [
@@ -223,7 +189,7 @@ export const MASTERCLASSES = [
     role: "Ex-Hackathon Champion & Founder",
     time: "Oct 13 • 5:00 PM – 6:30 PM IST (Online)",
     summary:
-      "Concrete time-management tactics for 24-hour sprints: modular task allocation, rapid MVP staging, and maintaining team momentum through the 3 AM slump.",
+      "Concrete time-management tactics for rapid 8-hour sprints: modular task allocation, rapid MVP staging, and maintaining team momentum to code freeze.",
     topics: ["Git Workflow for Rapid Sprints", "Mocking APIs on the Fly", "Energy & Focus Hygiene"],
   },
 ];
@@ -250,8 +216,8 @@ export const FAQS = [
     a: "Each team member should bring their valid college ID card, laptops with chargers, any specialized hardware (if competing in IoT), and personal toiletries.",
   },
   {
-    q: "Is overnight stay accommodated on campus?",
-    a: "Yes. APSIT provides secure, monitored 24-hour hackathon floor spaces with dedicated rest areas, refreshments, and high-speed Wi-Fi.",
+    q: "What is the event duration and schedule?",
+    a: "AIMPACT 2026 is an intensive 8-hour sprint held on October 17, from 08:30 AM to 08:30 PM. High-speed Wi-Fi, lunch, snacks, and mentor support are provided throughout the day.",
   },
   {
     q: "What is the intellectual property (IP) policy?",

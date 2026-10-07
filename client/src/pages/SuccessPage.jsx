@@ -71,7 +71,7 @@ export default function SuccessPage() {
 
           <h1 className="success-title">Registration Confirmed!</h1>
           <p className="success-subtitle">
-            Welcome to AIMPACT 2026, <strong>{regData.teamName}</strong>. Your team is officially confirmed for the 24-hour sprint.
+            Welcome to AIMPACT 2026, <strong>{regData.teamName}</strong>. Your team is officially confirmed for the 8-hour sprint.
           </p>
 
           {/* Registration ID Banner */}

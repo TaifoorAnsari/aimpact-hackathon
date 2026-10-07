@@ -74,8 +74,8 @@ export default function RegisterCta() {
             <div className="cta-stat">
               <TbClock className="cta-stat__icon" aria-hidden="true" />
               <div>
-                <span className="cta-stat__num">24h</span>
-                <span className="cta-stat__text">Non-stop hackathon</span>
+                <span className="cta-stat__num">8h</span>
+                <span className="cta-stat__text">Intensive sprint</span>
               </div>
             </div>
           </div>

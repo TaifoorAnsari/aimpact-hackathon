@@ -513,7 +513,7 @@ export default function RegisterPage() {
                   className="form-textarea"
                   rows={2}
                   maxLength={140}
-                  placeholder="What problem or opportunity are you tackling in 24 hours?"
+                  placeholder="What problem or opportunity are you tackling in 8 hours?"
                   value={formData.idea}
                   onChange={(e) => setFormData({ ...formData, idea: e.target.value })}
                 />
