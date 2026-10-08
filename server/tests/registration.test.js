@@ -24,9 +24,11 @@ describe("Registration API Integration Tests", () => {
 
   const payload = {
     teamName: "TestTeamAlpha",
-    track: "ai-ml",
+    track: "ai-education",
     teamSize: 2,
     idea: "Integration testing with supertest",
+    pptUrl: "https://drive.google.com/file/d/test-pitch-deck/view",
+    demoVideoUrl: "https://drive.google.com/file/d/test-demo-video/view",
     members: [
       {
         name: "Test Leader",
@@ -65,6 +67,20 @@ describe("Registration API Integration Tests", () => {
     assert.match(res.body.regId, /^AIM-2026-\d{4}$/);
     assert.equal(res.body.teamName, "TestTeamAlpha");
     assert.equal(res.body.status, "confirmed");
+    assert.equal(res.body.pptUrl, payload.pptUrl);
+    assert.equal(res.body.demoVideoUrl, payload.demoVideoUrl);
+  });
+
+  it("POST /api/registrations - rejects submission without compulsory PPT link", async () => {
+    const invalidPayload = { ...payload, teamName: "TestTeamNoPPT" };
+    delete invalidPayload.pptUrl;
+
+    const res = await request(app)
+      .post("/api/registrations")
+      .send(invalidPayload)
+      .expect(400);
+
+    assert.equal(res.body.error.code, "VALIDATION_ERROR");
   });
 
   it("POST /api/registrations - rejects duplicate team name", async () => {

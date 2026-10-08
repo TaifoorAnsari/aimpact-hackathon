@@ -158,7 +158,7 @@ export async function getRegistrationById(req, res, next) {
 export async function updateRegistration(req, res, next) {
   try {
     const { id } = req.params;
-    const { status, notes, members, idea, track } = req.body;
+    const { status, notes, members, idea, track, pptUrl, demoVideoUrl } = req.body;
 
     const isObjectId = mongoose.Types.ObjectId.isValid(id);
     const query = isObjectId ? { _id: id } : { regId: id };
@@ -174,6 +174,8 @@ export async function updateRegistration(req, res, next) {
     if (notes !== undefined) reg.notes = notes;
     if (idea !== undefined) reg.idea = idea;
     if (track) reg.track = track;
+    if (pptUrl !== undefined) reg.pptUrl = pptUrl;
+    if (demoVideoUrl !== undefined) reg.demoVideoUrl = demoVideoUrl;
     if (Array.isArray(members)) reg.members = members;
 
     await reg.save();

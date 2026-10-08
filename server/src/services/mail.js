@@ -65,7 +65,7 @@ function generateEmailHtml(reg) {
       <div style="background: #1b0712; border-radius: 6px; padding: 18px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1);">
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
           <tr>
-            <td style="padding: 6px 0; color: #7fd3dc; width: 120px;"><strong>Track:</strong></td>
+            <td style="padding: 6px 0; color: #7fd3dc; width: 140px;"><strong>Track:</strong></td>
             <td style="padding: 6px 0; color: #ffffff;">${escapeHtml(reg.track.toUpperCase())}</td>
           </tr>
           <tr>
@@ -76,6 +76,22 @@ function generateEmailHtml(reg) {
             <td style="padding: 6px 0; color: #7fd3dc;"><strong>Venue:</strong></td>
             <td style="padding: 6px 0; color: #ffffff;">A.P. Shah Institute of Technology, Thane (W)</td>
           </tr>
+          ${
+            reg.pptUrl
+              ? `<tr>
+            <td style="padding: 6px 0; color: #7fd3dc;"><strong>Pitch Deck (PPT):</strong></td>
+            <td style="padding: 6px 0;"><a href="${escapeHtml(reg.pptUrl)}" target="_blank" rel="noopener noreferrer" style="color: #6fc7d1; text-decoration: underline;">View Pitch Deck</a></td>
+          </tr>`
+              : ""
+          }
+          ${
+            reg.demoVideoUrl
+              ? `<tr>
+            <td style="padding: 6px 0; color: #7fd3dc;"><strong>Demo Video:</strong></td>
+            <td style="padding: 6px 0;"><a href="${escapeHtml(reg.demoVideoUrl)}" target="_blank" rel="noopener noreferrer" style="color: #6fc7d1; text-decoration: underline;">Watch Prototype Video</a></td>
+          </tr>`
+              : ""
+          }
         </table>
       </div>
 
@@ -123,7 +139,8 @@ Registration ID: ${reg.regId}
 Track: ${reg.track.toUpperCase()}
 Date: Oct 17, 2026 (08:30 AM – 08:30 PM IST)
 Venue: A.P. Shah Institute of Technology, Thane (W)
-
+Pitch Deck (PPT): ${reg.pptUrl || "N/A"}
+${reg.demoVideoUrl ? `Demo Video: ${reg.demoVideoUrl}\n` : ""}
 Team Members:
 ${membersText}
 

@@ -1,11 +1,10 @@
 import { TRACKS } from "../config/event.js";
-import { TbBrain, TbHeartRateMonitor, TbCpu, TbArrowRight } from "react-icons/tb";
+import { TbSchool, TbHeartRateMonitor, TbArrowRight, TbCpu } from "react-icons/tb";
 import "../styles/tracks.css";
 
 const TRACK_ICONS = {
-  "ai-ml": <TbBrain aria-hidden="true" />,
-  healthtech: <TbHeartRateMonitor aria-hidden="true" />,
-  "web-iot": <TbCpu aria-hidden="true" />,
+  "ai-education": <TbSchool aria-hidden="true" />,
+  "ai-healthcare": <TbHeartRateMonitor aria-hidden="true" />,
 };
 
 export default function Tracks() {
@@ -15,10 +14,10 @@ export default function Tracks() {
         <div className="section-header">
           <span className="section-pill">CHALLENGE SPHERES</span>
           <h2 id="tracks-heading" className="section-title">
-            Three High-Impact <span className="script-accent">Tracks</span>
+            Two High-Impact <span className="script-accent">Tracks</span>
           </h2>
           <p className="section-subtitle">
-            Choose your battleground. Prototype solutions that shift paradigms in intelligence, healthcare, and physical-digital computing.
+            Choose your battleground. Prototype AI solutions that shift paradigms in education and healthcare.
           </p>
         </div>
 

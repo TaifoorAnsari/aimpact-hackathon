@@ -38,37 +38,26 @@ export const EVENT = {
 // Chips that orbit the title. left/top are percentages of the stage square.
 export const TRACKS = [
   {
-    id: "ai-ml",
-    label: "AI / ML",
-    shortTitle: "AI / ML",
+    id: "ai-education",
+    label: "AI for Education",
+    shortTitle: "AI for Education",
     left: "50%",
-    top: "0%",
+    top: "6%",
     blurb:
-      "Push frontiers in LLMs, multimodal vision, agents, and predictive modeling solving high-impact enterprise or societal challenges.",
-    icon: "TbBrain",
-    tags: ["LLMs", "Computer Vision", "Agentic Systems", "Predictive Analytics"],
+      "Build intelligent tutoring systems, automated grading & feedback pipelines, personalized learning paths, accessible curriculum tools, and student engagement analytics.",
+    icon: "TbSchool",
+    tags: ["Adaptive Learning", "EdTech Agents", "Automated Assessment", "Personalized Tutoring"],
   },
   {
-    id: "healthtech",
-    label: "HealthTech",
-    shortTitle: "HealthTech",
-    left: "12%",
-    top: "80%",
+    id: "ai-healthcare",
+    label: "AI for Healthcare",
+    shortTitle: "AI for Healthcare",
+    left: "50%",
+    top: "94%",
     blurb:
-      "Architect breakthrough diagnostic pipelines, patient monitoring systems, assistive hardware, and secure electronic health records.",
+      "Architect breakthrough diagnostic aids, clinical workflow automation, remote patient monitoring, biomedical data analysis, and predictive health assistants.",
     icon: "TbHeartRateMonitor",
-    tags: ["Diagnostics", "Bioinformatics", "Remote Care", "Medical Imaging"],
-  },
-  {
-    id: "web-iot",
-    label: "Web and IoT",
-    shortTitle: "Web and IoT",
-    left: "88%",
-    top: "80%",
-    blurb:
-      "Fuse responsive decentralized web architectures with intelligent edge devices, smart sensors, and automated physical computing.",
-    icon: "TbCpu",
-    tags: ["Smart Hardware", "Edge AI", "Full Stack Web", "Automation"],
+    tags: ["Clinical AI", "Diagnostics", "Patient Monitoring", "Medical Imaging"],
   },
 ];
 
@@ -87,9 +76,8 @@ export const TICKER_ITEMS = [
   "₹10,000 PRIZE POOL",
   "INTER-DEPARTMENT",
   "TEAM SIZE 4",
-  "AI AND ML",
-  "HEALTHTECH",
-  "WEB & IOT",
+  "AI FOR EDUCATION",
+  "AI FOR HEALTHCARE",
 ];
 
 export const ABOUT = {

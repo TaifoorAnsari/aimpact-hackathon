@@ -41,13 +41,23 @@ const registrationSchema = new mongoose.Schema(
     track: {
       type: String,
       required: true,
-      enum: ["ai-ml", "healthtech", "web-iot"],
+      enum: ["ai-education", "ai-healthcare", "ai-ml", "healthtech", "web-iot"],
       index: true,
     },
     idea: {
       type: String,
       trim: true,
       maxlength: 140,
+    },
+    pptUrl: {
+      type: String,
+      required: [true, "Presentation / Pitch Deck link is required"],
+      trim: true,
+    },
+    demoVideoUrl: {
+      type: String,
+      trim: true,
+      default: "",
     },
     members: {
       type: [memberSchema],

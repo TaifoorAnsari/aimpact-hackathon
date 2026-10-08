@@ -123,6 +123,8 @@ export async function createRegistration(req, res, next) {
       teamNameKey: teamKey,
       track: data.track,
       idea: data.idea?.trim() || "",
+      pptUrl: data.pptUrl?.trim(),
+      demoVideoUrl: data.demoVideoUrl?.trim() || "",
       members: data.members.map((m, idx) => ({
         ...m,
         isLeader: idx === 0,
@@ -162,6 +164,8 @@ export async function createRegistration(req, res, next) {
       status: registration.status,
       teamName: registration.teamName,
       track: registration.track,
+      pptUrl: registration.pptUrl,
+      demoVideoUrl: registration.demoVideoUrl,
       memberCount: registration.members.length,
       members: registration.members.map((m) => m.name.split(" ")[0]),
     });
@@ -174,7 +178,7 @@ export async function getPublicRegistrationSummary(req, res, next) {
   try {
     const { regId } = req.params;
     const reg = await Registration.findOne({ regId }).select(
-      "regId teamName track status idea createdAt members.name members.isLeader"
+      "regId teamName track status idea pptUrl demoVideoUrl createdAt members.name members.isLeader"
     );
 
     if (!reg) {
@@ -192,6 +196,9 @@ export async function getPublicRegistrationSummary(req, res, next) {
       teamName: reg.teamName,
       track: reg.track,
       status: reg.status,
+      idea: reg.idea,
+      pptUrl: reg.pptUrl,
+      demoVideoUrl: reg.demoVideoUrl,
       createdAt: reg.createdAt,
       members: reg.members.map((m) => ({
         firstName: m.name.trim().split(" ")[0],

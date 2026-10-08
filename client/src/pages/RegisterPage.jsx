@@ -55,16 +55,24 @@ export default function RegisterPage() {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (!TRACKS.some((t) => t.id === parsed.track)) {
+          parsed.track = TRACKS[0]?.id || "ai-education";
+        }
+        if (parsed.pptUrl === undefined) parsed.pptUrl = "";
+        if (parsed.demoVideoUrl === undefined) parsed.demoVideoUrl = "";
+        return parsed;
       }
     } catch {
       // fallback
     }
     return {
       teamName: "",
-      track: "ai-ml",
+      track: TRACKS[0]?.id || "ai-education",
       teamSize: 3,
       idea: "",
+      pptUrl: "",
+      demoVideoUrl: "",
       members: [initialMember(true), initialMember(false), initialMember(false)],
       consent: { codeOfConduct: false, updates: false },
       website_hp: "", // Honeypot
@@ -131,6 +139,17 @@ export default function RegisterPage() {
     updateMember(index, "college", leaderCollege);
   };
 
+  const isValidUrl = (str) => {
+    if (!str) return false;
+    const urlStr = str.match(/^https?:\/\//i) ? str : `https://${str}`;
+    try {
+      const u = new URL(urlStr);
+      return u.protocol === "http:" || u.protocol === "https:";
+    } catch {
+      return false;
+    }
+  };
+
   // Validation routines
   const validateStep1 = () => {
     const errors = {};
@@ -144,6 +163,14 @@ export default function RegisterPage() {
     }
     if (!formData.teamSize || formData.teamSize < EVENT.minTeamSize || formData.teamSize > EVENT.maxTeamSize) {
       errors.teamSize = `Team size must be between ${EVENT.minTeamSize} and ${EVENT.maxTeamSize}`;
+    }
+    if (!formData.pptUrl || !formData.pptUrl.trim()) {
+      errors.pptUrl = "Presentation / Pitch Deck link is required (e.g. Google Drive link)";
+    } else if (!isValidUrl(formData.pptUrl.trim())) {
+      errors.pptUrl = "Please enter a valid link for your PPT (e.g. https://drive.google.com/...)";
+    }
+    if (formData.demoVideoUrl && formData.demoVideoUrl.trim() && !isValidUrl(formData.demoVideoUrl.trim())) {
+      errors.demoVideoUrl = "Please enter a valid link for your prototype demo video";
     }
     return errors;
   };
@@ -242,6 +269,8 @@ export default function RegisterPage() {
         track: formData.track,
         teamSize: Number(formData.teamSize),
         idea: formData.idea?.trim() || "",
+        pptUrl: formData.pptUrl.trim(),
+        demoVideoUrl: formData.demoVideoUrl?.trim() || "",
         members: formData.members.map((m) => ({
           name: m.name.trim(),
           email: m.email.trim().toLowerCase(),
@@ -275,7 +304,7 @@ export default function RegisterPage() {
         if (data.error?.fields) {
           setFieldErrors(data.error.fields);
           // If field belongs to step 1, jump there
-          if (data.error.fields.teamName || data.error.fields.track) {
+          if (data.error.fields.teamName || data.error.fields.track || data.error.fields.pptUrl || data.error.fields.demoVideoUrl) {
             setStep(1);
           } else if (Object.keys(data.error.fields).some((k) => k.startsWith("members") || k === "email" || k === "phone")) {
             setStep(2);
@@ -293,6 +322,8 @@ export default function RegisterPage() {
           teamName: data.teamName,
           regId: data.regId,
           track: data.track,
+          pptUrl: data.pptUrl || formData.pptUrl,
+          demoVideoUrl: data.demoVideoUrl || formData.demoVideoUrl,
           memberCount: data.memberCount,
           members: data.members,
         },
@@ -520,6 +551,56 @@ export default function RegisterPage() {
                 <span className="form-hint">{formData.idea?.length || 0}/140 characters</span>
               </div>
 
+              {/* PPT / Pitch Deck Link (Compulsory) */}
+              <div className="form-group">
+                <label className="form-label" htmlFor="pptUrl">
+                  Presentation / Pitch Deck (Google Drive Link) <span className="req">*</span>
+                </label>
+                <input
+                  id="pptUrl"
+                  type="url"
+                  className={`form-input ${fieldErrors.pptUrl ? "form-input--error" : ""}`}
+                  placeholder="https://drive.google.com/file/d/... or share link"
+                  value={formData.pptUrl}
+                  onChange={(e) => {
+                    setFormData({ ...formData, pptUrl: e.target.value });
+                    if (fieldErrors.pptUrl) {
+                      setFieldErrors({ ...fieldErrors, pptUrl: null });
+                    }
+                  }}
+                  onBlur={() => setTouched({ ...touched, pptUrl: true })}
+                />
+                {fieldErrors.pptUrl && <span className="form-error">{fieldErrors.pptUrl}</span>}
+                <span className="form-hint">
+                  Ensure Google Drive link sharing is set to <strong>"Anyone with the link can view"</strong>.
+                </span>
+              </div>
+
+              {/* Demo Video Link (Optional) */}
+              <div className="form-group">
+                <label className="form-label" htmlFor="demoVideoUrl">
+                  Prototype Demo Video Link (Google Drive / YouTube) (Optional)
+                </label>
+                <input
+                  id="demoVideoUrl"
+                  type="url"
+                  className={`form-input ${fieldErrors.demoVideoUrl ? "form-input--error" : ""}`}
+                  placeholder="https://drive.google.com/... or YouTube link"
+                  value={formData.demoVideoUrl}
+                  onChange={(e) => {
+                    setFormData({ ...formData, demoVideoUrl: e.target.value });
+                    if (fieldErrors.demoVideoUrl) {
+                      setFieldErrors({ ...fieldErrors, demoVideoUrl: null });
+                    }
+                  }}
+                  onBlur={() => setTouched({ ...touched, demoVideoUrl: true })}
+                />
+                {fieldErrors.demoVideoUrl && <span className="form-error">{fieldErrors.demoVideoUrl}</span>}
+                <span className="form-hint">
+                  Optional: Short 1–2 minute walkthrough or demo video of your prototype.
+                </span>
+              </div>
+
               <div className="form-actions" style={{ justifyContent: "flex-end" }}>
                 <button type="button" className="btn btn--solid" onClick={goToStep2}>
                   Next: Member Details <TbArrowRight aria-hidden="true" />
@@ -728,6 +809,36 @@ export default function RegisterPage() {
                     <div className="review-item" style={{ gridColumn: "1 / -1" }}>
                       <label>Idea Statement</label>
                       <value>{formData.idea}</value>
+                    </div>
+                  )}
+                  {formData.pptUrl && (
+                    <div className="review-item" style={{ gridColumn: "1 / -1" }}>
+                      <label>Pitch Deck / PPT (Google Drive)</label>
+                      <value>
+                        <a
+                          href={formData.pptUrl.match(/^https?:\/\//i) ? formData.pptUrl : `https://${formData.pptUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "var(--teal-soft)", textDecoration: "underline", wordBreak: "break-all" }}
+                        >
+                          {formData.pptUrl}
+                        </a>
+                      </value>
+                    </div>
+                  )}
+                  {formData.demoVideoUrl && (
+                    <div className="review-item" style={{ gridColumn: "1 / -1" }}>
+                      <label>Prototype Demo Video</label>
+                      <value>
+                        <a
+                          href={formData.demoVideoUrl.match(/^https?:\/\//i) ? formData.demoVideoUrl : `https://${formData.demoVideoUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "var(--teal-soft)", textDecoration: "underline", wordBreak: "break-all" }}
+                        >
+                          {formData.demoVideoUrl}
+                        </a>
+                      </value>
                     </div>
                   )}
                 </div>

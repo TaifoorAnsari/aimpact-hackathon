@@ -7,14 +7,14 @@
 }
 
 .tracks-container {
-  max-width: 1200px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .tracks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
-  gap: clamp(14px, 2.5vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 32px);
 }
 
 .track-card {

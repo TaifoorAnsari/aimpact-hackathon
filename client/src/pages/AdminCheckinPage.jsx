@@ -169,7 +169,7 @@ export default function AdminCheckinPage() {
                     <strong>Team:</strong> {result.reg.teamName} ({result.reg.regId})
                   </div>
                   <div>
-                    <strong>Track:</strong> {(result.reg.track || "").toUpperCase()}
+                    <strong>Track:</strong> {result.reg.track === "ai-education" ? "AI FOR EDUCATION" : result.reg.track === "ai-healthcare" ? "AI FOR HEALTHCARE" : (result.reg.track || "").toUpperCase()}
                   </div>
                   <div>
                     <strong>Leader:</strong> {result.reg.members?.[0]?.name} ({result.reg.members?.[0]?.phone})

@@ -5,7 +5,7 @@ import { registrationValidationSchema } from "../src/middleware/validate.js";
 describe("Registration Zod Schema Unit Tests", () => {
   const validSubmission = {
     teamName: "NeuralSquad",
-    track: "ai-ml",
+    track: "ai-education",
     teamSize: 2,
     idea: "Autonomous agent for multimodal health analytics",
     members: [
@@ -28,6 +28,7 @@ describe("Registration Zod Schema Unit Tests", () => {
         isLeader: false,
       },
     ],
+    pptUrl: "https://drive.google.com/test-pitch",
     consent: {
       codeOfConduct: true,
       updates: true,
@@ -46,6 +47,12 @@ describe("Registration Zod Schema Unit Tests", () => {
     const result = registrationValidationSchema.safeParse(invalid);
     assert.equal(result.success, false);
     assert.ok(result.error.issues.some((i) => i.path.includes("teamName")));
+  });
+
+  it("passes for valid team registration with AI for Healthcare track", () => {
+    const healthSubmission = { ...validSubmission, track: "ai-healthcare" };
+    const result = registrationValidationSchema.safeParse(healthSubmission);
+    assert.equal(result.success, true);
   });
 
   it("fails if invalid track is provided", () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
-import { EVENT } from "../config/event.js";
+import { EVENT, TRACKS } from "../config/event.js";
 import {
   TbCheck,
   TbBrandWhatsapp,
@@ -91,7 +91,7 @@ export default function SuccessPage() {
             </div>
             <div className="summary-row">
               <span>Track:</span>
-              <span>{(regData.track || "").toUpperCase()}</span>
+              <span>{TRACKS.find((t) => t.id === regData.track)?.label || (regData.track || "").toUpperCase()}</span>
             </div>
             <div className="summary-row">
               <span>Date & Time:</span>
@@ -107,6 +107,36 @@ export default function SuccessPage() {
                 {regData.status || "Confirmed"}
               </span>
             </div>
+            {regData.pptUrl && (
+              <div className="summary-row">
+                <span>Pitch Deck (PPT):</span>
+                <span>
+                  <a
+                    href={regData.pptUrl.match(/^https?:\/\//i) ? regData.pptUrl : `https://${regData.pptUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--teal-soft)", textDecoration: "underline" }}
+                  >
+                    View Presentation
+                  </a>
+                </span>
+              </div>
+            )}
+            {regData.demoVideoUrl && (
+              <div className="summary-row">
+                <span>Demo Video:</span>
+                <span>
+                  <a
+                    href={regData.demoVideoUrl.match(/^https?:\/\//i) ? regData.demoVideoUrl : `https://${regData.demoVideoUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--teal-soft)", textDecoration: "underline" }}
+                  >
+                    Watch Demo
+                  </a>
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Email notice */}

@@ -31,11 +31,45 @@ export const registrationValidationSchema = z
       .trim()
       .min(3, "Team name must be at least 3 characters")
       .max(40, "Team name cannot exceed 40 characters"),
-    track: z.enum(["ai-ml", "healthtech", "web-iot"], {
-      errorMap: () => ({ message: "Please select a valid hackathon track" }),
+    track: z.enum(["ai-education", "ai-healthcare"], {
+      errorMap: () => ({ message: "Please select a valid hackathon track (AI for Education or AI for Healthcare)" }),
     }),
     teamSize: z.coerce.number().min(2, "Minimum team size is 2").max(4, "Maximum team size is 4"),
     idea: z.string().trim().max(140, "Idea summary cannot exceed 140 characters").optional().or(z.literal("")),
+    pptUrl: z
+      .string({ required_error: "Presentation / Pitch Deck link is required" })
+      .trim()
+      .min(1, "Presentation / Pitch Deck link is required")
+      .transform((val) => (val && !val.match(/^https?:\/\//i) ? `https://${val}` : val))
+      .refine(
+        (val) => {
+          try {
+            const url = new URL(val);
+            return url.protocol === "http:" || url.protocol === "https:";
+          } catch {
+            return false;
+          }
+        },
+        { message: "Please provide a valid URL for your PPT / Pitch Deck (e.g. Google Drive link)" }
+      ),
+    demoVideoUrl: z
+      .string()
+      .trim()
+      .optional()
+      .or(z.literal(""))
+      .transform((val) => (val && !val.match(/^https?:\/\//i) ? `https://${val}` : val || ""))
+      .refine(
+        (val) => {
+          if (!val) return true;
+          try {
+            const url = new URL(val);
+            return url.protocol === "http:" || url.protocol === "https:";
+          } catch {
+            return false;
+          }
+        },
+        { message: "Please provide a valid URL for your prototype demo video" }
+      ),
     members: z.array(memberSchema).min(2, "At least 2 members are required").max(4, "Maximum 4 members allowed"),
     consent: z.object({
       codeOfConduct: z.literal(true, {

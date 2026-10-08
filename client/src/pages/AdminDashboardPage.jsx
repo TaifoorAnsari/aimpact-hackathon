@@ -382,9 +382,8 @@ export default function AdminDashboardPage() {
                     summary?.byTrack && summary.byTrack.length > 0
                       ? summary.byTrack
                       : [
-                          { name: "ai-ml", count: 12 },
-                          { name: "healthtech", count: 8 },
-                          { name: "web-iot", count: 10 },
+                          { name: "ai-education", count: 12 },
+                          { name: "ai-healthcare", count: 8 },
                         ]
                   }
                   margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
@@ -427,7 +426,7 @@ export default function AdminDashboardPage() {
             <span style={{ fontSize: "11px", color: "var(--teal-soft)", textTransform: "uppercase" }}>
               Track:
             </span>
-            {["all", "ai-ml", "healthtech", "web-iot"].map((tr) => (
+            {["all", "ai-education", "ai-healthcare"].map((tr) => (
               <button
                 key={tr}
                 type="button"
@@ -437,7 +436,7 @@ export default function AdminDashboardPage() {
                   setPage(1);
                 }}
               >
-                {tr === "all" ? "All Tracks" : tr.toUpperCase()}
+                {tr === "all" ? "All Tracks" : tr === "ai-education" ? "AI for Education" : "AI for Healthcare"}
               </button>
             ))}
           </div>
@@ -630,6 +629,36 @@ export default function AdminDashboardPage() {
                 <span>Checked In:</span>
                 <span>{selectedReg.checkedIn ? `Yes (${new Date(selectedReg.checkedInAt).toLocaleTimeString()})` : "No"}</span>
               </div>
+              {selectedReg.pptUrl && (
+                <div className="summary-row">
+                  <span>Pitch Deck (PPT):</span>
+                  <span>
+                    <a
+                      href={selectedReg.pptUrl.startsWith("http") ? selectedReg.pptUrl : `https://${selectedReg.pptUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "var(--teal-soft)", textDecoration: "underline", wordBreak: "break-all" }}
+                    >
+                      Open Google Drive Deck &rarr;
+                    </a>
+                  </span>
+                </div>
+              )}
+              {selectedReg.demoVideoUrl && (
+                <div className="summary-row">
+                  <span>Demo Video:</span>
+                  <span>
+                    <a
+                      href={selectedReg.demoVideoUrl.startsWith("http") ? selectedReg.demoVideoUrl : `https://${selectedReg.demoVideoUrl}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "var(--teal-soft)", textDecoration: "underline", wordBreak: "break-all" }}
+                    >
+                      Watch Demo Video &rarr;
+                    </a>
+                  </span>
+                </div>
+              )}
               {selectedReg.idea && (
                 <div style={{ marginTop: "12px" }}>
                   <span style={{ fontSize: "11px", color: "var(--teal-soft)", textTransform: "uppercase" }}>
