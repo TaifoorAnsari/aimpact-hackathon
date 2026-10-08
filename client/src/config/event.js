@@ -83,7 +83,7 @@ export const TICKER_ITEMS = [
 export const ABOUT = {
   heading: "Igniting Engineering Ingenuity",
   paragraphs: [
-    "AIMPACT 2026 is Maharashtra's premier 8-hour inter-collegiate hackathon organized by A.P. Shah Institute of Technology. Designed to bridge academic theory and real-world technology challenges, it unites ambitious developers, designers, and innovators under one roof for an intensive build sprint.",
+    "AIMPACT 2026 is an intensive 8-hour inter-departmental hackathon organized exclusively for students of A.P. Shah Institute of Technology by the AIML Student Association (AIML SA) and the AIML Club. Designed to bridge academic theory and real-world technology challenges, it unites ambitious developers, designers, and innovators across all engineering departments under one roof for an intensive build sprint.",
     "Across a high-energy sprint, teams collaborate with veteran industry mentors, test state-of-the-art developer tooling, and present live working prototypes to seasoned technical judges and tech founders.",
   ],
   stats: [
@@ -188,7 +188,7 @@ export const MASTERCLASSES = [
 export const FAQS = [
   {
     q: "Who is eligible to participate in AIMPACT?",
-    a: "Undergraduate and postgraduate students from any recognized university or engineering college are eligible. Cross-college teams are welcome!",
+    a: "All students of A.P. Shah Institute of Technology (APSIT) across any engineering department and academic year (FE, SE, TE, BE) are eligible to participate.",
   },
   {
     q: "What is the team size requirement?",
@@ -199,8 +199,8 @@ export const FAQS = [
     a: "No! Registration for AIMPACT 2026 is completely free. Meals, Wi-Fi, midnight snacks, and hackathon kits are provided on-campus at zero cost.",
   },
   {
-    q: "Can team members be from different colleges or years?",
-    a: "Yes, cross-college and cross-year teams are fully encouraged! You can enter individual college names during member details entry.",
+    q: "Can team members be from different departments or years?",
+    a: "Yes! Inter-departmental and cross-year teams within APSIT are highly encouraged. Squads can combine students from any engineering department.",
   },
   {
     q: "What should we bring to the venue?",
