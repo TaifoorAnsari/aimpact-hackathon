@@ -9,6 +9,7 @@ import {
   deleteRegistration,
   checkInRegistration,
   exportCsv,
+  exportExcel,
   getSummary,
   broadcast,
 } from "../controllers/adminController.js";
@@ -30,6 +31,7 @@ router.get("/registrations/:id", getRegistrationById);
 router.patch("/registrations/:id", updateRegistration);
 router.delete("/registrations/:id", deleteRegistration);
 router.post("/registrations/:id/check-in", checkInRegistration);
+router.get("/export.xlsx", exportExcel);
 router.get("/export.csv", exportCsv);
 router.get("/summary", getSummary);
 router.post("/broadcast", broadcast);

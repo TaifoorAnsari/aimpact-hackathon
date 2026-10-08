@@ -121,4 +121,22 @@ describe("Registration API Integration Tests", () => {
     assert.ok(typeof res.body.spotsLeft === "number");
     assert.equal(res.body.capacity, 150);
   });
+
+  it("GET /api/admin/export.xlsx - exports valid Excel workbook", async () => {
+    const jwt = (await import("jsonwebtoken")).default;
+    const { ENV } = await import("../src/config/env.js");
+    const token = jwt.sign({ id: "test-admin", role: "lead_organizer" }, ENV.JWT_SECRET);
+
+    const res = await request(app)
+      .get("/api/admin/export.xlsx")
+      .set("Authorization", `Bearer ${token}`)
+      .expect(200);
+
+    assert.equal(
+      res.headers["content-type"],
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    assert.ok(res.headers["content-disposition"]?.includes(".xlsx"));
+    assert.ok(parseInt(res.headers["content-length"], 10) > 0);
+  });
 });

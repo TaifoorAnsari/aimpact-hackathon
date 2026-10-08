@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { Admin } from "../models/Admin.js";
 import { Registration } from "../models/Registration.js";
 import { generateCsvStream } from "../services/csv.js";
+import { generateExcelWorkbook } from "../services/excel.js";
 import { ENV } from "../config/env.js";
 import { logger } from "../utils/logger.js";
 import nodemailer from "nodemailer";
@@ -248,8 +249,28 @@ export async function exportCsv(req, res, next) {
     const csvData = generateCsvStream(registrations);
 
     res.setHeader("Content-Type", "text/csv; charset=utf-8");
-    res.setHeader("Content-Disposition", `attachment; filename=aimpact-registrations-${Date.now()}.csv`);
+    res.setHeader("Content-Disposition", `attachment; filename="aimpact-registrations-${new Date().toISOString().slice(0, 10)}.csv"`);
     return res.status(200).send(csvData);
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function exportExcel(req, res, next) {
+  try {
+    const registrations = await Registration.find({ status: { $ne: "cancelled" } }).sort({ createdAt: 1 });
+    const buffer = generateExcelWorkbook(registrations);
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    );
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="AIMPACT_Registrations_${dateStr}.xlsx"`
+    );
+    return res.status(200).send(buffer);
   } catch (err) {
     next(err);
   }

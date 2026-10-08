@@ -236,10 +236,45 @@ export default function AdminDashboardPage() {
     }
   };
 
+  const [downloading, setDownloading] = useState(false);
+
+  const downloadFile = async (endpoint, defaultFilename) => {
+    setDownloading(true);
+    try {
+      const token = localStorage.getItem("aimpact_admin_token");
+      const res = await fetch(`${API_BASE}${endpoint}${token ? `?token=${encodeURIComponent(token)}` : ""}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        credentials: "include",
+      });
+
+      if (!res.ok) {
+        throw new Error(`Export failed with status ${res.status}`);
+      }
+
+      const blob = await res.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = defaultFilename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (err) {
+      alert("Export failed: " + err.message);
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleExportExcel = () => {
+    const today = new Date().toISOString().slice(0, 10);
+    downloadFile("/api/admin/export.xlsx", `AIMPACT_Registrations_${today}.xlsx`);
+  };
+
   const handleExportCsv = () => {
-    const token = localStorage.getItem("aimpact_admin_token");
-    const exportUrl = `${API_BASE}/api/admin/export.csv${token ? `?token=${token}` : ""}`;
-    window.open(exportUrl, "_blank");
+    const today = new Date().toISOString().slice(0, 10);
+    downloadFile("/api/admin/export.csv", `aimpact-registrations-${today}.csv`);
   };
 
   const overview = summary?.overview || {
@@ -269,8 +304,30 @@ export default function AdminDashboardPage() {
             <TbUserCheck style={{ fontSize: "16px" }} /> Desk Check-in
           </Link>
 
-          <button type="button" onClick={handleExportCsv} className="admin-nav-link">
-            <TbDownload style={{ fontSize: "16px" }} /> Export CSV
+          <button
+            type="button"
+            onClick={handleExportExcel}
+            disabled={downloading}
+            className="admin-nav-link"
+            style={{
+              background: "rgba(111, 199, 209, 0.15)",
+              borderColor: "var(--teal)",
+              color: "#fff",
+              fontWeight: "600",
+            }}
+            title="Download formatted Excel (.xlsx) file with all teams and participants"
+          >
+            <TbDownload style={{ fontSize: "16px" }} /> {downloading ? "Exporting..." : "Export Excel (.xlsx)"}
+          </button>
+
+          <button
+            type="button"
+            onClick={handleExportCsv}
+            disabled={downloading}
+            className="admin-nav-link"
+            title="Download CSV"
+          >
+            <TbDownload style={{ fontSize: "16px" }} /> CSV
           </button>
 
           <button
