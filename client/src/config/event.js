@@ -66,7 +66,7 @@ export const NAV_LINKS = [
   { label: "Tracks", href: "#tracks" },
   { label: "Timeline", href: "#timeline" },
   { label: "Prizes", href: "#prizes" },
-  { label: "Masterclasses", href: "#masterclass" },
+  { label: "Refreshments", href: "#partner" },
 ];
 
 export const TICKER_ITEMS = [
@@ -102,8 +102,8 @@ export const TIMELINE = [
   },
   {
     time: "Oct 12, 2026",
-    title: "Pre-Hackathon Masterclasses",
-    description: "Two deep-dive sessions on judging blueprints and pitch deck mastery.",
+    title: "Sprint Briefing & Guidelines",
+    description: "Hackathon rules, evaluation rubric breakdown, and partner reveal.",
     status: "upcoming",
   },
   {
@@ -162,28 +162,30 @@ export const PRIZES = {
   description: "Exciting cash prizes, certificates of merit, and recognition for winning squads.",
 };
 
-export const MASTERCLASSES = [
-  {
-    id: "eval-blueprint",
-    title: "The Evaluation Blueprint: From the Judge's Side",
-    speaker: "Distinguished Engineering Leader (TODO: Name)",
-    role: "Principal Architect & Hackathon Jury Veteran",
-    time: "Oct 12 • 5:00 PM – 6:30 PM IST (Online)",
-    summary:
-      "A peek inside the scoring matrix: how judges weigh technical depth, architectural sanity, feasibility, and presentation poise under 3 minutes.",
-    topics: ["Scoring Rubrics Decoded", "Demoing Imperfect Prototypes", "What Disqualifies a Pitch"],
-  },
-  {
-    id: "ground-strategy",
-    title: "Ground Level Strategy: Real-time Performance Tips",
-    speaker: "Tech Co-Founder & Serial Hackathon Winner (TODO: Name)",
-    role: "Ex-Hackathon Champion & Founder",
-    time: "Oct 13 • 5:00 PM – 6:30 PM IST (Online)",
-    summary:
-      "Concrete time-management tactics for rapid 8-hour sprints: modular task allocation, rapid MVP staging, and maintaining team momentum to code freeze.",
-    topics: ["Git Workflow for Rapid Sprints", "Mocking APIs on the Fly", "Energy & Focus Hygiene"],
-  },
-];
+export const REFRESHMENT_PARTNER = {
+  tag: "OFFICIAL REFRESHMENT PARTNER",
+  brandName: "3SISTERS",
+  productName: "No Bullsh*t Caffeinated Drink",
+  tagline: "Fueling 8 Hours of Non-Stop Engineering Ingenuity",
+  description:
+    "No exaggerated claims and no unnecessary noise. 3SISTERS delivers clean, uncomplicated fuel with 75 mg plant-based caffeine, zero sugar, and zero calories—crafted to keep coders and creators laser-focused from kickoff to code freeze.",
+  logo: "/3sisters-logo-transparent.png",
+  image: "/3sisters-can-hero.jpg",
+  websiteUrl: "https://3sistersdrinks.com",
+  productUrl: "https://3sistersdrinks.com/products/no-bullshit-caffeinated-drink",
+  stats: [
+    { value: "75 mg", label: "Plant Caffeine", detail: "Clean, jitter-free focus" },
+    { value: "0 g", label: "Zero Sugar", detail: "No crash or spike" },
+    { value: "0 kcal", label: "Zero Calories", detail: "Pure functional energy" },
+    { value: "B-Complex", label: "Vitamins B2, B3, B6, B12", detail: "Sustained endurance" },
+  ],
+  features: [
+    "Plant-based clean caffeine engineered for deep coding sprints",
+    "Zero sugar & zero calories for crash-free mental clarity",
+    "Enriched with vital B-complex vitamins for sustained cognitive stamina",
+    "Official refreshment partner powering all participating squads",
+  ],
+};
 
 export const FAQS = [
   {

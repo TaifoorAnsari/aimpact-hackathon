@@ -41,7 +41,7 @@ export default function Timeline() {
             The Hackathon <span className="script-accent">Timeline</span>
           </h2>
           <p className="section-subtitle">
-            From preliminary masterclasses through the intensive build sprint to final live evaluation.
+            From team registrations through the intensive build sprint to final live evaluation.
           </p>
         </div>
 
