@@ -44,9 +44,9 @@ export const TRACKS = [
     left: "50%",
     top: "6%",
     blurb:
-      "Build intelligent tutoring systems, automated grading & feedback pipelines, personalized learning paths, accessible curriculum tools, and student engagement analytics.",
+      "Open to any innovative idea in learning and academia! You have full creative freedom to solve any challenge — from personalized study companions, gamified learning, and automated feedback to campus productivity utilities, accessibility tools, and smart classroom assistants. If it benefits education, build it!",
     icon: "TbSchool",
-    tags: ["Adaptive Learning", "EdTech Agents", "Automated Assessment", "Personalized Tutoring"],
+    tags: ["Open Innovation", "AI Tutors & Agents", "Campus Utilities", "Accessibility Tools", "Any EdTech Solution"],
   },
   {
     id: "ai-healthcare",
@@ -55,9 +55,9 @@ export const TRACKS = [
     left: "50%",
     top: "94%",
     blurb:
-      "Architect breakthrough diagnostic aids, clinical workflow automation, remote patient monitoring, biomedical data analysis, and predictive health assistants.",
+      "Open to any creative solution for human health and wellbeing! There are no rigid boundaries — explore early diagnostics, mental wellness bots, fitness & nutrition helpers, clinic queue managers, medical imaging, or assistive patient care tools. Any impactful idea that advances healthcare is welcome!",
     icon: "TbHeartRateMonitor",
-    tags: ["Clinical AI", "Diagnostics", "Patient Monitoring", "Medical Imaging"],
+    tags: ["Open Innovation", "Diagnostics & Care", "Mental Wellness", "Clinical Workflow", "Any Health Solution"],
   },
 ];
 

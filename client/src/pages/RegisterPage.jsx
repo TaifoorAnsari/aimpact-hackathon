@@ -487,9 +487,17 @@ export default function RegisterPage() {
 
               {/* Track Selection */}
               <div className="form-group">
-                <label className="form-label">
-                  Select Hackathon Track <span className="req">*</span>
-                </label>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "6px" }}>
+                  <label className="form-label" style={{ marginBottom: "2px" }}>
+                    Select Hackathon Track <span className="req">*</span>
+                  </label>
+                  <span style={{ fontSize: "11px", color: "var(--teal-soft)", letterSpacing: "0.5px" }}>
+                    100% Open-Ended Innovation
+                  </span>
+                </div>
+                <span className="form-hint" style={{ marginBottom: "10px", display: "block" }}>
+                  Full creative freedom: You are open to build any idea or solution that addresses problems in the chosen track.
+                </span>
                 <div className="track-radio-group" role="radiogroup">
                   {TRACKS.map((t) => {
                     const isSelected = formData.track === t.id;

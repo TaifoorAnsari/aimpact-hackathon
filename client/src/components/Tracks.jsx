@@ -12,12 +12,12 @@ export default function Tracks() {
     <section className="tracks-section" id="tracks" aria-labelledby="tracks-heading">
       <div className="tracks-container">
         <div className="section-header">
-          <span className="section-pill">CHALLENGE SPHERES</span>
+          <span className="section-pill">100% OPEN INNOVATION</span>
           <h2 id="tracks-heading" className="section-title">
-            Two High-Impact <span className="script-accent">Tracks</span>
+            Two Open <span className="script-accent">Tracks</span>
           </h2>
           <p className="section-subtitle">
-            Choose your battleground. Prototype AI solutions that shift paradigms in education and healthcare.
+            No rigid problem statements. You have complete creative freedom to identify any real-world challenge and prototype any solution in education or healthcare.
           </p>
         </div>
 
