@@ -282,44 +282,46 @@
   filter: drop-shadow(0 0 18px rgba(111, 199, 209, 0.7)) drop-shadow(0 0 42px rgba(235, 45, 80, 0.45));
 }
 
-/* ---------- Animated Flying Dart Striker (Option A) ---------- */
-.stage__dart-striker {
+/* ---------- Animated Flying Arrow Striker (completes letter 'A') ---------- */
+.stage__arrow-striker {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: clamp(100px, calc(var(--stage) * 0.42), 195px);
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 5;
-  transform-origin: 95.8% 39.5%;
-  animation: dartStrikeA 6.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transform-origin: 52% 49.5%;
+  animation: arrowStrikeA 6.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
-.stage__dart-img {
+.stage__arrow-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 10px rgba(255, 51, 102, 0.9)) drop-shadow(0 0 24px rgba(255, 215, 0, 0.6));
+  filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.85)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.45));
 }
 
-.stage__dart-trail {
+.stage__arrow-trail {
   position: absolute;
-  right: calc(100% - 15px);
-  top: 40%;
-  transform: translateY(-50%);
-  width: clamp(80px, 20vw, 160px);
+  left: 4.6%;
+  top: 70.1%;
+  width: clamp(70px, 18vw, 150px);
   height: 3px;
+  transform-origin: 100% 50%;
+  transform: translate(-100%, -50%) rotate(-20.2deg);
   background: linear-gradient(90deg, transparent 0%, rgba(111, 199, 209, 0.35) 25%, #ff3366 75%, #ffffff 100%);
   box-shadow: 0 0 12px #ff3366, 0 0 24px rgba(255, 215, 0, 0.7);
   border-radius: 999px;
   animation: trailVisibility 6.8s infinite;
+  pointer-events: none;
 }
 
 /* Concentric Impact Shockwave on Bullseye Hit */
 .stage__shockwave {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 52%;
+  top: 49.5%;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -458,57 +460,57 @@
   0% { box-shadow: 0 0 0 0 rgba(111, 199, 209, 0.7); }
   100% { box-shadow: 0 0 0 8px rgba(111, 199, 209, 0); }
 }
-@keyframes dartStrikeA {
+@keyframes arrowStrikeA {
   0% {
     opacity: 0;
-    transform: translate(-95.8%, -39.5%) translate3d(-460px, 195px, 0) scale(0.6) rotate(-22deg);
+    transform: translate3d(-380px, 140px, 0) scale(0.92);
   }
-  4% {
+  3% {
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(-300px, 128px, 0) scale(0.85) rotate(-22deg);
+    transform: translate3d(-240px, 88px, 0) scale(0.96);
   }
   11% {
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(-50px, 21px, 0) scale(1) rotate(-22deg);
+    transform: translate3d(-38px, 14px, 0) scale(1);
   }
   14% {
-    /* IMPACT */
+    /* IMPACT: Completes letter 'A' empty part with 100% precision and hits bullseye */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
   15.5% {
-    /* Recoil flex down */
+    /* Elastic recoil flex around bullseye pivot */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-28deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(-1.5deg);
   }
   17.5% {
-    /* Spring bounce up */
+    /* Spring bounce */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-18deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(1deg);
   }
   20% {
     /* Micro dampening */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-23.5deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(-0.3deg);
   }
   22.5% {
-    /* Rest in bullseye */
+    /* Settles perfectly completing letter 'A' */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
-  75% {
-    /* Stay stuck firmly in bullseye for ~3.6s */
+  78% {
+    /* Stays firmly embedded in letter 'A' for ~3.8 seconds so AIMPACT looks complete & perfect */
     opacity: 1;
-    transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
   }
-  82% {
+  84% {
     /* Smooth pull-back fade */
     opacity: 0;
-    transform: translate(-95.8%, -39.5%) translate3d(-18px, 8px, 0) scale(0.95) rotate(-22deg);
+    transform: translate3d(-14px, 5px, 0) scale(0.98) rotate(0deg);
   }
   100% {
     opacity: 0;
-    transform: translate(-95.8%, -39.5%) translate3d(-460px, 195px, 0) scale(0.6) rotate(-22deg);
+    transform: translate3d(-380px, 140px, 0) scale(0.92);
   }
 }
 
@@ -544,50 +546,50 @@
 }
 
 @media (max-width: 640px) {
-  @keyframes dartStrikeA {
+  @keyframes arrowStrikeA {
     0% {
       opacity: 0;
-      transform: translate(-95.8%, -39.5%) translate3d(-260px, 110px, 0) scale(0.6) rotate(-22deg);
+      transform: translate3d(-210px, 77px, 0) scale(0.92);
     }
-    4% {
+    3% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(-180px, 76px, 0) scale(0.85) rotate(-22deg);
+      transform: translate3d(-140px, 52px, 0) scale(0.96);
     }
     11% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(-40px, 17px, 0) scale(1) rotate(-22deg);
+      transform: translate3d(-24px, 9px, 0) scale(1);
     }
     14% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     }
     15.5% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-27deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(-1.5deg);
     }
     17.5% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-18deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(1deg);
     }
     20% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-23deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(-0.3deg);
     }
     22.5% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     }
-    75% {
+    78% {
       opacity: 1;
-      transform: translate(-95.8%, -39.5%) translate3d(0, 0, 0) scale(1) rotate(-22deg);
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     }
-    82% {
+    84% {
       opacity: 0;
-      transform: translate(-95.8%, -39.5%) translate3d(-15px, 6px, 0) scale(0.95) rotate(-22deg);
+      transform: translate3d(-10px, 4px, 0) scale(0.98) rotate(0deg);
     }
     100% {
       opacity: 0;
-      transform: translate(-95.8%, -39.5%) translate3d(-260px, 110px, 0) scale(0.6) rotate(-22deg);
+      transform: translate3d(-210px, 77px, 0) scale(0.92);
     }
   }
 }
