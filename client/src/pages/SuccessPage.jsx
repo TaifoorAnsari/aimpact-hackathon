@@ -5,7 +5,7 @@ import {
   TbCheck,
   TbBrandWhatsapp,
   TbArrowLeft,
-  TbMailCheck,
+  TbBell,
   TbBuildingCommunity,
 } from "react-icons/tb";
 import "../styles/success.css";
@@ -139,7 +139,7 @@ export default function SuccessPage() {
             )}
           </div>
 
-          {/* Email notice */}
+          {/* WhatsApp notice */}
           <div
             style={{
               display: "flex",
@@ -151,8 +151,8 @@ export default function SuccessPage() {
               marginBottom: "28px",
             }}
           >
-            <TbMailCheck style={{ fontSize: "18px" }} />
-            <span>Confirmation details and roster have been emailed to your squad.</span>
+            <TbBell style={{ fontSize: "18px" }} />
+            <span>Join the official WhatsApp group below for all hackathon updates and announcements.</span>
           </div>
 
           {/* Action buttons */}
