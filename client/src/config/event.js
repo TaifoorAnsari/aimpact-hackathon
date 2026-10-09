@@ -96,7 +96,7 @@ export const ABOUT = {
 
 export const TIMELINE = [
   {
-    time: "Oct 09, 2026",
+    time: "Oct 10, 2026",
     title: "Registrations Open",
     description: "Inter-department team registrations go live online.",
     status: "completed",

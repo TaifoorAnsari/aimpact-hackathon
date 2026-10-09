@@ -754,11 +754,6 @@ export default function AdminDashboardPage() {
                   <div style={{ fontSize: "12px", color: "var(--rose)" }}>
                     {m.college} • {m.department} ({m.year})
                   </div>
-                  {(m.diet || m.tshirt) && (
-                    <div style={{ fontSize: "11px", color: "var(--teal-soft)", marginTop: "4px" }}>
-                      Diet: {m.diet} | T-Shirt: {m.tshirt}
-                    </div>
-                  )}
                   {(m.github || m.linkedin) && (
                     <div style={{ fontSize: "11px", marginTop: "4px", display: "flex", gap: "10px" }}>
                       {m.github && (
