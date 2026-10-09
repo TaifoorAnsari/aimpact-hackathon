@@ -1,8 +1,8 @@
-/* ---------- Refreshment Partner Section ---------- */
+/* ---------- Dual Sponsors & Partners Section ---------- */
 .partner-section {
   position: relative;
-  padding: clamp(48px, 8vh, 100px) clamp(16px, 4vw, 48px);
-  background: linear-gradient(180deg, rgba(13, 4, 9, 0.96) 0%, rgba(28, 6, 20, 0.92) 100%);
+  padding: clamp(36px, 5vh, 64px) clamp(14px, 3.5vw, 40px);
+  background: linear-gradient(180deg, rgba(13, 4, 9, 0.97) 0%, rgba(26, 6, 18, 0.94) 100%);
   border-bottom: 1px solid rgba(111, 199, 209, 0.15);
   overflow: hidden;
 }
@@ -12,301 +12,342 @@
   margin: 0 auto;
 }
 
-/* Feature Spotlight Card */
-.partner-card {
-  position: relative;
+/* Side-by-Side Dual Sponsors Grid */
+.sponsors-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 460px) 1fr;
-  gap: clamp(24px, 4vw, 54px);
-  padding: clamp(24px, 4vw, 44px);
-  border-radius: 16px;
-  border: 1px solid rgba(111, 199, 209, 0.35);
-  background: rgba(26, 6, 17, 0.72);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  align-items: center;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+  align-items: stretch;
+  margin-top: clamp(16px, 2.5vh, 28px);
 }
 
-.partner-card:hover {
-  border-color: rgba(111, 199, 209, 0.6);
-  box-shadow: 0 20px 50px rgba(111, 199, 209, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-/* Product Visual Showcase */
-.partner-visual {
+/* Individual Sponsor Card */
+.sponsor-card {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.partner-visual__glow {
-  position: absolute;
-  inset: 10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(111, 199, 209, 0.25) 0%, rgba(255, 51, 102, 0.18) 50%, transparent 75%);
-  filter: blur(36px);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.partner-visual__frame {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 1 / 1;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(111, 199, 209, 0.3);
-  background: #0f051e;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.partner-product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.partner-card:hover .partner-product-img {
-  transform: scale(1.03);
-}
-
-.partner-visual__badge {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(13, 3, 10, 0.88);
-  border: 1px solid rgba(111, 199, 209, 0.4);
-  backdrop-filter: blur(8px);
-  font-family: var(--font-display);
-  font-size: clamp(10px, 1.1vw, 12px);
-  letter-spacing: 0.5px;
-  color: #fff;
-  z-index: 3;
-}
-
-.partner-visual__badge svg {
-  color: #ff3366;
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-/* Partner Details & Content */
-.partner-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
+  padding: clamp(16px, 2.2vw, 24px);
+  border-radius: 12px;
+  border: 1px solid rgba(111, 199, 209, 0.3);
+  background: rgba(24, 6, 16, 0.75);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.partner-brand-header {
+.sponsor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.sponsor-card--cyan:hover {
+  border-color: rgba(111, 199, 209, 0.65);
+  box-shadow: 0 16px 40px rgba(111, 199, 209, 0.15);
+}
+
+.sponsor-card--rose:hover {
+  border-color: rgba(255, 51, 102, 0.65);
+  box-shadow: 0 16px 40px rgba(255, 51, 102, 0.15);
+}
+
+/* Card Header Bar */
+.sponsor-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
+  gap: 10px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(111, 199, 209, 0.2);
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.partner-logo-link {
+.sponsor-card__logo-wrap {
   display: inline-flex;
   align-items: center;
-  background: rgba(15, 20, 36, 0.85);
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid rgba(111, 199, 209, 0.35);
-  transition: border-color 0.2s, transform 0.2s;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(15, 20, 36, 0.7);
+  border: 1px solid rgba(111, 199, 209, 0.25);
+  transition: border-color 0.2s;
+  height: 38px;
 }
 
-.partner-logo-link:hover {
+.sponsor-card__logo-wrap:hover {
   border-color: var(--teal);
-  transform: translateY(-1px);
 }
 
-.partner-logo-img {
-  height: clamp(26px, 3.2vw, 36px);
+.sponsor-card__logo {
+  height: 26px;
   width: auto;
+  max-width: 130px;
   object-fit: contain;
   display: block;
 }
 
-.partner-category-pill {
+.sponsor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 1px;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.sponsor-badge--cyan {
   color: var(--teal);
-  padding: 4px 10px;
-  border-radius: 6px;
   background: rgba(111, 199, 209, 0.12);
   border: 1px solid rgba(111, 199, 209, 0.35);
 }
 
-.partner-product-name {
+.sponsor-badge--rose {
+  color: #ff80a0;
+  background: rgba(255, 51, 102, 0.12);
+  border: 1px solid rgba(255, 51, 102, 0.35);
+}
+
+/* Visual Spotlight Frame */
+.sponsor-card__visual {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.sponsor-card__glow {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sponsor-card--cyan .sponsor-card__glow {
+  background: radial-gradient(circle, rgba(111, 199, 209, 0.25) 0%, transparent 70%);
+}
+
+.sponsor-card--rose .sponsor-card__glow {
+  background: radial-gradient(circle, rgba(255, 51, 102, 0.25) 0%, transparent 70%);
+}
+
+.sponsor-card__frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0d0412;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sponsor-card--cyan .sponsor-card__frame {
+  background: radial-gradient(circle at center, #1b0c36 0%, #0d051d 100%);
+}
+
+.sponsor-card--rose .sponsor-card__frame {
+  background: radial-gradient(circle at center, #240816 0%, #12030d 100%);
+}
+
+.sponsor-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.sponsor-card:hover .sponsor-card__img {
+  transform: scale(1.03);
+}
+
+.sponsor-card__overlay-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: rgba(10, 2, 8, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.5vw, 28px);
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  color: #fff;
+  z-index: 3;
+}
+
+.sponsor-card--cyan .sponsor-card__overlay-pill svg {
+  color: var(--teal);
+}
+
+.sponsor-card--rose .sponsor-card__overlay-pill svg {
+  color: #ff3366;
+}
+
+/* Card Body */
+.sponsor-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.sponsor-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.8vw, 19px);
   color: #fff;
   line-height: 1.25;
   margin: 0;
-  text-shadow: 0 0 20px rgba(111, 199, 209, 0.25);
 }
 
-.partner-description {
-  font-size: clamp(13px, 1.2vw, 14.5px);
-  color: var(--ice);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Quick Stats Grid */
-.partner-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.partner-stat-item {
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: rgba(18, 5, 14, 0.7);
-  border: 1px solid rgba(111, 199, 209, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.partner-stat-item:hover {
-  border-color: var(--teal);
-  background: rgba(111, 199, 209, 0.08);
-}
-
-.partner-stat-value {
-  font-family: var(--font-display);
-  font-size: clamp(15px, 1.8vw, 18px);
-  font-weight: 700;
-  color: var(--teal);
-  line-height: 1.2;
-}
-
-.partner-stat-label {
+.sponsor-card__tagline {
   font-size: 11px;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.partner-stat-detail {
-  font-size: 10px;
-  color: var(--rose);
-  line-height: 1.2;
-}
-
-/* Features Checkpoints */
-.partner-features {
-  padding: 14px 16px;
-  border-radius: 8px;
-  background: rgba(15, 3, 10, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.partner-features-title {
-  display: block;
   font-family: var(--font-display);
-  font-size: 10.5px;
-  letter-spacing: 0.8px;
-  color: var(--teal-soft);
-  text-transform: uppercase;
-  margin-bottom: 8px;
+  color: var(--rose);
+  letter-spacing: 0.3px;
+  line-height: 1.35;
 }
 
-.partner-features-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.partner-feature-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+.sponsor-card__desc {
   font-size: 12px;
   color: var(--ice);
-  line-height: 1.4;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.partner-check-icon {
+/* 2x2 Stats Grid */
+.sponsor-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 4px 0 2px;
+}
+
+.sponsor-stat-cell {
+  padding: 6px 4px;
+  border-radius: 6px;
+  background: rgba(15, 3, 10, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.sponsor-card--cyan .sponsor-stat-num {
   color: var(--teal);
+}
+
+.sponsor-card--rose .sponsor-stat-num {
+  color: #ff80a0;
+}
+
+.sponsor-stat-num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.sponsor-stat-label {
+  font-size: 9px;
+  color: #d8c0c8;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Features Checklist */
+.sponsor-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 6px;
+}
+
+.sponsor-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--ice);
+  line-height: 1.35;
+}
+
+.sponsor-card--cyan .sponsor-check-icon {
+  color: var(--teal);
+}
+
+.sponsor-card--rose .sponsor-check-icon {
+  color: #ff4d79;
+}
+
+.sponsor-check-icon {
   flex-shrink: 0;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 1px;
 }
 
-/* Partner Actions */
-.partner-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 6px;
+/* Footer Action */
+.sponsor-card__footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.partner-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.sponsor-cta-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 12px;
+  min-height: 40px;
+  padding: 8px 14px;
   text-decoration: none;
 }
 
+.btn--solid-rose {
+  background: #ff3366;
+  color: #fff;
+  font-weight: 800;
+  border: 1px solid #ff4d79;
+  box-shadow: 0 0 14px rgba(255, 51, 102, 0.35);
+}
+
+.btn--solid-rose:hover {
+  background: #e61e53;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.55);
+}
+
 /* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .partner-card {
+@media (max-width: 820px) {
+  .sponsors-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 20px;
+    gap: 18px;
   }
 
-  .partner-visual__frame {
-    max-width: 360px;
-    margin: 0 auto;
+  .sponsor-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 480px) {
-  .partner-brand-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .partner-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .partner-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .partner-stats-grid {
+@media (max-width: 440px) {
+  .sponsor-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sponsor-card__header {
+    flex-wrap: wrap;
   }
 }

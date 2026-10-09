@@ -66,7 +66,7 @@ export const NAV_LINKS = [
   { label: "Tracks", href: "#tracks" },
   { label: "Timeline", href: "#timeline" },
   { label: "Prizes", href: "#prizes" },
-  { label: "Refreshments", href: "#partner" },
+  { label: "Sponsors", href: "#sponsors" },
 ];
 
 export const TICKER_ITEMS = [
@@ -180,30 +180,64 @@ export const PRIZES = {
   description: "Exciting cash prizes, certificates of merit, and recognition for winning squads.",
 };
 
-export const REFRESHMENT_PARTNER = {
-  tag: "OFFICIAL REFRESHMENT PARTNER",
-  brandName: "3SISTERS",
-  productName: "No Bullsh*t Caffeinated Drink",
-  tagline: "Fueling 8 Hours of Non-Stop Engineering Ingenuity",
-  description:
-    "No exaggerated claims and no unnecessary noise. 3SISTERS delivers clean, uncomplicated fuel with 75 mg plant-based caffeine, zero sugar, and zero calories—crafted to keep coders and creators laser-focused from kickoff to code freeze.",
-  logo: "/3sisters-logo-transparent.png",
-  image: "/3sisters-can-hero.jpg",
-  websiteUrl: "https://3sistersdrinks.com",
-  productUrl: "https://3sistersdrinks.com/products/no-bullshit-caffeinated-drink",
-  stats: [
-    { value: "75 mg", label: "Plant Caffeine", detail: "Clean, jitter-free focus" },
-    { value: "0 g", label: "Zero Sugar", detail: "No crash or spike" },
-    { value: "0 kcal", label: "Zero Calories", detail: "Pure functional energy" },
-    { value: "B-Complex", label: "Vitamins B2, B3, B6, B12", detail: "Sustained endurance" },
-  ],
-  features: [
-    "Plant-based clean caffeine engineered for deep coding sprints",
-    "Zero sugar & zero calories for crash-free mental clarity",
-    "Enriched with vital B-complex vitamins for sustained cognitive stamina",
-    "Official refreshment partner powering all participating squads",
-  ],
-};
+export const SPONSORS = [
+  {
+    id: "3sisters",
+    role: "Official Refreshment Partner",
+    tag: "REFRESHMENT PARTNER",
+    brandName: "3SISTERS",
+    productName: "No Bullsh*t Caffeinated Drink",
+    tagline: "Fueling 8 Hours of Non-Stop Innovation",
+    description:
+      "Clean, uncomplicated energy with 75 mg plant-based caffeine, zero sugar, and zero calories. Enriched with vital B-vitamins for razor-sharp focus and zero post-caffeine crash.",
+    logo: "/3sisters-logo-transparent.png",
+    image: "/3sisters-can-hero.jpg",
+    badgeText: "75mg Plant Caffeine • Zero Sugar",
+    link: "https://3sistersdrinks.com/products/no-bullshit-caffeinated-drink",
+    linkLabel: "Explore 3Sisters Drinks",
+    accent: "cyan",
+    stats: [
+      { value: "75 mg", label: "Plant Caffeine" },
+      { value: "0 g", label: "Zero Sugar" },
+      { value: "0 kcal", label: "Zero Calories" },
+      { value: "B-Complex", label: "B2, B3, B6, B12" },
+    ],
+    features: [
+      "Crash-free stamina for the 8-hour sprint",
+      "100% plant-based clean caffeine",
+      "Official energy drink powering all squads",
+    ],
+  },
+  {
+    id: "meridian",
+    role: "Official Dessert Partner",
+    tag: "DESSERT PARTNER",
+    brandName: "Meridian Ice Cream",
+    productName: "Meridian Ice Cream (Kalyan)",
+    tagline: "100% Real Dairy Ice Cream • Not Frozen Dessert",
+    description:
+      "Crafted with pure whole milk and fresh ingredients. Offering 40+ artisanal fruit, chocolate, and mastani creations to chill, refresh, and reward every innovator.",
+    logo: "/meridian-logo.png",
+    image: "/meridian-banner.jpg",
+    badgeText: "100% Real Dairy • Not Frozen Dessert",
+    link: "https://www.instagram.com/meridian_icecream_kalyan/",
+    linkLabel: "Visit @meridian_icecream_kalyan",
+    accent: "rose",
+    stats: [
+      { value: "100%", label: "Real Dairy" },
+      { value: "0% Veg Oil", label: "No Frozen Dessert" },
+      { value: "40+", label: "Fresh Flavors" },
+      { value: "12:30 AM", label: "Late-Night Chill" },
+    ],
+    features: [
+      "Pure milk-based dairy ice cream, never frozen dessert",
+      "40+ artisanal fresh fruit, mastani & sundae creations",
+      "Located at Sai Chowk, Khadakpada, Kalyan (West)",
+    ],
+  },
+];
+
+export const REFRESHMENT_PARTNER = SPONSORS[0];
 
 export const FAQS = [
   {
