@@ -7,7 +7,7 @@ const memberSchema = new mongoose.Schema(
     phone: { type: String, required: true, trim: true },
     college: { type: String, required: true, trim: true },
     department: { type: String, required: true, trim: true },
-    year: { type: String, required: true, enum: ["FE", "SE", "TE", "BE"] },
+    year: { type: String, required: true, enum: ["SE", "TE"] },
     isLeader: { type: Boolean, default: false },
     github: { type: String, trim: true },
     linkedin: { type: String, trim: true },

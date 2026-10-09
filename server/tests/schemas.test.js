@@ -14,7 +14,7 @@ describe("Registration Zod Schema Unit Tests", () => {
         email: "aarav@apsit.edu.in",
         phone: "9876543210",
         college: "A.P. Shah Institute of Technology",
-        department: "Artificial Intelligence & Machine Learning",
+        department: "CSE (AI&ML)",
         year: "TE",
         isLeader: true,
       },

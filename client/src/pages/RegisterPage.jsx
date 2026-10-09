@@ -27,7 +27,7 @@ const initialMember = (isLeader = false) => ({
   email: "",
   phone: "",
   college: "A.P. Shah Institute of Technology",
-  department: "Artificial Intelligence & Machine Learning",
+  department: "CSE (AI&ML)",
   year: "TE",
   github: "",
   linkedin: "",
@@ -61,6 +61,13 @@ export default function RegisterPage() {
         }
         if (parsed.pptUrl === undefined) parsed.pptUrl = "";
         if (parsed.demoVideoUrl === undefined) parsed.demoVideoUrl = "";
+        if (parsed.members && Array.isArray(parsed.members)) {
+          parsed.members.forEach((m) => {
+            if (!DEPARTMENTS.includes(m.department)) {
+              m.department = DEPARTMENTS[0];
+            }
+          });
+        }
         return parsed;
       }
     } catch {
@@ -215,7 +222,7 @@ export default function RegisterPage() {
       if (!m.department || m.department.trim().length < 2) {
         errors[`${prefix}.department`] = "Department is required";
       }
-      if (!m.year) {
+      if (!m.year || !["SE", "TE"].includes(m.year)) {
         errors[`${prefix}.year`] = "Select academic year";
       }
     });
@@ -678,7 +685,7 @@ export default function RegisterPage() {
                           id={`${prefix}.email`}
                           type="email"
                           className={`form-input ${fieldErrors[`${prefix}.email`] ? "form-input--error" : ""}`}
-                          placeholder="e.g. aarav.sharma@apsit.edu.in"
+                          placeholder="e.g. 000000@apsit.edu.in"
                           value={member.email}
                           onChange={(e) => updateMember(idx, "email", e.target.value)}
                         />
@@ -751,7 +758,7 @@ export default function RegisterPage() {
                       {/* Academic Year */}
                       <div className="form-group">
                         <label className="form-label">
-                          Academic Year <span className="req">*</span>
+                          Academic Year (2nd & 3rd Year Only) <span className="req">*</span>
                         </label>
                         <div className="year-pills" role="radiogroup">
                           {YEARS.map((y) => (
@@ -761,10 +768,13 @@ export default function RegisterPage() {
                               className={`year-pill ${member.year === y.value ? "year-pill--selected" : ""}`}
                               onClick={() => updateMember(idx, "year", y.value)}
                             >
-                              {y.value}
+                              {y.label || y.value}
                             </button>
                           ))}
                         </div>
+                        {fieldErrors[`${prefix}.year`] && (
+                          <span className="form-error">{fieldErrors[`${prefix}.year`]}</span>
+                        )}
                       </div>
                     </div>
                   </div>

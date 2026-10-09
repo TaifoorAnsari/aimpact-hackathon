@@ -18,7 +18,7 @@ export default function Hero() {
       <main className="hero__main">
         <span className="badge">
           <TbTarget className="badge__icon" aria-hidden="true" />
-          Registrations Open: {EVENT.registrationWindow || "Oct 08 – Oct 13"}
+          Registrations Open: {EVENT.registrationWindow || "Oct 09 – Oct 13"}
         </span>
 
         <OrbitStage />

@@ -7,11 +7,11 @@ export const EVENT = {
   department: "Department of Artificial Intelligence & Machine Learning",
   tagline: "Take Aim. Build Fast. Make Impact.",
   // Countdown target. Use an ISO string with the IST offset.
-  startsAt: "2026-10-17T09:00:00+05:30",
+  startsAt: "2026-10-17T07:30:00+05:30",
   dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
   prizeLabel: "₹10,000 Total Prize Pool",
-  registrationWindow: "Oct 08 – Oct 13, 2026",
+  registrationWindow: "Oct 09 – Oct 13, 2026",
   teamFormat: "Inter-Department (Team Size: 4)",
   minTeamSize: 2,
   maxTeamSize: 4,
@@ -95,63 +95,81 @@ export const ABOUT = {
 
 export const TIMELINE = [
   {
-    time: "Oct 08, 2026",
+    time: "Oct 09, 2026",
     title: "Registrations Open",
     description: "Inter-department team registrations go live online.",
     status: "completed",
   },
   {
-    time: "Oct 12, 2026",
-    title: "Sprint Briefing & Guidelines",
-    description: "Hackathon rules, evaluation rubric breakdown, and partner reveal.",
-    status: "upcoming",
-  },
-  {
     time: "Oct 13, 2026",
     title: "Registrations Close",
-    description: "Portal closes at 23:59 IST. Shortlisted teams receive confirmation emails.",
+    description: "Portal closes at 23:59 IST. Shortlisted squads finalized.",
     status: "upcoming",
   },
   {
-    time: "Oct 17, 08:30 AM",
+    time: "Oct 15, 2026",
+    title: "Round 1 Result",
+    description: "Shortlisted teams for the Hackathon will be announced",
+    status: "upcoming",
+  },
+  {
+    time: "Oct 17, 07:30 AM",
     title: "Reporting & Check-in",
-    description: "Campus entry, badge distribution, breakfast, and workstation setup.",
+    description: "Campus entry, team check-in, ID verification, and hackathon kit distribution.",
     status: "upcoming",
   },
   {
-    time: "Oct 17, 09:30 AM",
-    title: "Opening Ceremony & Rules Briefing",
-    description: "Welcome address, hackathon rules briefing, and sprint kickoff.",
+    time: "Oct 17, 09:00 AM",
+    title: "Inauguration & Briefing",
+    description: "Welcome address, hackathon rules briefing, and sprint problem statements kickoff.",
     status: "upcoming",
   },
   {
     time: "Oct 17, 10:00 AM",
-    title: "Hacking Begins (8-Hour Timer)",
-    description: "Sprint clock starts. Design architecture, scaffold code, and build prototypes.",
+    title: "Coding Starts",
+    description: "Sprint clock begins! Architecture design, code scaffolding, and rapid build sprint.",
     status: "upcoming",
   },
   {
-    time: "Oct 17, 02:00 PM",
-    title: "Mentorship Review & Lunch",
-    description: "Mid-way progress checkpoint with industry mentors and lunch break.",
+    time: "Oct 17, 12:00 PM",
+    title: "Mentoring Round 1",
+    description: "Industry mentors review project direction, technical architecture, and early progress.",
     status: "upcoming",
   },
   {
-    time: "Oct 17, 06:00 PM",
-    title: "Code Freeze & Submissions",
-    description: "8-hour sprint concludes. Git repositories locked and demos finalized.",
+    time: "Oct 17, 03:00 PM",
+    title: "Mentoring Round 2",
+    description: "Mid-way progress checkpoint, obstacle clearance, and MVP refinement with mentors.",
+    status: "upcoming",
+  },
+  {
+    time: "Oct 17, 05:00 PM",
+    title: "Coding Round Ends",
+    description: "Code freeze! Repositories locked and prototype development concludes.",
+    status: "upcoming",
+  },
+  {
+    time: "Oct 17, 05:30 PM",
+    title: "Video Submission (2-Min Duration)",
+    description: "Teams submit their 2-minute prototype walkthrough video via Google Drive link.",
+    status: "upcoming",
+  },
+  {
+    time: "Oct 17, 05:30 PM",
+    title: "Judging Round 1",
+    description: "Preliminary evaluation: Judges evaluate working prototypes, decks, and codebase viability.",
     status: "upcoming",
   },
   {
     time: "Oct 17, 06:30 PM",
-    title: "Pitching & Live Judging",
-    description: "Teams demonstrate working solutions before the evaluation panel.",
+    title: "Final Presentation & Judging",
+    description: "Shortlisted finalist teams demonstrate live working prototypes to the grand jury.",
     status: "upcoming",
   },
   {
     time: "Oct 17, 08:00 PM",
-    title: "Valedictory & Awards Ceremony",
-    description: "Winner announcements, certificate distribution, and felicitation.",
+    title: "Winners Announcement",
+    description: "Valedictory ceremony, prize pool distribution, and felicitation of winners.",
     status: "upcoming",
   },
 ];
@@ -190,7 +208,7 @@ export const REFRESHMENT_PARTNER = {
 export const FAQS = [
   {
     q: "Who is eligible to participate in AIMPACT?",
-    a: "All students of A.P. Shah Institute of Technology (APSIT) across any engineering department and academic year (FE, SE, TE, BE) are eligible to participate.",
+    a: "Second Year (SE) and Third Year (TE) students of A.P. Shah Institute of Technology (APSIT) across all engineering departments are eligible to participate.",
   },
   {
     q: "What is the team size requirement?",
@@ -202,7 +220,7 @@ export const FAQS = [
   },
   {
     q: "Can team members be from different departments or years?",
-    a: "Yes! Inter-departmental and cross-year teams within APSIT are highly encouraged. Squads can combine students from any engineering department.",
+    a: "Yes! Inter-departmental and cross-year teams between 2nd Year (SE) and 3rd Year (TE) within APSIT are highly encouraged. Squads can combine students from any engineering department.",
   },
   {
     q: "What should we bring to the venue?",
@@ -210,7 +228,7 @@ export const FAQS = [
   },
   {
     q: "What is the event duration and schedule?",
-    a: "AIMPACT 2026 is an intensive 8-hour sprint held on October 17, from 08:30 AM to 08:30 PM. High-speed Wi-Fi, lunch, snacks, and mentor support are provided throughout the day.",
+    a: "AIMPACT 2026 takes place on October 17, kicking off with check-in at 07:30 AM and culminating with the winners announcement at 08:00 PM. High-speed Wi-Fi, refreshments, mentorship, and support are provided throughout the day.",
   },
   {
     q: "What is the intellectual property (IP) policy?",
@@ -240,19 +258,13 @@ export const POPULAR_COLLEGES = [
 ];
 
 export const DEPARTMENTS = [
-  "Artificial Intelligence & Machine Learning",
+  "CSE (AI&ML)",
+  "CSE (DS)",
   "Computer Engineering",
-  "Information Technology",
-  "Data Science",
-  "Electronics & Telecommunication",
-  "Mechanical Engineering",
-  "Civil Engineering",
-  "Other",
+  "IT",
 ];
 
 export const YEARS = [
-  { value: "FE", label: "First Year (FE)" },
-  { value: "SE", label: "Second Year (SE)" },
-  { value: "TE", label: "Third Year (TE)" },
-  { value: "BE", label: "Final Year (BE)" },
+  { value: "SE", label: "SE (2nd Year)" },
+  { value: "TE", label: "TE (3rd Year)" },
 ];

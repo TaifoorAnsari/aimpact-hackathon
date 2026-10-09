@@ -35,7 +35,7 @@ describe("Registration API Integration Tests", () => {
         email: "test.leader@apsit.edu.in",
         phone: "9988776655",
         college: "A.P. Shah Institute of Technology",
-        department: "Artificial Intelligence & Machine Learning",
+        department: "CSE (AI&ML)",
         year: "TE",
         isLeader: true,
       },

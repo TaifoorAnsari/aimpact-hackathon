@@ -414,12 +414,12 @@
 /* Year pills */
 .year-pills {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
 }
 
 .year-pill {
-  padding: 8px 0;
+  padding: 8px 10px;
   text-align: center;
   border-radius: 6px;
   border: 1px solid rgba(111, 199, 209, 0.3);
