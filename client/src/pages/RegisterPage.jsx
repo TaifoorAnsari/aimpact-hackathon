@@ -229,7 +229,6 @@ export default function RegisterPage() {
 
     return errors;
   };
-
   const goToStep2 = () => {
     const errors = validateStep1();
     if (Object.keys(errors).length > 0) {
@@ -549,22 +548,6 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              {/* Idea in one line */}
-              <div className="form-group">
-                <label className="form-label" htmlFor="idea">
-                  Project Concept in One Line (Optional)
-                </label>
-                <textarea
-                  id="idea"
-                  className="form-textarea"
-                  rows={2}
-                  maxLength={140}
-                  placeholder="What problem or opportunity are you tackling in 8 hours?"
-                  value={formData.idea}
-                  onChange={(e) => setFormData({ ...formData, idea: e.target.value })}
-                />
-                <span className="form-hint">{formData.idea?.length || 0}/140 characters</span>
-              </div>
 
               {/* PPT / Pitch Deck Link (Compulsory) */}
               <div className="form-group">

@@ -24,14 +24,15 @@ export const EVENT = {
   contact: {
     email: "aimpact@apsit.edu.in",
     altEmail: "aiml.council@apsit.edu.in",
-    phone: "+91 98765 43210 (TODO: Coordinator)",
+    phone: "+91 7700069526",
     address: "Survey No. 12, Ghodbunder Rd, Opp. Hypercity Mall, Kasarvadavali, Thane West, Maharashtra 400615",
   },
   socials: [
-    { name: "Instagram", url: "https://instagram.com/apsit_aiml (TODO)", icon: "TbBrandInstagram" },
-    { name: "LinkedIn", url: "https://linkedin.com/school/apsit-thane (TODO)", icon: "TbBrandLinkedin" },
-    { name: "GitHub", url: "https://github.com/aimpact-hackathon (TODO)", icon: "TbBrandGithub" },
-    { name: "Twitter / X", url: "https://twitter.com/apsit_thane (TODO)", icon: "TbBrandTwitter" },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/aimlsa_apsit?dlrf=N2U3YW9wN2Vxd3Zk",
+      icon: "TbBrandInstagram",
+    },
   ],
 };
 

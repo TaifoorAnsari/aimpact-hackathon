@@ -2,10 +2,6 @@ import { useState } from "react";
 import { EVENT, NAV_LINKS } from "../config/event.js";
 import {
   TbBrandInstagram,
-  TbBrandLinkedin,
-  TbBrandGithub,
-  TbBrandTwitter,
-  TbMail,
   TbPhone,
   TbMapPin,
   TbHeartFilled,
@@ -14,9 +10,6 @@ import "../styles/footer.css";
 
 const SOCIAL_ICONS = {
   TbBrandInstagram: <TbBrandInstagram aria-hidden="true" />,
-  TbBrandLinkedin: <TbBrandLinkedin aria-hidden="true" />,
-  TbBrandGithub: <TbBrandGithub aria-hidden="true" />,
-  TbBrandTwitter: <TbBrandTwitter aria-hidden="true" />,
 };
 
 export default function Footer() {
@@ -69,10 +62,6 @@ export default function Footer() {
             <h4 className="footer-col-title">Contact Us</h4>
             <ul className="footer-contact-list">
               <li>
-                <TbMail className="footer-icon" aria-hidden="true" />
-                <a href={`mailto:${EVENT.contact.email}`}>{EVENT.contact.email}</a>
-              </li>
-              <li>
                 <TbPhone className="footer-icon" aria-hidden="true" />
                 <span>{EVENT.contact.phone}</span>
               </li>
@@ -96,7 +85,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.name}
                 >
-                  {SOCIAL_ICONS[s.icon] || <TbBrandGithub aria-hidden="true" />}
+                  {SOCIAL_ICONS[s.icon] || <TbBrandInstagram aria-hidden="true" />}
                 </a>
               ))}
             </div>
