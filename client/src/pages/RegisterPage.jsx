@@ -16,6 +16,7 @@ import {
   TbSparkles,
   TbClock,
   TbLock,
+  TbExternalLink,
 } from "react-icons/tb";
 import "../styles/register.css";
 
@@ -551,9 +552,52 @@ export default function RegisterPage() {
 
               {/* PPT / Pitch Deck Link (Compulsory) */}
               <div className="form-group">
+                {/* Official PPT Template Requirement Banner */}
+                <div
+                  style={{
+                    background: "rgba(111, 199, 209, 0.08)",
+                    border: "1px solid rgba(111, 199, 209, 0.35)",
+                    borderRadius: "6px",
+                    padding: "12px 14px",
+                    marginBottom: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <TbAlertCircle style={{ color: "var(--teal)", fontSize: "18px", flexShrink: 0, marginTop: "1px" }} />
+                    <div style={{ fontSize: "12px", lineHeight: 1.45, color: "var(--ice)" }}>
+                      <strong style={{ color: "#fff" }}>Official PPT Template:</strong> You must use our provided template only for preparing your pitch deck presentation.
+                    </div>
+                  </div>
+                  <div>
+                    <a
+                      href={EVENT.pptTemplateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn--outline"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        fontSize: "12px",
+                        padding: "6px 14px",
+                        borderColor: "var(--teal)",
+                        color: "var(--teal)",
+                        textDecoration: "none",
+                        fontWeight: 600,
+                      }}
+                    >
+                      <span>Open PPT Template</span>
+                      <TbExternalLink style={{ fontSize: "14px" }} />
+                    </a>
+                  </div>
+                </div>
                 <label className="form-label" htmlFor="pptUrl">
                   Presentation / Pitch Deck (Google Drive Link) <span className="req">*</span>
                 </label>
+
                 <input
                   id="pptUrl"
                   type="url"
@@ -570,7 +614,7 @@ export default function RegisterPage() {
                 />
                 {fieldErrors.pptUrl && <span className="form-error">{fieldErrors.pptUrl}</span>}
                 <span className="form-hint">
-                  Ensure Google Drive link sharing is set to <strong>"Anyone with the link can view"</strong>.
+                  Use the Canva template above to prepare your slides, upload to Google Drive, and ensure sharing is set to <strong>"Anyone with the link can view"</strong>.
                 </span>
               </div>
 

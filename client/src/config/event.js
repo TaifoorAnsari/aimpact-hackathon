@@ -21,6 +21,7 @@ export const EVENT = {
   capacity: 150, // Max confirmed teams
   whatsappGroupUrl: "https://chat.whatsapp.com/TODO_AIMPACT_2026",
   codeOfConductUrl: "#conduct",
+  pptTemplateUrl: "https://canva.link/5vbijflh7dadlej",
   contact: {
     email: "aimpact@apsit.edu.in",
     altEmail: "aiml.council@apsit.edu.in",
