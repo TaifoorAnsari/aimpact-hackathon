@@ -10,7 +10,7 @@ export const EVENT = {
   startsAt: "2026-10-17T07:30:00+05:30",
   dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
-  prizeLabel: "₹10,000 Total Prize Pool",
+  prizeLabel: "₹4,000 Total Prize Pool",
   registrationWindow: "Oct 09 – Oct 13, 2026",
   teamFormat: "Inter-Department (Team Size: 4)",
   minTeamSize: 2,
@@ -73,7 +73,7 @@ export const TICKER_ITEMS = [
   "TAKE AIM",
   "HIT THE TARGET",
   "8H SPRINT",
-  "₹10,000 PRIZE POOL",
+  "₹4,000 PRIZE POOL",
   "INTER-DEPARTMENT",
   "TEAM SIZE 4",
   "AI FOR EDUCATION",
@@ -89,7 +89,7 @@ export const ABOUT = {
   stats: [
     { value: "8h", label: "Intensive Sprint", detail: "Fast-paced build & pitch" },
     { value: "4", label: "Team Size", detail: "Inter-department squads" },
-    { value: "₹10,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
+    { value: "₹4,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
   ],
 };
 
@@ -175,7 +175,7 @@ export const TIMELINE = [
 ];
 
 export const PRIZES = {
-  totalPool: "₹10,000",
+  totalPool: "₹4,000",
   title: "Total Prize Pool",
   description: "Exciting cash prizes, certificates of merit, and recognition for winning squads.",
 };

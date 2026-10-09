@@ -24,7 +24,7 @@ export default function Prizes() {
             <TbTrophy />
           </div>
           <span className="prizes-pool-card__badge">EXCITING REWARDS</span>
-          <div className="prizes-pool-card__amount">{PRIZES.totalPool || "₹10,000"}</div>
+          <div className="prizes-pool-card__amount">{PRIZES.totalPool || "₹4,000"}</div>
           <h3 className="prizes-pool-card__title">{PRIZES.title || "Total Prize Pool"}</h3>
           <p className="prizes-pool-card__desc">
             {PRIZES.description || "Cash prizes, merit certificates, and exclusive recognition for top teams."}
