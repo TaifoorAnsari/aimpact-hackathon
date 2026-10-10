@@ -41,7 +41,7 @@ const registrationSchema = new mongoose.Schema(
     track: {
       type: String,
       required: true,
-      enum: ["ai-education", "ai-healthcare", "ai-ml", "healthtech", "web-iot"],
+      enum: ["ai-education", "ai-business", "ai-commerce", "ai-healthcare", "ai-ml", "healthtech", "web-iot"],
       index: true,
     },
     idea: {

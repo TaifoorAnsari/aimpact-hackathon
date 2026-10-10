@@ -58,9 +58,9 @@ describe("Registration Zod Schema Unit Tests", () => {
     assert.ok(result.error.issues.some((i) => i.path.includes("teamName")));
   });
 
-  it("passes for valid team registration with AI for Healthcare track", () => {
-    const healthSubmission = { ...validSubmission, track: "ai-healthcare" };
-    const result = registrationValidationSchema.safeParse(healthSubmission);
+  it("passes for valid team registration with AI for Business & Commerce track", () => {
+    const businessSubmission = { ...validSubmission, track: "ai-business" };
+    const result = registrationValidationSchema.safeParse(businessSubmission);
     assert.equal(result.success, true);
   });
 

@@ -31,8 +31,8 @@ export const registrationValidationSchema = z
       .trim()
       .min(3, "Team name must be at least 3 characters")
       .max(40, "Team name cannot exceed 40 characters"),
-    track: z.enum(["ai-education", "ai-healthcare"], {
-      errorMap: () => ({ message: "Please select a valid hackathon track (AI for Education or AI for Healthcare)" }),
+    track: z.enum(["ai-education", "ai-business", "ai-healthcare"], {
+      errorMap: () => ({ message: "Please select a valid hackathon track (AI for Education or AI for Business & Commerce)" }),
     }),
     teamSize: z.coerce.number().min(3, "Minimum team size is 3").max(4, "Maximum team size is 4"),
     idea: z.string().trim().max(140, "Idea summary cannot exceed 140 characters").optional().or(z.literal("")),

@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 function formatTrack(track) {
   if (!track) return "";
   if (track === "ai-education") return "AI for Education";
-  if (track === "ai-healthcare") return "AI for Healthcare";
+  if (track === "ai-business" || track === "ai-commerce" || track === "ai-healthcare") return "AI for Business & Commerce";
   if (track === "ai-ml") return "AI / ML";
   if (track === "healthtech") return "HealthTech";
   if (track === "web-iot") return "Web and IoT";

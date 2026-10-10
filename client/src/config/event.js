@@ -58,15 +58,15 @@ export const TRACKS = [
     tags: ["Open Innovation", "AI Tutors & Agents", "Campus Utilities", "Accessibility Tools", "Any EdTech Solution"],
   },
   {
-    id: "ai-healthcare",
+    id: "ai-business",
     label: "AI for Business & Commerce",
-    shortTitle: "AI for Healthcare",
+    shortTitle: "AI for Business & Commerce",
     left: "50%",
     top: "94%",
     blurb:
-      "Explore AI-driven solutions for challenges in retail, restaurants, and food-service businesses, including inventory, demand forecasting, customer experience, waste reduction, and operational efficiency.Choose any relevant problem and develop an innovative solution.",
-    icon: "TbHeartRateMonitor",
-    tags: ["Open Innovation", "Diagnostics & Care", "Mental Wellness", "Clinical Workflow", "Any Health Solution"],
+      "Explore AI-driven solutions for challenges in retail, restaurants, and food-service businesses, including inventory, demand forecasting, customer experience, waste reduction, and operational efficiency. Choose any relevant problem and develop an innovative solution.",
+    icon: "TbBuildingStore",
+    tags: ["Open Innovation", "Retail & Commerce", "Demand Forecasting", "Customer Experience", "Any Business Solution"],
   },
 ];
 
@@ -86,7 +86,7 @@ export const TICKER_ITEMS = [
   "INTER-DEPARTMENT",
   "TEAM SIZE 3-4",
   "AI FOR EDUCATION",
-  "AI FOR HEALTHCARE",
+  "AI FOR BUSINESS & COMMERCE",
 ];
 
 export const ABOUT = {

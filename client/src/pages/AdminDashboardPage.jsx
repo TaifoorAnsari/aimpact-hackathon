@@ -440,7 +440,7 @@ export default function AdminDashboardPage() {
                       ? summary.byTrack
                       : [
                           { name: "ai-education", count: 12 },
-                          { name: "ai-healthcare", count: 8 },
+                          { name: "ai-business", count: 8 },
                         ]
                   }
                   margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
@@ -483,7 +483,7 @@ export default function AdminDashboardPage() {
             <span style={{ fontSize: "11px", color: "var(--teal-soft)", textTransform: "uppercase" }}>
               Track:
             </span>
-            {["all", "ai-education", "ai-healthcare"].map((tr) => (
+            {["all", "ai-education", "ai-business"].map((tr) => (
               <button
                 key={tr}
                 type="button"
@@ -493,7 +493,7 @@ export default function AdminDashboardPage() {
                   setPage(1);
                 }}
               >
-                {tr === "all" ? "All Tracks" : tr === "ai-education" ? "AI for Education" : "AI for Healthcare"}
+                {tr === "all" ? "All Tracks" : tr === "ai-education" ? "AI for Education" : "AI for Business & Commerce"}
               </button>
             ))}
           </div>

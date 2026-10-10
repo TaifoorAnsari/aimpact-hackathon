@@ -1,10 +1,11 @@
 import { TRACKS } from "../config/event.js";
-import { TbSchool, TbHeartRateMonitor, TbArrowRight, TbCpu } from "react-icons/tb";
+import { TbSchool, TbBuildingStore, TbArrowRight, TbCpu } from "react-icons/tb";
 import "../styles/tracks.css";
 
 const TRACK_ICONS = {
   "ai-education": <TbSchool aria-hidden="true" />,
-  "ai-healthcare": <TbHeartRateMonitor aria-hidden="true" />,
+  "ai-business": <TbBuildingStore aria-hidden="true" />,
+  "ai-healthcare": <TbBuildingStore aria-hidden="true" />,
 };
 
 export default function Tracks() {
@@ -17,7 +18,7 @@ export default function Tracks() {
             Two Open <span className="script-accent">Tracks</span>
           </h2>
           <p className="section-subtitle">
-            No rigid problem statements. You have complete creative freedom to identify any real-world challenge and prototype any solution in education or healthcare.
+            No rigid problem statements. You have complete creative freedom to identify any real-world challenge and prototype any solution in education or business & commerce.
           </p>
         </div>
 
