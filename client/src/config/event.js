@@ -191,6 +191,33 @@ export const PRIZES = {
 
 export const SPONSORS = [
   {
+    id: "meridian",
+    role: "Official Title Sponsor",
+    tag: "TITLE SPONSOR",
+    brandName: "Meridian Ice Cream",
+    productName: "Meridian Ice Cream (Kalyan)",
+    tagline: "Real Dairy Ice Cream · Made for Every Craving",
+    description:
+      "Official Title Sponsor of AIMPACT 2026. Discover a delightful variety of ice cream flavours and indulgent desserts, from fruity favourites and rich chocolate creations to decadent sundaes, seasonal specials and refreshing mastani varieties. Made for every craving, every celebration, and every late-night dessert run.",
+    logo: "/meridian-logo.png",
+    image: "/meridian-banner.jpg",
+    badgeText: "Official Title Sponsor • Real Dairy Ice Cream",
+    link: "https://www.instagram.com/meridian_icecream_kalyan/",
+    linkLabel: "Visit @meridian_icecream_kalyan",
+    accent: "rose",
+    stats: [
+      { value: "40+", label: "Ice Cream Flavours" },
+      { value: "Dairy-Based", label: "Ice Cream" },
+      { value: "Sundaes & Seasonal Specials", label: "Special Treats" },
+      { value: "12:30 AM", label: "Open Until Late" },
+    ],
+    features: [
+      "A wide variety of fruit, chocolate and classic flavours",
+      "Signature sundaes, seasonal specials and mastani creations",
+      "Located at Sai Chowk, Khadakpada, Kalyan (West)",
+    ],
+  },
+  {
     id: "3sisters",
     role: "Official Refreshment Partner",
     tag: "REFRESHMENT PARTNER",
@@ -200,7 +227,7 @@ export const SPONSORS = [
     description:
       "House of India's next-generation recreational beverages. From clean caffeinated energy drinks to date-sweetened Super Cola and craft sodas, keeping hackathon innovators energized, refreshed, and in full flow throughout the 8-hour sprint.",
     logo: "/3sisters-logo-transparent.png",
-    image: "/3sisters-featured.jpg",
+    image: "/3sisters-duo-banner.jpg",
     badgeText: "Clean Energy • Super Cola • Zero Sugar",
     link: "https://3sistersdrinks.com",
     linkLabel: "Explore 3Sisters Drinks",
@@ -217,36 +244,10 @@ export const SPONSORS = [
       "Official beverages fueling 8 hours of non-stop innovation",
     ],
   },
-  {
-    id: "meridian",
-    role: "Official Dessert Partner",
-    tag: "DESSERT PARTNER",
-    brandName: "Meridian Ice Cream",
-    productName: "Meridian Ice Cream (Kalyan)",
-    tagline: "Real Dairy Ice Cream · Made for Every Craving",
-    description:
-      "Discover a delightful variety of ice cream flavours and indulgent desserts, from fruity favourites and rich chocolate creations to decadent sundaes, seasonal specials and refreshing mastani varieties. Made for every craving, every celebration, and every late-night dessert run.",
-    logo: "/meridian-logo.png",
-    image: "/meridian-banner.jpg",
-    badgeText: "Real Dairy Ice Cream • Made for Every Craving",
-    link: "https://www.instagram.com/meridian_icecream_kalyan/",
-    linkLabel: "Visit @meridian_icecream_kalyan",
-    accent: "rose",
-    stats: [
-      { value: "40+", label: "Ice Cream Flavours" },
-      { value: "Dairy-Based", label: "Ice Cream" },
-      { value: "Sundaes & Seasonal Specials", label: "Special Treats" },
-      { value: "12:30 AM", label: "Open Until Late" },
-    ],
-    features: [
-      "A wide variety of fruit, chocolate and classic flavours",
-      "Signature sundaes, seasonal specials and mastani creations",
-      "Located at Sai Chowk, Khadakpada, Kalyan (West)",
-    ],
-  },
 ];
 
-export const REFRESHMENT_PARTNER = SPONSORS[0];
+export const TITLE_SPONSOR = SPONSORS[0];
+export const REFRESHMENT_PARTNER = SPONSORS[1];
 
 export const FAQS = [
   {

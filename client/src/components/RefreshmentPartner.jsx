@@ -1,5 +1,5 @@
 import { SPONSORS } from "../config/event.js";
-import { TbSparkles, TbBolt, TbIceCream, TbFlame, TbCheck, TbExternalLink } from "react-icons/tb";
+import { TbSparkles, TbBolt, TbCrown, TbFlame, TbCheck, TbExternalLink } from "react-icons/tb";
 import "../styles/partner.css";
 
 export default function RefreshmentPartner() {
@@ -12,10 +12,10 @@ export default function RefreshmentPartner() {
             <TbSparkles aria-hidden="true" /> OFFICIAL SPONSORS &amp; PARTNERS
           </span>
           <h2 id="sponsors-heading" className="section-title">
-            Fueled &amp; Sweetened by <span className="script-accent">Our Sponsors</span>
+            Presented &amp; Powered by <span className="script-accent">Our Sponsors</span>
           </h2>
           <p className="section-subtitle">
-            Powering 8 hours of intensive engineering ingenuity with refreshing drinks, creative energy, and real dairy treats.
+            Presented by our Title Sponsor Meridian Ice Cream and fueled by Official Refreshment Partner 3Sisters.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export default function RefreshmentPartner() {
                   <img src={s.logo} alt={s.brandName} className="sponsor-card__logo" />
                 </a>
                 <span className={`sponsor-badge sponsor-badge--${s.accent || "cyan"}`}>
-                  {s.id === "3sisters" ? <TbBolt aria-hidden="true" /> : <TbIceCream aria-hidden="true" />}
+                  {s.id === "meridian" ? <TbCrown aria-hidden="true" /> : <TbBolt aria-hidden="true" />}
                   {s.tag}
                 </span>
               </div>
@@ -49,9 +49,15 @@ export default function RefreshmentPartner() {
                     alt={`${s.brandName} - ${s.productName}`}
                     className="sponsor-card__img"
                     loading="lazy"
+                    onError={(e) => {
+                      if (s.id === "3sisters" && !e.target.dataset.fallback) {
+                        e.target.dataset.fallback = "true";
+                        e.target.src = "/3sisters-featured.jpg";
+                      }
+                    }}
                   />
                   <div className="sponsor-card__overlay-pill">
-                    {s.id === "3sisters" ? <TbFlame aria-hidden="true" /> : <TbIceCream aria-hidden="true" />}
+                    {s.id === "meridian" ? <TbCrown aria-hidden="true" /> : <TbFlame aria-hidden="true" />}
                     <span>{s.badgeText}</span>
                   </div>
                 </div>
