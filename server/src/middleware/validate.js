@@ -14,8 +14,8 @@ export const memberSchema = z.object({
     }),
   college: z.string().trim().min(2, "College name is required").max(120),
   department: z.string().trim().min(2, "Department is required").max(80),
-  year: z.enum(["FE", "SE", "TE"], {
-    errorMap: () => ({ message: "Select a valid academic year (FE, SE, or TE)" }),
+  year: z.enum(["SE", "TE"], {
+    errorMap: () => ({ message: "Select a valid academic year (SE or TE only — event is exclusively for 2nd and 3rd year students)" }),
   }),
   isLeader: z.boolean().default(false),
   github: z.string().trim().optional().or(z.literal("")),

@@ -251,7 +251,7 @@ export const REFRESHMENT_PARTNER = SPONSORS[0];
 export const FAQS = [
   {
     q: "Who is eligible to participate in AIMPACT?",
-    a: "First Year (FE), Second Year (SE), and Third Year (TE) students of A.P. Shah Institute of Technology (APSIT) across all engineering departments are eligible to participate.",
+    a: "Second Year (SE) and Third Year (TE) students of A.P. Shah Institute of Technology (APSIT) across all engineering departments are eligible to participate.",
   },
   {
     q: "What is the team size requirement?",
@@ -263,7 +263,7 @@ export const FAQS = [
   },
   {
     q: "Can team members be from different departments or years?",
-    a: "Yes! Inter-departmental and cross-year teams across 1st Year (FE), 2nd Year (SE), and 3rd Year (TE) within APSIT are highly encouraged. Squads can combine students from any engineering department.",
+    a: "Yes! Inter-departmental and cross-year teams across 2nd Year (SE) and 3rd Year (TE) within APSIT are highly encouraged. Squads can combine students from any engineering department.",
   },
   {
     q: "What should we bring to the venue?",
@@ -308,7 +308,6 @@ export const DEPARTMENTS = [
 ];
 
 export const YEARS = [
-  { value: "FE", label: "FE (1st Year)" },
   { value: "SE", label: "SE (2nd Year)" },
   { value: "TE", label: "TE (3rd Year)" },
 ];
