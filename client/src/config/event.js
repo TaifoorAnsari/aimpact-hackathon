@@ -10,14 +10,14 @@ export const EVENT = {
   startsAt: "2026-10-17T07:30:00+05:30",
   dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
-  prizeLabel: "₹4,000 Total Prize Pool",
-  registrationWindow: "Oct 09 – Oct 13, 2026",
-  teamFormat: "Inter-Department (Team Size: 4)",
-  minTeamSize: 2,
+  prizeLabel: "₹5,000 Total Prize Pool",
+  registrationWindow: "Oct 10 – Oct 14, 2026",
+  teamFormat: "Inter-Department (Team Size: 3-4)",
+  minTeamSize: 3,
   maxTeamSize: 4,
   collectLogistics: false, // Set to false to hide T-shirt & dietary preferences
   registrationFee: 0, // 0 for free; Razorpay flow enabled if > 0
-  registrationDeadline: "2026-10-13T23:59:00+05:30",
+  registrationDeadline: "2026-10-14T23:59:00+05:30",
   capacity: 150, // Max confirmed teams
   whatsappGroupUrl: "https://chat.whatsapp.com/TODO_AIMPACT_2026",
   codeOfConductUrl: "#conduct",
@@ -28,6 +28,13 @@ export const EVENT = {
     phone: "+91 7700069526",
     address: "Survey No. 12, Ghodbunder Rd, Opp. Hypercity Mall, Kasarvadavali, Thane West, Maharashtra 400615",
   },
+  coordinators: [
+    { name: "Kshitij", phone: "7718061050" },
+    { name: "Suraj", phone: "7700069526" },
+    { name: "Vedant", phone: "8530070228" },
+    { name: "Akshat", phone: "7678068168" },
+    { name: "Nishant", phone: "7718900904" },
+  ],
   socials: [
     {
       name: "Instagram",
@@ -75,9 +82,9 @@ export const TICKER_ITEMS = [
   "TAKE AIM",
   "HIT THE TARGET",
   "8H SPRINT",
-  "₹4,000 PRIZE POOL",
+  "₹5,000 PRIZE POOL",
   "INTER-DEPARTMENT",
-  "TEAM SIZE 4",
+  "TEAM SIZE 3-4",
   "AI FOR EDUCATION",
   "AI FOR HEALTHCARE",
 ];
@@ -90,8 +97,8 @@ export const ABOUT = {
   ],
   stats: [
     { value: "8h", label: "Intensive Sprint", detail: "Fast-paced build & pitch" },
-    { value: "4", label: "Team Size", detail: "Inter-department squads" },
-    { value: "₹4,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
+    { value: "3-4", label: "Team Size", detail: "Inter-department squads" },
+    { value: "₹5,000", label: "Total Prize Pool", detail: "Cash rewards & certificates" },
   ],
 };
 
@@ -103,7 +110,7 @@ export const TIMELINE = [
     status: "completed",
   },
   {
-    time: "Oct 13, 2026",
+    time: "Oct 14, 2026",
     title: "Registrations Close",
     description: "Portal closes at 23:59 IST. Shortlisted squads finalized.",
     status: "upcoming",
@@ -117,7 +124,7 @@ export const TIMELINE = [
   {
     time: "Oct 17, 07:30 AM",
     title: "Reporting & Check-in",
-    description: "Campus entry, team check-in, ID verification, and hackathon kit distribution.",
+    description: "Campus entry, team check-in and ID verification",
     status: "upcoming",
   },
   {
@@ -177,7 +184,7 @@ export const TIMELINE = [
 ];
 
 export const PRIZES = {
-  totalPool: "₹4,000",
+  totalPool: "₹5,000",
   title: "Total Prize Pool",
   description: "Exciting cash prizes, certificates of merit, and recognition for winning squads.",
 };
@@ -244,11 +251,11 @@ export const REFRESHMENT_PARTNER = SPONSORS[0];
 export const FAQS = [
   {
     q: "Who is eligible to participate in AIMPACT?",
-    a: "Second Year (SE) and Third Year (TE) students of A.P. Shah Institute of Technology (APSIT) across all engineering departments are eligible to participate.",
+    a: "First Year (FE), Second Year (SE), and Third Year (TE) students of A.P. Shah Institute of Technology (APSIT) across all engineering departments are eligible to participate.",
   },
   {
     q: "What is the team size requirement?",
-    a: "Teams must consist of 2 to 4 members. Individual participation is not permitted to emphasize collaborative engineering.",
+    a: "Teams must consist of 3 to 4 members. Individual or 2-member participation is not permitted to emphasize collaborative engineering.",
   },
   {
     q: "Is there a registration fee?",
@@ -256,7 +263,7 @@ export const FAQS = [
   },
   {
     q: "Can team members be from different departments or years?",
-    a: "Yes! Inter-departmental and cross-year teams between 2nd Year (SE) and 3rd Year (TE) within APSIT are highly encouraged. Squads can combine students from any engineering department.",
+    a: "Yes! Inter-departmental and cross-year teams across 1st Year (FE), 2nd Year (SE), and 3rd Year (TE) within APSIT are highly encouraged. Squads can combine students from any engineering department.",
   },
   {
     q: "What should we bring to the venue?",
@@ -301,6 +308,7 @@ export const DEPARTMENTS = [
 ];
 
 export const YEARS = [
+  { value: "FE", label: "FE (1st Year)" },
   { value: "SE", label: "SE (2nd Year)" },
   { value: "TE", label: "TE (3rd Year)" },
 ];

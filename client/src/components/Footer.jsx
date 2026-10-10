@@ -59,13 +59,17 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="footer-col">
-            <h4 className="footer-col-title">Contact Us</h4>
+            <h4 className="footer-col-title">Student Coordinators</h4>
             <ul className="footer-contact-list">
-              <li>
-                <TbPhone className="footer-icon" aria-hidden="true" />
-                <span>{EVENT.contact.phone}</span>
-              </li>
-              <li>
+              {EVENT.coordinators?.map((c) => (
+                <li key={c.phone}>
+                  <TbPhone className="footer-icon" aria-hidden="true" />
+                  <a href={`tel:+91${c.phone}`} className="footer-contact-link">
+                    <span>{c.name}:</span> <strong>+91 {c.phone}</strong>
+                  </a>
+                </li>
+              ))}
+              <li style={{ marginTop: "4px" }}>
                 <TbMapPin className="footer-icon" aria-hidden="true" />
                 <span>{EVENT.venueLabel}</span>
               </li>

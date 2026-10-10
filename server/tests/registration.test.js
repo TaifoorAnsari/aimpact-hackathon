@@ -25,7 +25,7 @@ describe("Registration API Integration Tests", () => {
   const payload = {
     teamName: "TestTeamAlpha",
     track: "ai-education",
-    teamSize: 2,
+    teamSize: 3,
     idea: "Integration testing with supertest",
     pptUrl: "https://drive.google.com/file/d/test-pitch-deck/view",
     demoVideoUrl: "https://drive.google.com/file/d/test-demo-video/view",
@@ -45,6 +45,15 @@ describe("Registration API Integration Tests", () => {
         phone: "9988776644",
         college: "A.P. Shah Institute of Technology",
         department: "Computer Engineering",
+        year: "TE",
+        isLeader: false,
+      },
+      {
+        name: "Test Member 3",
+        email: "test.member3@apsit.edu.in",
+        phone: "9988776633",
+        college: "A.P. Shah Institute of Technology",
+        department: "IT",
         year: "TE",
         isLeader: false,
       },
@@ -91,6 +100,7 @@ describe("Registration API Integration Tests", () => {
         members: [
           { ...payload.members[0], email: "different.email1@apsit.edu.in", phone: "9876500001" },
           { ...payload.members[1], email: "different.email2@apsit.edu.in", phone: "9876500002" },
+          { ...payload.members[2], email: "different.email3@apsit.edu.in", phone: "9876500003" },
         ],
       })
       .expect(409);
@@ -105,8 +115,9 @@ describe("Registration API Integration Tests", () => {
         ...payload,
         teamName: "TestTeamBeta",
         members: [
-          { ...payload.members[0], email: "test.leader@apsit.edu.in", phone: "9876500003" }, // duplicate email
-          { ...payload.members[1], email: "different.email3@apsit.edu.in", phone: "9876500004" },
+          { ...payload.members[0], email: "test.leader@apsit.edu.in", phone: "9876500004" }, // duplicate email
+          { ...payload.members[1], email: "different.email4@apsit.edu.in", phone: "9876500005" },
+          { ...payload.members[2], email: "different.email5@apsit.edu.in", phone: "9876500006" },
         ],
       })
       .expect(409);

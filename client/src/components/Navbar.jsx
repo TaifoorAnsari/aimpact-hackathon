@@ -33,10 +33,10 @@ export default function Navbar() {
 
   return (
     <nav className="nav" aria-label="Main">
-      <Link className="nav__brand" to="/" aria-label="Department of Artificial Intelligence & Machine Learning(AI&ML), A.P. Shah Institute of Technology">
+      <Link className="nav__brand" to="/" aria-label="Department of Artificial Intelligence & Machine Learning, A.P. Shah Institute of Technology">
         <Logo />
         <div className="nav__brand-text">
-          <span className="nav__brand-dept">Department of Artificial Intelligence &amp; Machine Learning(AI&amp;ML),</span>
+          <span className="nav__brand-dept">Department of Computer Science Engineering(AI&amp;ML),</span>
           <span className="nav__brand-inst">A.P. Shah Institute of Technology</span>
         </div>
       </Link>

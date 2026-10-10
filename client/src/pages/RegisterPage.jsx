@@ -60,9 +60,15 @@ export default function RegisterPage() {
         if (!TRACKS.some((t) => t.id === parsed.track)) {
           parsed.track = TRACKS[0]?.id || "ai-education";
         }
+        if (!parsed.teamSize || parsed.teamSize < 3 || parsed.teamSize > 4) {
+          parsed.teamSize = 3;
+        }
         if (parsed.pptUrl === undefined) parsed.pptUrl = "";
         if (parsed.demoVideoUrl === undefined) parsed.demoVideoUrl = "";
         if (parsed.members && Array.isArray(parsed.members)) {
+          while (parsed.members.length < parsed.teamSize) {
+            parsed.members.push(initialMember(false));
+          }
           parsed.members.forEach((m) => {
             if (!DEPARTMENTS.includes(m.department)) {
               m.department = DEPARTMENTS[0];
@@ -223,7 +229,7 @@ export default function RegisterPage() {
       if (!m.department || m.department.trim().length < 2) {
         errors[`${prefix}.department`] = "Department is required";
       }
-      if (!m.year || !["SE", "TE"].includes(m.year)) {
+      if (!m.year || !YEARS.some((y) => y.value === m.year)) {
         errors[`${prefix}.year`] = "Select academic year";
       }
     });
@@ -536,7 +542,7 @@ export default function RegisterPage() {
                   Team Size <span className="req">*</span>
                 </label>
                 <div className="size-selector" role="group" aria-label="Select squad member count">
-                  {[2, 3, 4].map((sz) => (
+                  {[3, 4].map((sz) => (
                     <button
                       key={sz}
                       type="button"
@@ -595,7 +601,7 @@ export default function RegisterPage() {
                   </div>
                 </div>
                 <label className="form-label" htmlFor="pptUrl">
-                  Presentation / Pitch Deck (Google Drive Link) <span className="req">*</span>
+                  Presentation / Pitch Deck (Google Drive/canva Link) <span className="req">*</span>
                 </label>
 
                 <input
@@ -785,7 +791,7 @@ export default function RegisterPage() {
                       {/* Academic Year */}
                       <div className="form-group">
                         <label className="form-label">
-                          Academic Year (2nd & 3rd Year Only) <span className="req">*</span>
+                          Academic Year <span className="req">*</span>
                         </label>
                         <div className="year-pills" role="radiogroup">
                           {YEARS.map((y) => (

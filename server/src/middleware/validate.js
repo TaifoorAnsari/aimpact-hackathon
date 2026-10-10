@@ -14,8 +14,8 @@ export const memberSchema = z.object({
     }),
   college: z.string().trim().min(2, "College name is required").max(120),
   department: z.string().trim().min(2, "Department is required").max(80),
-  year: z.enum(["SE", "TE"], {
-    errorMap: () => ({ message: "Select a valid academic year (SE or TE only — event is exclusively for 2nd and 3rd year students)" }),
+  year: z.enum(["FE", "SE", "TE"], {
+    errorMap: () => ({ message: "Select a valid academic year (FE, SE, or TE)" }),
   }),
   isLeader: z.boolean().default(false),
   github: z.string().trim().optional().or(z.literal("")),
@@ -34,7 +34,7 @@ export const registrationValidationSchema = z
     track: z.enum(["ai-education", "ai-healthcare"], {
       errorMap: () => ({ message: "Please select a valid hackathon track (AI for Education or AI for Healthcare)" }),
     }),
-    teamSize: z.coerce.number().min(2, "Minimum team size is 2").max(4, "Maximum team size is 4"),
+    teamSize: z.coerce.number().min(3, "Minimum team size is 3").max(4, "Maximum team size is 4"),
     idea: z.string().trim().max(140, "Idea summary cannot exceed 140 characters").optional().or(z.literal("")),
     pptUrl: z
       .string({ required_error: "Presentation / Pitch Deck link is required" })
@@ -70,7 +70,7 @@ export const registrationValidationSchema = z
         },
         { message: "Please provide a valid URL for your prototype demo video" }
       ),
-    members: z.array(memberSchema).min(2, "At least 2 members are required").max(4, "Maximum 4 members allowed"),
+    members: z.array(memberSchema).min(3, "At least 3 members are required").max(4, "Maximum 4 members allowed"),
     consent: z.object({
       codeOfConduct: z.literal(true, {
         errorMap: () => ({ message: "You must accept the Code of Conduct" }),

@@ -119,11 +119,22 @@
 
 .footer-contact-list a {
   color: var(--rose);
-  word-break: break-all;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 13px;
 }
 
 .footer-contact-list a:hover {
   color: var(--teal);
+}
+
+.footer-contact-list a strong {
+  color: var(--ice);
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .footer-socials {
@@ -200,7 +211,7 @@
 
 @media (min-width: 900px) {
   .footer-top {
-    grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+    grid-template-columns: 1.3fr 0.9fr 1.5fr 1fr;
   }
   .footer-bottom {
     flex-direction: row;

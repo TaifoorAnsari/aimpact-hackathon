@@ -18,7 +18,7 @@ export default function Hero() {
       <main className="hero__main">
         <span className="badge">
           <TbTarget className="badge__icon" aria-hidden="true" />
-          Registrations Open: {EVENT.registrationWindow || "Oct 09 – Oct 13"}
+          Registrations Open: {EVENT.registrationWindow || "Oct 10 – Oct 14"}
         </span>
 
         <OrbitStage />
@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="hero__info">
           <span className="info">
             <TbUsers aria-hidden="true" />
-            Team Size: 2-4 (Inter-Dept)
+            Team Size: 3-4 (Inter-Dept)
           </span>
           <span className="info">
             <TbCalendar aria-hidden="true" />

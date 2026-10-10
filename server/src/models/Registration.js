@@ -7,7 +7,7 @@ const memberSchema = new mongoose.Schema(
     phone: { type: String, required: true, trim: true },
     college: { type: String, required: true, trim: true },
     department: { type: String, required: true, trim: true },
-    year: { type: String, required: true, enum: ["SE", "TE"] },
+    year: { type: String, required: true, enum: ["FE", "SE", "TE"] },
     isLeader: { type: Boolean, default: false },
     github: { type: String, trim: true },
     linkedin: { type: String, trim: true },
@@ -63,9 +63,9 @@ const registrationSchema = new mongoose.Schema(
       type: [memberSchema],
       validate: {
         validator: function (v) {
-          return Array.isArray(v) && v.length >= 2 && v.length <= 4;
+          return Array.isArray(v) && v.length >= 3 && v.length <= 4;
         },
-        message: "A team must have between 2 and 4 members.",
+        message: "A team must have between 3 and 4 members.",
       },
     },
     status: {

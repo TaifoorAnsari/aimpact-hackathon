@@ -6,7 +6,7 @@ describe("Registration Zod Schema Unit Tests", () => {
   const validSubmission = {
     teamName: "NeuralSquad",
     track: "ai-education",
-    teamSize: 2,
+    teamSize: 3,
     idea: "Autonomous agent for multimodal health analytics",
     members: [
       {
@@ -24,6 +24,15 @@ describe("Registration Zod Schema Unit Tests", () => {
         phone: "9812345678",
         college: "A.P. Shah Institute of Technology",
         department: "Computer Engineering",
+        year: "TE",
+        isLeader: false,
+      },
+      {
+        name: "Karan Shah",
+        email: "karan@apsit.edu.in",
+        phone: "9833445566",
+        college: "A.P. Shah Institute of Technology",
+        department: "IT",
         year: "TE",
         isLeader: false,
       },
@@ -67,6 +76,7 @@ describe("Registration Zod Schema Unit Tests", () => {
       members: [
         { ...validSubmission.members[0], phone: "12345" },
         validSubmission.members[1],
+        validSubmission.members[2],
       ],
     };
     const result = registrationValidationSchema.safeParse(invalid);
@@ -74,7 +84,7 @@ describe("Registration Zod Schema Unit Tests", () => {
   });
 
   it("fails if members array length does not match teamSize", () => {
-    const invalid = { ...validSubmission, teamSize: 3 }; // only 2 members provided
+    const invalid = { ...validSubmission, teamSize: 4 }; // only 3 members provided
     const result = registrationValidationSchema.safeParse(invalid);
     assert.equal(result.success, false);
     assert.ok(result.error.issues.some((i) => i.path.includes("members")));
@@ -86,6 +96,7 @@ describe("Registration Zod Schema Unit Tests", () => {
       members: [
         validSubmission.members[0],
         { ...validSubmission.members[1], email: "aarav@apsit.edu.in" }, // same email as leader
+        validSubmission.members[2],
       ],
     };
     const result = registrationValidationSchema.safeParse(invalid);
