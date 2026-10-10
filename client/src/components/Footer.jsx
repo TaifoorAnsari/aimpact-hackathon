@@ -93,14 +93,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <a
-              href={EVENT.whatsappGroupUrl}
-              className="footer-whatsapp-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Official WhatsApp Group &rarr;
-            </a>
+            
           </div>
         </div>
 
