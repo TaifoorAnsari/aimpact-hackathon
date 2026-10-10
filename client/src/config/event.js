@@ -4,7 +4,7 @@ export const EVENT = {
   name: "AIMPACT",
   subtitle: "Hackathon",
   college: "A.P. SHAH INSTITUTE OF TECHNOLOGY",
-  department: "Department of Artificial Intelligence & Machine Learning",
+  department: "Computer Science Engineering (AI&ML)",
   tagline: "Take Aim. Build Fast. Make Impact.",
   // Countdown target. Use an ISO string with the IST offset.
   startsAt: "2026-10-17T07:30:00+05:30",
