@@ -19,7 +19,7 @@ export const EVENT = {
   registrationFee: 0, // 0 for free; Razorpay flow enabled if > 0
   registrationDeadline: "2026-10-14T23:59:00+05:30",
   capacity: 150, // Max confirmed teams
-  whatsappGroupUrl: "https://chat.whatsapp.com/TODO_AIMPACT_2026",
+  whatsappGroupUrl: "https://chat.whatsapp.com/CF0Li0byTyN6DnayvtSIvX",
   codeOfConductUrl: "#conduct",
   pptTemplateUrl: "https://canva.link/5vbijflh7dadlej",
   contact: {
