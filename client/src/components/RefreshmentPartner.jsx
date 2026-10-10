@@ -15,7 +15,7 @@ export default function RefreshmentPartner() {
             Fueled &amp; Sweetened by <span className="script-accent">Our Sponsors</span>
           </h2>
           <p className="section-subtitle">
-            Powering 8 hours of intensive engineering ingenuity with clean energy, high focus, and real dairy treats.
+            Powering 8 hours of intensive engineering ingenuity with refreshing drinks, creative energy, and real dairy treats.
           </p>
         </div>
 

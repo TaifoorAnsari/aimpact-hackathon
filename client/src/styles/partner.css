@@ -156,13 +156,21 @@
 .sponsor-card__img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
   display: block;
   transition: transform 0.35s ease;
 }
 
+.sponsor-card--cyan .sponsor-card__img {
+  object-fit: contain;
+}
+
+.sponsor-card--rose .sponsor-card__img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .sponsor-card:hover .sponsor-card__img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .sponsor-card__overlay-pill {
@@ -186,8 +194,8 @@
   z-index: 3;
 }
 
-.sponsor-card--cyan .sponsor-card__overlay-pill svg {
-  color: var(--teal);
+.sponsor-card--cyan .sponsor-card__overlay-pill {
+  display: none;
 }
 
 .sponsor-card--rose .sponsor-card__overlay-pill svg {
@@ -241,8 +249,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 2px;
+  gap: 3px;
+  min-height: 52px;
 }
 
 .sponsor-card--cyan .sponsor-stat-num {
@@ -255,16 +265,18 @@
 
 .sponsor-stat-num {
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: clamp(10px, 1.1vw, 12px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .sponsor-stat-label {
-  font-size: 9px;
+  font-size: 8.5px;
   color: #d8c0c8;
-  line-height: 1.1;
-  white-space: nowrap;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
 }
 
 /* Features Checklist */

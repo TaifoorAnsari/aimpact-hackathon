@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="hero__info">
           <span className="info">
             <TbUsers aria-hidden="true" />
-            Team Size: 4 (Inter-Dept)
+            Team Size: 2-4 (Inter-Dept)
           </span>
           <span className="info">
             <TbCalendar aria-hidden="true" />
