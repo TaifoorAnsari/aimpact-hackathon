@@ -306,6 +306,8 @@ export const DEPARTMENTS = [
   "CSE (DS)",
   "Computer Engineering",
   "IT",
+  "Mechanical Engineering",
+  "Civil Engineering",
 ];
 
 export const YEARS = [
