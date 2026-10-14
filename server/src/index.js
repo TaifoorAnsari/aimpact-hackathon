@@ -22,6 +22,9 @@ const clientDistPath = path.resolve(__dirname, "../../client/dist");
 
 const app = express();
 
+// Trust reverse proxy (Render, Vercel, Railway, Cloudflare, Nginx) so client IP is accurately read from X-Forwarded-For
+app.set("trust proxy", 1);
+
 // Security headers
 app.use(
   helmet({

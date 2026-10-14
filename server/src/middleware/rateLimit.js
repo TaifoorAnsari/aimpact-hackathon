@@ -1,14 +1,14 @@
 import rateLimit from "express-rate-limit";
 
 export const registrationLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 10, // 10 registrations per IP per hour
+  windowMs: 15 * 60 * 1000, // 15 minutes (reduced from 60 minutes)
+  max: 150, // 150 registration attempts per IP per 15 minutes (supports shared college Wi-Fi & labs)
   standardHeaders: true,
   legacyHeaders: false,
   message: {
     error: {
       code: "RATE_LIMIT_EXCEEDED",
-      message: "Too many registration attempts from this IP address. Please try again in an hour.",
+      message: "Too many registration attempts from this network. Please try again after 15 minutes.",
     },
   },
 });
