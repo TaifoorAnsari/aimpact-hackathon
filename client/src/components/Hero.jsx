@@ -18,7 +18,7 @@ export default function Hero() {
       <main className="hero__main">
         <span className="badge">
           <TbTarget className="badge__icon" aria-hidden="true" />
-          Registrations Open: {EVENT.registrationWindow || "Oct 10 – Oct 14"}
+          Registrations Closed • Hackathon on {EVENT.dateLabel}
         </span>
 
         <OrbitStage />
@@ -29,10 +29,10 @@ export default function Hero() {
 
         <div className="hero__cta">
           <Link className="btn btn--solid" to="/register">
-            REGISTER NOW <TbArrowRight aria-hidden="true" />
+            REGISTRATIONS CLOSED
           </Link>
-          <a className="btn btn--ghost" href="#tracks">
-            <TbTarget aria-hidden="true" /> Tracks
+          <a className="btn btn--ghost" href="#timeline">
+            <TbArrowRight aria-hidden="true" /> View Timeline
           </a>
         </div>
 

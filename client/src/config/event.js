@@ -11,7 +11,7 @@ export const EVENT = {
   dateLabel: "October 17, 2026",
   venueLabel: "APSIT Campus, Thane (W)",
   prizeLabel: "₹5,000 Total Prize Pool",
-  registrationWindow: "Oct 10 – Oct 14, 2026",
+  registrationWindow: "Closed on Oct 15, 2026",
   teamFormat: "Inter-Department (Team Size: 3-4)",
   minTeamSize: 3,
   maxTeamSize: 4,
@@ -110,10 +110,10 @@ export const TIMELINE = [
     status: "completed",
   },
   {
-    time: "Oct 14, 2026",
-    title: "Registrations Close",
-    description: "Portal closes at 23:59 IST. Shortlisted squads finalized.",
-    status: "upcoming",
+    time: "Oct 15, 2026",
+    title: "Registrations Closed",
+    description: "Portal officially closed. Shortlisted squads being finalized.",
+    status: "completed",
   },
   {
     time: "Oct 15, 2026",
