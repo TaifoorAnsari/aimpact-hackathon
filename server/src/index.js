@@ -42,25 +42,32 @@ const allowedOrigins = [
   "http://127.0.0.1:5000",
 ].filter(Boolean);
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (mobile apps, curl, or server-to-server)
-      if (!origin) return callback(null, true);
-      const cleanOrigin = origin.replace(/\/$/, "");
-      if (
-        allowedOrigins.includes(cleanOrigin) ||
-        cleanOrigin.endsWith(".vercel.app") ||
-        cleanOrigin.endsWith(".onrender.com") ||
-        cleanOrigin.endsWith(".netlify.app")
-      ) {
-        return callback(null, true);
-      }
-      return callback(new Error("CORS origin not allowed: " + origin));
-    },
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, or server-to-server)
+    if (!origin) return callback(null, true);
+    const cleanOrigin = origin.replace(/\/$/, "");
+    if (
+      allowedOrigins.includes(cleanOrigin) ||
+      cleanOrigin.endsWith(".vercel.app") ||
+      cleanOrigin.endsWith(".onrender.com") ||
+      cleanOrigin.endsWith(".netlify.app") ||
+      cleanOrigin.includes("aimpact") ||
+      cleanOrigin.includes("apsit.edu.in")
+    ) {
+      return callback(null, true);
+    }
+    return callback(null, false);
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
+  exposedHeaders: ["Content-Range", "X-Content-Range"],
+  maxAge: 86400,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // Performance compression
 app.use(compression());

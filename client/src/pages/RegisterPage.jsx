@@ -103,17 +103,40 @@ export default function RegisterPage() {
     }
   }, [formData]);
 
-  // Fetch live stats & registration state
+  // Fetch live stats & registration state with automatic retry for server cold starts
   useEffect(() => {
-    fetch(`${API_BASE}/api/stats`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data) {
-          setStats(data);
+    let isMounted = true;
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    const fetchStats = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/stats`);
+        if (res.ok) {
+          const data = await res.json();
+          if (isMounted && data) {
+            setStats(data);
+            setStatsLoaded(true);
+            return;
+          }
         }
-      })
-      .catch(() => {})
-      .finally(() => setStatsLoaded(true));
+      } catch {
+        // Render server might be waking up
+      }
+
+      attempts += 1;
+      if (attempts < maxAttempts && isMounted) {
+        setTimeout(fetchStats, 2500);
+      } else if (isMounted) {
+        setStatsLoaded(true);
+      }
+    };
+
+    fetchStats();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Sync members length with teamSize
@@ -305,16 +328,28 @@ export default function RegisterPage() {
         formStartedAt: formData.formStartedAt,
       };
 
-      const res = await fetch(`${API_BASE}/api/registrations`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      let res;
+      try {
+        res = await fetch(`${API_BASE}/api/registrations`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch (networkErr) {
+        throw new Error(
+          "Unable to connect to the registration server. If the server is waking up, please wait 15 seconds and click Submit again."
+        );
+      }
 
-      const data = await res.json();
+      let data = null;
+      try {
+        data = await res.json();
+      } catch {
+        // Non-JSON response (e.g., 502/504 gateway message)
+      }
 
       if (!res.ok) {
-        if (data.error?.fields) {
+        if (data?.error?.fields) {
           setFieldErrors(data.error.fields);
           // If field belongs to step 1, jump there
           if (data.error.fields.teamName || data.error.fields.track || data.error.fields.pptUrl || data.error.fields.demoVideoUrl) {
@@ -323,7 +358,10 @@ export default function RegisterPage() {
             setStep(2);
           }
         }
-        throw new Error(data.error?.message || "Registration failed. Please check your information.");
+        throw new Error(
+          data?.error?.message ||
+          `Registration request failed (${res.status}). Please try again in a few moments.`
+        );
       }
 
       // Clear draft on success
