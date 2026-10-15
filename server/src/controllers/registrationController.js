@@ -32,9 +32,10 @@ export async function createRegistration(req, res, next) {
       }
     }
 
-    // 3. Deadline check
+    // 3. Deadline check & Open status check
     const deadline = new Date(ENV.REGISTRATION_DEADLINE);
-    if (new Date() > deadline) {
+    const isOpen = Boolean(ENV.REGISTRATION_OPEN) && new Date() <= deadline;
+    if (!isOpen) {
       return res.status(400).json({
         error: {
           code: "REGISTRATION_CLOSED",
@@ -223,12 +224,12 @@ export async function getStats(req, res, next) {
     const capacity = ENV.REGISTRATION_CAPACITY;
     const spotsLeft = Math.max(0, capacity - total);
     const deadlinePassed = new Date() > new Date(ENV.REGISTRATION_DEADLINE);
-    const open = !deadlinePassed && spotsLeft > 0;
+    const open = Boolean(ENV.REGISTRATION_OPEN) && !deadlinePassed && spotsLeft > 0;
 
     cachedStats = {
       total,
       capacity,
-      spotsLeft,
+      spotsLeft: open ? spotsLeft : 0,
       open,
       deadline: ENV.REGISTRATION_DEADLINE,
     };

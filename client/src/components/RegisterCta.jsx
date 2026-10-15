@@ -8,12 +8,12 @@ const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function RegisterCta() {
   const [stats, setStats] = useState({
-    spotsLeft: 150,
+    spotsLeft: 0,
     capacity: 150,
-    open: true,
+    open: false,
     total: 0,
   });
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let mounted = true;

@@ -48,8 +48,8 @@ export default function RegisterPage() {
   const [touched, setTouched] = useState({});
 
   // Stats / status
-  const [stats, setStats] = useState({ open: true, spotsLeft: 150 });
-  const [statsLoaded, setStatsLoaded] = useState(false);
+  const [stats, setStats] = useState({ open: false, spotsLeft: 0 });
+  const [statsLoaded, setStatsLoaded] = useState(true);
 
   // Form State
   const [formData, setFormData] = useState(() => {

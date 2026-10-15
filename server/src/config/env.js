@@ -15,9 +15,12 @@ const envSchema = z.object({
   SMTP_HOST: z.string().optional().default(""),
   SMTP_PORT: z.coerce.number().optional().default(587),
   SMTP_USER: z.string().optional().default(""),
-  SMTP_PASS: z.string().optional().default(""),
+  REGISTRATION_OPEN: z.preprocess((val) => {
+    if (val === undefined || val === null || val === "" || val === "false" || val === "0") return false;
+    return val === "true" || val === "1" || val === true;
+  }, z.boolean()).default(false),
   REGISTRATION_CAPACITY: z.coerce.number().default(150),
-  REGISTRATION_DEADLINE: z.string().default("2026-10-15T23:59:00+05:30"),
+  REGISTRATION_DEADLINE: z.string().default("2026-10-14T23:59:00+05:30"),
   REGISTRATION_FEE: z.coerce.number().default(0),
   WHATSAPP_GROUP_URL: z.string().default("https://chat.whatsapp.com/TODO_AIMPACT_2026"),
   RAZORPAY_KEY_ID: z.string().optional().default(""),
