@@ -116,10 +116,10 @@ export const TIMELINE = [
     status: "completed",
   },
   {
-    time: "Oct 15, 2026",
-    title: "Round 1 Result",
-    description: "Shortlisted teams for the Hackathon will be announced",
-    status: "upcoming",
+    time: "Oct 16, 2026",
+    title: "Round 1 Results Out",
+    description: "Shortlisted teams for the Hackathon have been announced.",
+    status: "completed",
   },
   {
     time: "Oct 17, 07:30 AM",
