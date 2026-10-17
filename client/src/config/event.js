@@ -143,13 +143,13 @@ export const TIMELINE = [
     time: "Oct 17, 12:00 PM",
     title: "Mentoring Round 1",
     description: "Industry mentors review project direction, technical architecture, and early progress.",
-    status: "upcoming",
+    status: "completed",
   },
   {
     time: "Oct 17, 03:00 PM",
     title: "Mentoring Round 2",
     description: "Mid-way progress checkpoint, obstacle clearance, and MVP refinement with mentors.",
-    status: "upcoming",
+    status: "completed",
   },
   {
     time: "Oct 17, 05:00 PM",
