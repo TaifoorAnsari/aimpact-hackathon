@@ -125,19 +125,19 @@ export const TIMELINE = [
     time: "Oct 17, 07:30 AM",
     title: "Reporting & Check-in",
     description: "Campus entry, team check-in and ID verification",
-    status: "upcoming",
+    status: "completed",
   },
   {
     time: "Oct 17, 09:00 AM",
     title: "Inauguration & Briefing",
     description: "Welcome address, hackathon rules briefing, and sprint problem statements kickoff.",
-    status: "upcoming",
+    status: "completed",
   },
   {
     time: "Oct 17, 10:00 AM",
     title: "Coding Starts",
     description: "Sprint clock begins! Architecture design, code scaffolding, and rapid build sprint.",
-    status: "upcoming",
+    status: "completed",
   },
   {
     time: "Oct 17, 12:00 PM",

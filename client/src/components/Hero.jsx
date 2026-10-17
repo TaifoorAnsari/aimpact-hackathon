@@ -18,7 +18,7 @@ export default function Hero() {
       <main className="hero__main">
         <span className="badge">
           <TbTarget className="badge__icon" aria-hidden="true" />
-          Registrations Closed • Hackathon on {EVENT.dateLabel}
+          Hackathon Live • Coding Sprint in Progress
         </span>
 
         <OrbitStage />
